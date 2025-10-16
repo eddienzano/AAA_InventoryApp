@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Main content -->
+    <ScrollView
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f8f9fa"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/txtUserInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User info will appear here"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_margin="8dp"/>
+
+            <TextView
+                android:text="Welcome!"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/md_theme_primary"
+                android:layout_marginBottom="24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnScanIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scan In"
+                android:layout_marginBottom="16dp"
+                app:cornerRadius="16dp"
+                android:padding="16dp"
+                app:icon="@drawable/ic_scan_in"
+                app:iconPadding="8dp"
+                app:iconGravity="textStart"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnScanOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scan Out"
+                android:layout_marginBottom="16dp"
+                app:cornerRadius="16dp"
+                android:padding="16dp"
+                app:icon="@drawable/ic_scan_out"
+                app:iconPadding="8dp"
+                app:iconGravity="textStart"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSync"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sync"
+                android:layout_marginBottom="16dp"
+                app:cornerRadius="16dp"
+                android:padding="16dp"
+                app:icon="@drawable/ic_sync"
+                app:iconPadding="8dp"
+                app:iconGravity="textStart"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                app:cornerRadius="16dp"
+                android:padding="16dp"
+                android:backgroundTint="@color/md_theme_error"
+                android:textColor="@android:color/white"
+                app:icon="@drawable/ic_logout"
+                app:iconPadding="8dp"
+                app:iconGravity="textStart"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Shimmer overlay -->
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#88000000"
+        android:visibility="visible"
+        android:clickable="true"
+        android:focusable="true"
+        app:shimmer_auto_start="true"
+        app:shimmer_duration="1500">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="32dp"
+            android:clipToPadding="false">
+
+            <!-- Shimmer placeholders for the buttons -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/shimmer_placeholder"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/shimmer_placeholder"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/shimmer_placeholder"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/shimmer_placeholder"/>
+
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</FrameLayout>

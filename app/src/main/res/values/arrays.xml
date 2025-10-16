@@ -1,0 +1,5 @@
+<resources>
+    <string-array name="empty">
+        <item></item>
+    </string-array>
+</resources>

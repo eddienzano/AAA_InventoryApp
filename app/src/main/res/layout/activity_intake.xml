@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/backgroundLight">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:background="@color/cardBackground"
+        android:elevation="6dp"
+        android:layout_margin="12dp"
+        android:clipToPadding="false">
+
+        <!-- Title -->
+        <TextView
+            android:text="@string/bucket_intake"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_700"
+            android:paddingBottom="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Coldroom Spinner -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coldroom"
+            android:textStyle="bold"
+            android:paddingBottom="4dp"
+            android:textColor="@color/purple_700" />
+
+        <Spinner
+            android:id="@+id/coldroom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/coldroom_labels"
+            android:backgroundTint="@color/teal_700"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"
+            android:spinnerMode="dropdown"
+            android:popupBackground="@color/cardBackground"
+            android:dropDownHorizontalOffset="8dp"
+            android:dropDownVerticalOffset="8dp"
+            android:dropDownWidth="match_parent"
+            android:popupElevation="8dp" />
+
+        <!-- Variety -->
+        <AutoCompleteTextView
+            android:id="@+id/variety"
+            android:hint="@string/hint_flower_variety"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:backgroundTint="@color/teal_700"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textHint" />
+
+        <!-- Quantity -->
+        <EditText
+            android:id="@+id/quantity"
+            android:hint="@string/hint_flower_quantity"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textHint" />
+
+        <!-- Scan Button -->
+        <Button
+            android:id="@+id/scanBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="@color/purple_500"
+            android:text="@string/open_camera_scanner"
+            android:textColor="@android:color/white" />
+
+        <!-- QR Code -->
+        <EditText
+            android:id="@+id/qr_code"
+            android:hint="@string/hint_qr_code"
+            android:inputType="textVisiblePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:gravity="start"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textHint" />
+
+        <!-- Hidden Fields -->
+        <EditText
+            android:id="@+id/serial"
+            android:hint="@string/hint_serial_number"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+        <EditText
+            android:id="@+id/bucket_name"
+            android:hint="@string/hint_bucket_name"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+        <EditText
+            android:id="@+id/block_display"
+            android:hint="@string/greenhouse_block"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+        <EditText
+            android:id="@+id/farm"
+            android:hint="@string/hint_farm"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+        <EditText
+            android:id="@+id/length"
+            android:hint="@string/hint_length"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+        <!-- Hidden fields for DB -->
+        <EditText
+            android:id="@+id/variety_id"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/variety_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/submitBtn"
+            android:text="@string/submit_intake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"
+            android:padding="12dp" />
+
+        <!-- Sync Button -->
+        <Button
+            android:id="@+id/syncBtn"
+            android:text="@string/sync_unsynced"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="12dp"
+            android:padding="12dp" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Inventory App</string>
+    <string name="splash_title">Inventory App</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="intake">Intake</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="bucket_intake">Bucket Intake</string>
+    <string name="submit_intake">Submit Intake</string>
+    <string name="open_camera_scanner">Open Camera Scanner</string>
+
+    <!-- Hints -->
+    <string name="hint_qr_code">Scan QR Code</string>
+    <string name="hint_serial_number">Serial Number</string>
+    <string name="hint_bucket_name">Bucket Name</string>
+    <string name="hint_farm">Farm</string>
+    <string name="hint_length">Length (cm)</string>
+    <string name="hint_flower_variety">Flower Variety</string>
+    <string name="hint_greenhouse">Select Greenhouse</string>
+    <string name="hint_flower_quantity">Flower Quantity</string>
+    <string name="last_10_scan_outs">📋 Last 10 Scan-Outs</string>
+    <string name="open_camera_scanner_out">Open Camera Scanner Out</string>
+    <string name="scan_or_enter_qr_code">Scan or enter QR code...</string>
+    <string name="bucket_scan_out">📦 Bucket Scan-Out</string>
+    <string name="sync_unsynced" />
+    <string name="hint_select_greenhouse">Select a Greenhouse</string>
+    <string name="submit">\@string/submit</string>
+    <string name="sync">\@string/sync</string>
+    <string name="greenhouse_block">Greenhouse / Block</string>
+
+    <!-- Coldroom options -->
+    <string-array name="coldroom_labels">
+        <item>--Select from the Dropdown a Coldroom---</item>
+        <item>Cold Room 1</item>
+        <item>Cold Room 2</item>
+        <item>Cold Room 3</item>
+    </string-array>
+
+    <string-array name="coldroom_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+</resources>

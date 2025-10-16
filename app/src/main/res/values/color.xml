@@ -1,0 +1,51 @@
+<resources>
+    <!-- Primary Brand Colors -->
+    <color name="colorPrimary">#4CAF50</color> <!-- Modern Green -->
+    <color name="colorPrimaryDark">#388E3C</color> <!-- Darker Green -->
+    <color name="colorAccent">#FFC107</color> <!-- Vibrant Gold -->
+
+    <!-- Neutral Backgrounds -->
+    <color name="backgroundLight">#F8F9FA</color> <!-- Light grey -->
+    <color name="backgroundWhite">#FFFFFF</color>
+    <color name="cardBackground">#FFFFFF</color>
+
+    <!-- Text Colors -->
+    <color name="textPrimary">#212121</color> <!-- Almost black -->
+    <color name="textSecondary">#757575</color> <!-- Medium grey -->
+    <color name="textHint">#9E9E9E</color> <!-- Light grey -->
+
+    <!-- Button Colors -->
+    <color name="buttonBackground">#4CAF50</color>
+    <color name="buttonText">#FFFFFF</color>
+
+    <!-- Field Colors -->
+    <color name="fieldStroke">#BDBDBD</color>
+    <color name="fieldDisabled">#EEEEEE</color>
+
+    <!-- Shadows & Borders -->
+    <color name="shadowLight">#1F000000</color>
+
+    <color name="md_theme_primary">#4CAF50</color> <!-- Green -->
+    <color name="md_theme_onPrimary">#FFFFFF</color>
+
+    <color name="md_theme_secondary">#FFC107</color> <!-- Amber -->
+    <color name="md_theme_onSecondary">#000000</color>
+
+    <color name="md_theme_background">#F5F5F5</color> <!-- Light grey background -->
+    <color name="md_theme_onBackground">#000000</color>
+
+    <color name="md_theme_surface">#FFFFFF</color>
+    <color name="md_theme_onSurface">#000000</color>
+
+    <color name="md_theme_error">#B00020</color>
+    <color name="md_theme_onError">#FFFFFF</color>
+
+    <!-- Legacy material colors (optional) -->
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="coldroom_labels">
+        <item>--Select from the Dropdown a Coldroom---</item>
+        <item>Cold Room 1</item>
+        <item>Cold Room 2</item>
+        <item>Cold Room 3</item>
+    </string-array>
+    <string-array name="coldroom_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="empty">
+        <item/>
+    </string-array>
+    <color name="backgroundLight">#F8F9FA</color>
+    <color name="backgroundWhite">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="buttonBackground">#4CAF50</color>
+    <color name="buttonText">#FFFFFF</color>
+    <color name="cardBackground">#FFFFFF</color>
+    <color name="colorAccent">#FFC107</color>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#388E3C</color>
+    <color name="fieldDisabled">#EEEEEE</color>
+    <color name="fieldStroke">#BDBDBD</color>
+    <color name="md_theme_background">#F5F5F5</color>
+    <color name="md_theme_error">#B00020</color>
+    <color name="md_theme_onBackground">#000000</color>
+    <color name="md_theme_onError">#FFFFFF</color>
+    <color name="md_theme_onPrimary">#FFFFFF</color>
+    <color name="md_theme_onSecondary">#000000</color>
+    <color name="md_theme_onSurface">#000000</color>
+    <color name="md_theme_primary">#4CAF50</color>
+    <color name="md_theme_secondary">#FFC107</color>
+    <color name="md_theme_surface">#FFFFFF</color>
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="shadowLight">#1F000000</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+    <color name="textHint">#9E9E9E</color>
+    <color name="textPrimary">#212121</color>
+    <color name="textSecondary">#757575</color>
+    <color name="white">#FFFFFF</color>
+    <string name="app_name">Inventory App</string>
+    <string name="btn_login">Login</string>
+    <string name="bucket_intake">Bucket Intake</string>
+    <string name="bucket_scan_out">📦 Bucket Scan-Out</string>
+    <string name="greenhouse_block">Greenhouse / Block</string>
+    <string name="hint_bucket_name">Bucket Name</string>
+    <string name="hint_farm">Farm</string>
+    <string name="hint_flower_quantity">Flower Quantity</string>
+    <string name="hint_flower_variety">Flower Variety</string>
+    <string name="hint_greenhouse">Select Greenhouse</string>
+    <string name="hint_length">Length (cm)</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_qr_code">Scan QR Code</string>
+    <string name="hint_select_greenhouse">Select a Greenhouse</string>
+    <string name="hint_serial_number">Serial Number</string>
+    <string name="hint_username">Username</string>
+    <string name="intake">Intake</string>
+    <string name="last_10_scan_outs">📋 Last 10 Scan-Outs</string>
+    <string name="login">Login</string>
+    <string name="open_camera_scanner">Open Camera Scanner</string>
+    <string name="open_camera_scanner_out">Open Camera Scanner Out</string>
+    <string name="password">Password</string>
+    <string name="scan_or_enter_qr_code">Scan or enter QR code...</string>
+    <string name="splash_title">Inventory App</string>
+    <string name="submit">\@string/submit</string>
+    <string name="submit_intake">Submit Intake</string>
+    <string name="sync">\@string/sync</string>
+    <string name="sync_unsynced"/>
+    <string name="username">Username</string>
+    <style name="Theme.YourApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/teal_700</item>
+        <item name="colorPrimaryVariant">@color/teal_200</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+
+        
+        <item name="colorSecondary">@color/purple_500</item>
+        <item name="colorSecondaryVariant">@color/purple_700</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+
+        
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@android:color/black</item>
+
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+</resources>

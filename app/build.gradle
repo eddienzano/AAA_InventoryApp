@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace = 'com.yourapp'    // ✅ fixed
+    compileSdk = 36               // ✅ fixed
+
+    defaultConfig {
+        applicationId = "com.yourapp"
+        minSdk = 23
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11   // ✅ upgrade from 8
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.13.0'
+
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    // OkHttp
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
+    // ZXing Barcode Scanner (JourneyApps)
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+    implementation 'com.google.zxing:core:3.5.3'
+
+    // WorkManager
+    implementation "androidx.work:work-runtime-ktx:2.9.1"
+}
