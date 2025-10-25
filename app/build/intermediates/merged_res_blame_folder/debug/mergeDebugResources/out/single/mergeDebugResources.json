@@ -4,28 +4,40 @@
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-pngs-38:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
+        "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\layout_activity_scan_to_wip.xml.flat",
+        "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\layout\\activity_scan_to_wip.xml"
+    },
+    {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\layout_activity_scan_out.xml.flat",
-        "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\layout\\activity_scan_out.xml"
+        "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\drawable_edittext_bg.xml.flat",
+        "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\drawable\\edittext_bg.xml"
+    },
+    {
+        "merged": "com.yourapp-debug-42:/layout_spinner_dropdown_item.xml.flat",
+        "source": "com.yourapp-main-44:/layout/spinner_dropdown_item.xml"
     },
     {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\layout_activity_scan_out.xml.flat",
+        "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\layout\\activity_scan_out.xml"
+    },
+    {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\mipmap-xhdpi\\ic_launcher.webp"
-    },
-    {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\xml_network_security_config.xml.flat",
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\xml\\network_security_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\drawable_bg_card.xml.flat",
@@ -64,6 +76,10 @@
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\layout\\activity_main.xml"
     },
     {
+        "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\layout_activity_floor_dashboard.xml.flat",
+        "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\layout\\activity_floor_dashboard.xml"
+    },
+    {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
@@ -90,10 +106,6 @@
     {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\drawable\\ic_launcher_background.xml"
-    },
-    {
-        "merged": "com.yourapp-debug-42:/layout_activity_intake.xml.flat",
-        "source": "com.yourapp-main-44:/layout/activity_intake.xml"
     },
     {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\layout_spinner_dropdown_item.xml.flat",
@@ -126,6 +138,10 @@
     {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\layout_activity_main_dashboard.xml.flat",
+        "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\layout\\activity_main_dashboard.xml"
     },
     {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\drawable_ic_sync.xml.flat",

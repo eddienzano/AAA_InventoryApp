@@ -49,6 +49,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/Theme.YourApp"
         android:usesCleartextTraffic="true" >
 
@@ -76,6 +77,24 @@
         <!-- ScanOutActivity (to be implemented) -->
         <activity
             android:name="com.yourapp.ScanOutActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.yourapp.FloorDashboardActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.yourapp.MainDashboardActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.yourapp.ScanOutReworkActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.yourapp.ScanOutWipActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.yourapp.ScanToBoxActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.yourapp.ScanToWipActivity"
             android:exported="true" />
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"

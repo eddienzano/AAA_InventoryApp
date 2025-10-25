@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F8F4"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📦 Scan to WIP"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1B5E20"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- Farm selection -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Farm:"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp" />
+
+        <Spinner
+            android:id="@+id/farmSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#000000" />
+
+        <!-- Buncher -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buncher:"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/buncherInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search Buncher"
+            android:textColor="#000000"
+            android:textColorHint="#777777"
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:imeOptions="actionNext" />
+
+        <!-- Variety -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Variety:"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/varietyInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search Variety"
+            android:textColor="#000000"
+            android:textColorHint="#777777"
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:imeOptions="actionNext" />
+
+        <!-- QR Code Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan QR Code:"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp" />
+
+        <!-- Open Camera / Honeywell Scanner -->
+        <Button
+            android:id="@+id/scanBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📷 Open Camera Scanner"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#2E7D32"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/qrInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Scan or enter QR manually"
+            android:textColor="#000000"
+            android:textColorHint="#777777"
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:imeOptions="actionDone" />
+
+        <!-- List of scanned QRs -->
+        <LinearLayout
+            android:id="@+id/qrListLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp" />
+
+        <!-- Submit button -->
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✅ Submit to WIP"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:backgroundTint="#43A047"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+</ScrollView>

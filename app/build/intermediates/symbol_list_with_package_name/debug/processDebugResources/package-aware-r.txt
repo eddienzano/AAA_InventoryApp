@@ -3621,6 +3621,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable edittext_background
+drawable edittext_bg
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
 drawable ic_call_answer_low
@@ -3835,6 +3836,7 @@ id btnScanIn
 id btnScanOut
 id btnSync
 id bucket_name
+id buncherInput
 id buttonPanel
 id cache_measures
 id cancel_button
@@ -3922,6 +3924,7 @@ id expand_activities_button
 id expanded_menu
 id fade
 id farm
+id farmSpinner
 id fill
 id fill_horizontal
 id fill_vertical
@@ -3934,6 +3937,8 @@ id fitXY
 id fixed
 id flip
 id floating
+id floorBtn
+id floorWelcomeText
 id forever
 id fragment_container_view_tag
 id frost
@@ -3964,6 +3969,7 @@ id immediateStop
 id included
 id indeterminate
 id info
+id intakeBtn
 id invisible
 id inward
 id italic
@@ -4105,6 +4111,8 @@ id postLayout
 id pressed
 id progress_circular
 id progress_horizontal
+id qrInput
+id qrListLayout
 id qr_code
 id qr_code_out
 id quantity
@@ -4130,6 +4138,10 @@ id sawtooth
 id scale
 id scanBtn
 id scanBtnOut
+id scanOutReworkBtn
+id scanOutWipBtn
+id scanToBoxBtn
+id scanToWipBtn
 id scanoutTable
 id screen
 id scroll
@@ -4227,6 +4239,7 @@ id textinput_suffix_text
 id time
 id title
 id titleDividerNoCustom
+id titleText
 id title_template
 id toggle
 id top
@@ -4253,6 +4266,7 @@ id up
 id useLogo
 id username
 id variety
+id varietyInput
 id variety_id
 id variety_name
 id vertical_only
@@ -4264,6 +4278,7 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
+id welcomeText
 id west
 id withText
 id with_icon
@@ -4404,10 +4419,13 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_dashboard
+layout activity_floor_dashboard
 layout activity_intake
 layout activity_login
 layout activity_main
+layout activity_main_dashboard
 layout activity_scan_out
+layout activity_scan_to_wip
 layout autocomplete_item
 layout custom_dialog
 layout design_bottom_navigation_item

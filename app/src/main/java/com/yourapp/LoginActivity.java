@@ -40,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.password);
         loginBtn = findViewById(R.id.loginBtn);
 
-        // ✅ Use singleton instead of new ApiClient()
         apiClient = ApiClient.getInstance();
 
         loginBtn.setOnClickListener(v -> loginUser());
@@ -75,7 +74,6 @@ public class LoginActivity extends AppCompatActivity {
                 );
             }
 
-
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) {
                 try {
@@ -89,7 +87,6 @@ public class LoginActivity extends AppCompatActivity {
                     String status = json.optString("status", "error");
                     String message = json.optString("message", "Unknown error");
 
-
                     runOnUiThread(() -> {
                         if ("success".equalsIgnoreCase(status)) {
                             String uname = json.optString("username", "");
@@ -97,9 +94,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
 
-
-
-                            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainDashboardActivity.class);
                             intent.putExtra("username", uname);
                             intent.putExtra("user_id", userId);
                             startActivity(intent);

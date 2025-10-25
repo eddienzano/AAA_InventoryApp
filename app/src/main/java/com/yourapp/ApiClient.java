@@ -25,7 +25,8 @@ public class ApiClient {
     private String authToken = null;
 
     // Private constructor (singleton pattern)
-    private ApiClient() {}
+    private ApiClient() {
+    }
 
     public static synchronized ApiClient getInstance() {
         if (instance == null) {
@@ -43,7 +44,9 @@ public class ApiClient {
         return client;
     }
 
-    /** Generic POST returning JSONObject */
+    /**
+     * Generic POST returning JSONObject
+     */
     public JSONObject postJson(String endpoint, JSONObject payload) {
         RequestBody body = RequestBody.create(payload.toString(), JSON);
 
@@ -69,7 +72,9 @@ public class ApiClient {
         }
     }
 
-    /** Generic GET returning JSONArray */
+    /**
+     * Generic GET returning JSONArray
+     */
     public JSONArray getJsonArray(String endpoint) {
         Request.Builder builder = new Request.Builder()
                 .url(baseUrl + endpoint)
@@ -101,15 +106,4 @@ public class ApiClient {
         return resp != null && "success".equalsIgnoreCase(resp.optString("status"));
     }
 
-//    public JSONArray fetchBuckets() {
-//        return getJsonArray("get_buckets.php");
-    }
-
-//    public JSONArray fetchVarieties() {
-//        return getJsonArray("get_varieties.php");
-//    }
-
-//    public JSONArray fetchGreenhouses() {
-//        return getJsonArray("get_greenhouses.php?format=json");
-//    }
-//}
+}

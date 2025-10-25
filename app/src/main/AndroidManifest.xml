@@ -40,6 +40,26 @@
             android:name=".ScanOutActivity"
             android:exported="true" />
 
+        <activity
+            android:name=".FloorDashboardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainDashboardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ScanOutReworkActivity"
+            android:exported="true" />
 
+        <activity
+            android:name=".ScanOutWipActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".ScanToBoxActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".ScanToWipActivity"
+            android:exported="true" />
     </application>
 </manifest>
