@@ -3606,7 +3606,11 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable bg_button
 drawable bg_card
+drawable bg_history_item
 drawable bg_input
+drawable bg_result_error
+drawable bg_result_neutral
+drawable bg_result_success
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3955,6 +3959,7 @@ id header_title
 id hidden
 id hide_ime_id
 id hideable
+id historyList
 id home
 id homeAsUp
 id honorRequest
@@ -4122,6 +4127,7 @@ id ratio
 id rectangles
 id report_drawn
 id restart
+id resultBox
 id retreat
 id reverse
 id reverseSawtooth
@@ -4425,6 +4431,7 @@ layout activity_login
 layout activity_main
 layout activity_main_dashboard
 layout activity_scan_out
+layout activity_scan_out_wip
 layout activity_scan_to_wip
 layout autocomplete_item
 layout custom_dialog

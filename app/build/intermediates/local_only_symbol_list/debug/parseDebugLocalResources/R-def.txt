@@ -37,7 +37,11 @@ color textSecondary
 color white
 drawable bg_button
 drawable bg_card
+drawable bg_history_item
 drawable bg_input
+drawable bg_result_error
+drawable bg_result_neutral
+drawable bg_result_success
 drawable edittext_background
 drawable edittext_bg
 drawable ic_launcher_background
@@ -60,6 +64,7 @@ id farm
 id farmSpinner
 id floorBtn
 id floorWelcomeText
+id historyList
 id intakeBtn
 id length
 id loginBtn
@@ -71,6 +76,7 @@ id qrListLayout
 id qr_code
 id qr_code_out
 id quantity
+id resultBox
 id scanBtn
 id scanBtnOut
 id scanOutReworkBtn
@@ -98,6 +104,7 @@ layout activity_login
 layout activity_main
 layout activity_main_dashboard
 layout activity_scan_out
+layout activity_scan_out_wip
 layout activity_scan_to_wip
 layout autocomplete_item
 layout spinner_dropdown_item

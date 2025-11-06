@@ -26,6 +26,10 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.*;
 
+import android.view.inputmethod.InputMethodManager;
+
+import android.os.Vibrator;
+
 public class ScanToWipActivity extends AppCompatActivity {
 
     private Spinner farmSpinner;
@@ -90,6 +94,7 @@ public class ScanToWipActivity extends AppCompatActivity {
     // ---------------- HONEYWELL SCANNER ----------------
     @SuppressLint("UnspecifiedRegisterReceiverFlag")
     private void setupHoneywellScanner() {
+        // --- 1️⃣  Broadcast receiver (for devices sending intents)
         honeywellScanReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -123,7 +128,13 @@ public class ScanToWipActivity extends AppCompatActivity {
 
                     if (barcodeData != null) {
                         String clean = barcodeData.replaceAll("[\\r\\n]", "").trim();
-                        if (!clean.isEmpty()) handleScannedCode(clean);
+                        if (!clean.isEmpty()) {
+                            runOnUiThread(() -> {
+                                handleScannedCode(clean);
+                                qrInput.setText("");
+                                qrInput.requestFocus();
+                            });
+                        }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -139,6 +150,34 @@ public class ScanToWipActivity extends AppCompatActivity {
             registerReceiver(honeywellScanReceiver, honeyFilter, Context.RECEIVER_EXPORTED);
         else
             registerReceiver(honeywellScanReceiver, honeyFilter);
+
+        // --- 2️⃣  TextWatcher (for keyboard wedge mode)
+        qrInput.addTextChangedListener(new TextWatcher() {
+            private Timer timer = new Timer();
+            private static final long DELAY = 300; // wait 300ms after last char
+
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() == 0) return;
+                timer.cancel();
+                timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        runOnUiThread(() -> {
+                            String qr = qrInput.getText().toString().trim();
+                            if (!qr.isEmpty()) {
+                                handleScannedCode(qr);
+                                qrInput.setText("");
+                            }
+                        });
+                    }
+                }, DELAY);
+            }
+        });
     }
 
     @Override
@@ -180,7 +219,8 @@ public class ScanToWipActivity extends AppCompatActivity {
             return false;
         });
 
-        submitBtn.setOnClickListener(v -> saveScans());
+        submitBtn.setOnClickListener(v -> validateBeforeSave());
+
     }
 
     // ---------------- ADDING QRs ----------------
@@ -190,10 +230,45 @@ public class ScanToWipActivity extends AppCompatActivity {
             addQrItemView(qr);
             submitBtn.setEnabled(true);
             Toast.makeText(this, "✅ QR Scanned: " + qr, Toast.LENGTH_SHORT).show();
+
+            giveScanFeedback(true); // ✅ success beep + short vibration
         } else {
             Toast.makeText(this, "⚠️ Duplicate or empty QR", Toast.LENGTH_SHORT).show();
+
+            giveScanFeedback(false); // ⚠️ error tone + longer vibration
         }
     }
+
+    private void giveScanFeedback(boolean success) {
+        try {
+            // VIBRATION
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            if (vibrator != null && vibrator.hasVibrator()) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    vibrator.vibrate(android.os.VibrationEffect.createOneShot(
+                            success ? 80 : 200,
+                            success ? android.os.VibrationEffect.DEFAULT_AMPLITUDE
+                                    : android.os.VibrationEffect.EFFECT_HEAVY_CLICK
+                    ));
+                } else {
+                    vibrator.vibrate(success ? 80 : 200);
+                }
+            }
+
+            // BEEP SOUND
+            android.media.ToneGenerator toneGen =
+                    new android.media.ToneGenerator(android.media.AudioManager.STREAM_MUSIC, 100);
+            if (success) {
+                toneGen.startTone(android.media.ToneGenerator.TONE_PROP_BEEP, 100);
+            } else {
+                toneGen.startTone(android.media.ToneGenerator.TONE_PROP_NACK, 150);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private boolean containsQR(String qr) {
         for (QrItem item : qrItems) if (item.qr.equals(qr)) return true;
@@ -248,7 +323,35 @@ public class ScanToWipActivity extends AppCompatActivity {
         qrListLayout.addView(item);
     }
 
+    private void highlightInvalidQRCodes(JSONObject errors) {
+        try {
+            for (int i = 0; i < qrListLayout.getChildCount(); i++) {
+                View view = qrListLayout.getChildAt(i);
+                if (view instanceof LinearLayout) {
+                    LinearLayout item = (LinearLayout) view;
 
+                    // Get the actual QR from your model list, not just the view text
+                    QrItem qrItem = qrItems.get(i);
+                    String qrCode = qrItem.qr;
+
+                    TextView qrText = (TextView) item.getChildAt(0);
+
+                    if (errors.has(qrCode)) {
+                        String reason = errors.getString(qrCode);
+                        item.setBackgroundColor(Color.parseColor("#f8d7da")); // light red
+                        qrText.setText(qrCode + " ❌ (" + reason + ")");
+                        qrText.setTextColor(Color.RED);
+                    } else {
+                        item.setBackgroundColor(Color.parseColor("#F8F8F8")); // normal
+                        qrText.setText(qrCode);
+                        qrText.setTextColor(Color.BLACK);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     private void loadFarms() {
         new Thread(() -> {
             try {
@@ -405,6 +508,67 @@ public class ScanToWipActivity extends AppCompatActivity {
             }
         }).start();
     }
+
+    // ---------------- VALIDATION BEFORE SAVE ----------------
+    private void validateBeforeSave() {
+        if (qrItems.isEmpty()) {
+            Toast.makeText(this, "No QR codes to validate", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (selectedFarmId == 0) {
+            Toast.makeText(this, "Select a farm first", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        new Thread(() -> {
+            try {
+                JSONArray qrcodes = new JSONArray();
+                for (QrItem item : qrItems) {
+                    JSONObject qrObj = new JSONObject();
+                    qrObj.put("qr", item.qr);
+                    qrObj.put("stems", item.stems);
+                    qrcodes.put(qrObj);
+                }
+
+                FormBody formBody = new FormBody.Builder()
+                        .add("farm_id", String.valueOf(selectedFarmId))
+                        .add("qrcodes", qrcodes.toString())
+                        .build();
+
+                Request request = new Request.Builder()
+                        .url(BASE_URL + "wip_validate.php")
+                        .post(formBody)
+                        .build();
+
+                Response response = client.newCall(request).execute();
+                String responseStr = response.body() != null ? response.body().string() : "";
+                System.out.println("💬 Server Response: " + responseStr);
+
+                JSONObject json = new JSONObject(responseStr);
+                String status = json.optString("status", "unknown");
+
+                runOnUiThread(() -> {
+                    if ("invalid".equalsIgnoreCase(status)) {
+                        JSONObject errors = json.optJSONObject("errors");
+                        if (errors != null) {
+                            highlightInvalidQRCodes(errors);
+                            Toast.makeText(this, "❌ Invalid QRs found. Remove them before saving.", Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        // ✅ All valid → proceed to save
+                        saveScans();
+                    }
+                });
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                runOnUiThread(() ->
+                        Toast.makeText(this, "⚠️ Validation error: " + e.getMessage(), Toast.LENGTH_LONG).show()
+                );
+            }
+        }).start();
+    }
+
 
 
     // ---------------- SAVE SCANS (MATCHES wip_save.php) ----------------

@@ -16,10 +16,6 @@
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\drawable\\edittext_bg.xml"
     },
     {
-        "merged": "com.yourapp-debug-42:/layout_spinner_dropdown_item.xml.flat",
-        "source": "com.yourapp-main-44:/layout/spinner_dropdown_item.xml"
-    },
-    {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
@@ -38,6 +34,14 @@
     {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.yourapp-debug-42:/drawable_bg_result_success.xml.flat",
+        "source": "com.yourapp-main-44:/drawable/bg_result_success.xml"
+    },
+    {
+        "merged": "com.yourapp-debug-42:/drawable_bg_result_error.xml.flat",
+        "source": "com.yourapp-main-44:/drawable/bg_result_error.xml"
     },
     {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\drawable_bg_card.xml.flat",
@@ -108,6 +112,10 @@
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "com.yourapp-debug-42:/layout_activity_scan_out_wip.xml.flat",
+        "source": "com.yourapp-main-44:/layout/activity_scan_out_wip.xml"
+    },
+    {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\layout_spinner_dropdown_item.xml.flat",
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\layout\\spinner_dropdown_item.xml"
     },
@@ -154,5 +162,13 @@
     {
         "merged": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\drawable_ic_scan_out.xml.flat",
         "source": "C:\\Users\\hi\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\drawable\\ic_scan_out.xml"
+    },
+    {
+        "merged": "com.yourapp-debug-42:/drawable_bg_history_item.xml.flat",
+        "source": "com.yourapp-main-44:/drawable/bg_history_item.xml"
+    },
+    {
+        "merged": "com.yourapp-debug-42:/drawable_bg_result_neutral.xml.flat",
+        "source": "com.yourapp-main-44:/drawable/bg_result_neutral.xml"
     }
 ]

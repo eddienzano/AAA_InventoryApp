@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f9fa"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_card"
+        android:padding="20dp"
+        android:elevation="3dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📦 WIP Scan Out"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_700" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan a QR code to mark it as Expired and remove from WIP."
+            android:textColor="#777"
+            android:paddingTop="4dp"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/qrInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Scan QR here..."
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_input" />
+
+        <Button
+            android:id="@+id/scanBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📷 Use Camera Scanner"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/teal_700"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/resultBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:text=""
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:background="@drawable/bg_result_neutral" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🕒 Recent Scans"
+            android:textStyle="bold"
+            android:textColor="#555"
+            android:layout_marginTop="24dp" />
+
+        <LinearLayout
+            android:id="@+id/historyList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+</ScrollView>
