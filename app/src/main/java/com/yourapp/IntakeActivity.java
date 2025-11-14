@@ -79,6 +79,10 @@ public class IntakeActivity extends AppCompatActivity {
         submitBtn = findViewById(R.id.submitBtn);
         syncBtn = findViewById(R.id.syncBtn);
 
+
+        // ✅ Set default quantity to 100
+        quantityInput.setText(getString(R.string.default_quantity));
+
         // Coldroom spinner
         ArrayAdapter<CharSequence> coldroomAdapter = ArrayAdapter.createFromResource(
                 this,
@@ -87,6 +91,10 @@ public class IntakeActivity extends AppCompatActivity {
         );
         coldroomAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         coldroomSpinner.setAdapter(coldroomAdapter);
+
+// ✅ Set default to "Cold Room 1"
+        coldroomSpinner.setSelection(1);
+
 
         // QR parsing
         setupQRParsing();
@@ -477,10 +485,10 @@ public class IntakeActivity extends AppCompatActivity {
         bucketInput.setText("");
         farmInput.setText("");
         lengthInput.setText("");
-        quantityInput.setText("");
+        quantityInput.setText(getString(R.string.default_quantity));
         varietyDropdown.setText("");
         blockDisplay.setText("");
-        coldroomSpinner.setSelection(0);
+        coldroomSpinner.setSelection(1);
 
         selectedVarietyId = null;
         selectedVarietyName = null;

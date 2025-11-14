@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F8F4"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🏷️ Bucket Intake (Batch Mode)"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1B5E20"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- Coldroom Spinner -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Coldroom"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingBottom="4dp" />
+
+        <Spinner
+            android:id="@+id/spinnerColdroom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/coldroom_labels"
+            android:backgroundTint="@color/teal_700"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"
+            android:spinnerMode="dropdown"
+            android:popupBackground="@color/cardBackground"
+            android:dropDownHorizontalOffset="8dp"
+            android:dropDownVerticalOffset="8dp"
+            android:dropDownWidth="match_parent"
+            android:popupElevation="8dp" />
+
+        <!-- Flower Variety -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Flower Variety"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingTop="12dp"
+            android:paddingBottom="4dp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/etVariety"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type or search variety..."
+            android:textColor="#000000"
+            android:textColorHint="#777777"
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:imeOptions="actionNext"
+            android:singleLine="true"/>
+
+        <!-- QR Code Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan QR Codes"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp" />
+
+        <!-- Camera / Honeywell Scan Button -->
+        <Button
+            android:id="@+id/btnCameraScan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📷 Open Camera Scanner"
+            android:backgroundTint="#2E7D32"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp" />
+
+        <!-- QR Input -->
+        <EditText
+            android:id="@+id/etQrInput"
+            android:background="@drawable/edittext_bg"
+            android:hint="@string/hint_qr_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:gravity="start"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textHint"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="text"
+            android:cursorVisible="true"/>
+
+        <TextView
+            android:id="@+id/tvQrNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Press Enter after scanning each QR. Default stems = 100 (editable per QR)."
+            android:textSize="12sp"
+            android:textColor="#6c757d"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- QR List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvQrList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:layout_marginTop="8dp" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✅ Submit Intake Batch"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:backgroundTint="#43A047"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"
+             />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Inventory App</string>
-    <string name="splash_title">Inventory App</string>
+    <string name="app_name">AAA Flowers Inventory</string>
+    <string name="splash_title">AAA Flowers Inventory</string>
     <string name="login">Login</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -31,6 +31,17 @@
     <string name="submit">\@string/submit</string>
     <string name="sync">\@string/sync</string>
     <string name="greenhouse_block">Greenhouse / Block</string>
+    <string name="default_quantity">100</string>
+    <string name="new_intake">New Intake</string>
+    <string name="submit_intake_batch">✅ Submit Intake Batch</string>
+    <string name="press_enter_after_scanning_each_qr_default_stems_100_editable_per_qr">Press Enter after scanning each QR. Default stems = 100 (editable per QR).</string>
+    <string name="scan_bucket_qr">Scan bucket QR...</string>
+    <string name="scan_qr_codes">Scan QR Codes</string>
+    <string name="type_or_search_variety">Type or search variety...</string>
+    <string name="flower_variety">Flower Variety</string>
+    <string name="coldroom">Coldroom</string>
+    <string name="bucket_intake_batch_mode">🏷️ Bucket Intake (Batch Mode)</string>
+
 
     <!-- Coldroom options -->
     <string-array name="coldroom_labels">

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:1:1-66:12
-INJECTED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:1:1-66:12
-INJECTED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:1:1-66:12
-INJECTED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:1:1-66:12
+ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:1:1-76:12
+INJECTED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:1:1-76:12
+INJECTED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:1:1-76:12
+INJECTED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:1:1-76:12
 MERGED from [com.google.android.material:material:1.13.0] C:\Users\hi\.gradle\caches\8.13\transforms\35f5f8d31370e8faa83b154d61521161\transformed\material-1.13.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.7.1] C:\Users\hi\.gradle\caches\8.13\transforms\7c47a2516c2695b3a2324fd9b5a7c7b0\transformed\jetified-appcompat-resources-1.7.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] C:\Users\hi\.gradle\caches\8.13\transforms\1dc6ad7b86c7c1efcf93a8c4026f83a3\transformed\constraintlayout-2.1.0\AndroidManifest.xml:2:1-11:12
@@ -12,6 +12,7 @@ MERGED from [com.facebook.shimmer:shimmer:0.5.0] C:\Users\hi\.gradle\caches\8.13
 MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\hi\.gradle\caches\8.13\transforms\8c121dc9d95fb0bbb4f32e4453b98503\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:17:1-56:12
 MERGED from [androidx.work:work-runtime:2.9.1] C:\Users\hi\.gradle\caches\8.13\transforms\67f69d61dc3cb9da5f5c59d1c142c431\transformed\work-runtime-2.9.1\AndroidManifest.xml:17:1-145:12
 MERGED from [androidx.work:work-runtime-ktx:2.9.1] C:\Users\hi\.gradle\caches\8.13\transforms\f1f2b9f9d83e0498afb0255be637ba80\transformed\work-runtime-ktx-2.9.1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.volley:volley:1.2.1] C:\Users\hi\.gradle\caches\8.13\transforms\5b5804cd813d08d308ed7c198a840cd6\transformed\jetified-volley-1.2.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\hi\.gradle\caches\8.13\transforms\ae13a4a44301555948a280caac6f6ca5\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment:1.5.4] C:\Users\hi\.gradle\caches\8.13\transforms\96d83a90e935e8207db7777237e3b74a\transformed\fragment-1.5.4\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.8.0] C:\Users\hi\.gradle\caches\8.13\transforms\1498e8db7ba6f500161878f753fb4cfd\transformed\jetified-activity-1.8.0\AndroidManifest.xml:17:1-22:12
@@ -77,8 +78,8 @@ ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\An
 	android:name
 		ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:7:22-63
 application
-ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:9:5-65:19
-INJECTED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:9:5-65:19
+ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:9:5-75:19
+INJECTED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:9:5-75:19
 MERGED from [com.google.android.material:material:1.13.0] C:\Users\hi\.gradle\caches\8.13\transforms\35f5f8d31370e8faa83b154d61521161\transformed\material-1.13.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.13.0] C:\Users\hi\.gradle\caches\8.13\transforms\35f5f8d31370e8faa83b154d61521161\transformed\material-1.13.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] C:\Users\hi\.gradle\caches\8.13\transforms\1dc6ad7b86c7c1efcf93a8c4026f83a3\transformed\constraintlayout-2.1.0\AndroidManifest.xml:9:5-20
@@ -189,6 +190,18 @@ ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\An
 		ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:64:13-36
 	android:name
 		ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:63:13-46
+activity#com.yourapp.ScanBackColdroomActivity
+ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:67:9-69:39
+	android:exported
+		ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:69:13-36
+	android:name
+		ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:68:13-53
+activity#com.yourapp.NewIntakeActivity
+ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:71:9-73:39
+	android:exported
+		ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:73:13-36
+	android:name
+		ADDED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml:72:13-46
 uses-sdk
 INJECTED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\hi\AndroidStudioProjects\AndroidApp_Complete\app\src\main\AndroidManifest.xml
@@ -209,6 +222,8 @@ MERGED from [androidx.work:work-runtime:2.9.1] C:\Users\hi\.gradle\caches\8.13\t
 MERGED from [androidx.work:work-runtime:2.9.1] C:\Users\hi\.gradle\caches\8.13\transforms\67f69d61dc3cb9da5f5c59d1c142c431\transformed\work-runtime-2.9.1\AndroidManifest.xml:21:5-44
 MERGED from [androidx.work:work-runtime-ktx:2.9.1] C:\Users\hi\.gradle\caches\8.13\transforms\f1f2b9f9d83e0498afb0255be637ba80\transformed\work-runtime-ktx-2.9.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.work:work-runtime-ktx:2.9.1] C:\Users\hi\.gradle\caches\8.13\transforms\f1f2b9f9d83e0498afb0255be637ba80\transformed\work-runtime-ktx-2.9.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.volley:volley:1.2.1] C:\Users\hi\.gradle\caches\8.13\transforms\5b5804cd813d08d308ed7c198a840cd6\transformed\jetified-volley-1.2.1\AndroidManifest.xml:5:5-43
+MERGED from [com.android.volley:volley:1.2.1] C:\Users\hi\.gradle\caches\8.13\transforms\5b5804cd813d08d308ed7c198a840cd6\transformed\jetified-volley-1.2.1\AndroidManifest.xml:5:5-43
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\hi\.gradle\caches\8.13\transforms\ae13a4a44301555948a280caac6f6ca5\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\hi\.gradle\caches\8.13\transforms\ae13a4a44301555948a280caac6f6ca5\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.5.4] C:\Users\hi\.gradle\caches\8.13\transforms\96d83a90e935e8207db7777237e3b74a\transformed\fragment-1.5.4\AndroidManifest.xml:20:5-22:41

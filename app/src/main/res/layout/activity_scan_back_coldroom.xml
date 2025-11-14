@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/backgroundLight">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:background="@color/cardBackground"
+        android:elevation="6dp"
+        android:layout_margin="12dp">
+
+        <TextView
+            android:text="Scan Back to Coldroom"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_700"
+            android:paddingBottom="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Coldroom -->
+        <TextView
+            android:text="Coldroom"
+            android:textStyle="bold"
+            android:textColor="@color/purple_700"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/coldroom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/coldroom_labels"
+            android:textColor="@color/purple_700"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Variety -->
+        <AutoCompleteTextView
+            android:id="@+id/variety"
+            android:hint="@string/hint_flower_variety"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textHint"
+            />
+
+        <!-- Quantity -->
+        <EditText
+            android:id="@+id/quantity"
+            android:hint="@string/hint_flower_quantity"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textHint"
+            />
+
+        <!-- Scan Button -->
+        <Button
+            android:id="@+id/scanBtn"
+            android:text="Open Camera Scanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="12dp" />
+
+        <!-- QR Code -->
+        <EditText
+            android:id="@+id/qr_code"
+            android:hint="@string/hint_qr_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:gravity="start"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textHint"
+
+            />
+
+        <!-- Submit -->
+        <Button
+            android:id="@+id/submitBtn"
+            android:text="Submit Scan Back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Sync -->
+        <Button
+            android:id="@+id/syncBtn"
+            android:text="Sync Unsynced"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</ScrollView>

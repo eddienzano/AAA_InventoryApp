@@ -62,5 +62,15 @@
         <activity
             android:name=".ScanToWipActivity"
             android:exported="true" />
+
+
+        <activity
+            android:name=".ScanBackColdroomActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".NewIntakeActivity"
+            android:exported="true" />
+
     </application>
 </manifest>

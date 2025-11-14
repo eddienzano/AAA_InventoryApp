@@ -133,6 +133,8 @@ public class LocalDatabaseHelper extends SQLiteOpenHelper {
                 + COL_GREENHOUSE_VARIETYID + " INTEGER)");
     }
 
+
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_INTAKE);

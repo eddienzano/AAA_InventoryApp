@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF8E1"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Scan Box -->
+        <LinearLayout
+            android:id="@+id/scanBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:background="#FFECB3"
+            android:elevation="4dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔧 WIP Scan Out - Rework"
+                android:textColor="#FF6F00"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/subText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scan the QR to mark it for Rework"
+                android:textColor="#8D6E63"
+                android:textSize="14sp"
+                android:layout_marginBottom="20dp"/>
+
+            <EditText
+                android:id="@+id/qrInput"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Scan QR here..."
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textColorHint="#757575"
+                android:padding="12dp"
+                android:background="@drawable/bg_edittext"
+                android:gravity="center"
+                android:textSize="16sp"/>
+
+            <Button
+                android:id="@+id/scanBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📷 Scan QR"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#FFA000"
+                android:textColor="#ffffff"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"/>
+
+            <TextView
+                android:id="@+id/resultBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:padding="12dp"
+                android:background="#FFF3E0"
+                android:textColor="#BF360C"
+                android:textSize="14sp"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <!-- History -->
+        <LinearLayout
+            android:id="@+id/history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp">
+
+            <TextView
+                android:id="@+id/historyTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🕒 Recent Rework Scans"
+                android:textSize="16sp"
+                android:textColor="#6D4C41"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:id="@+id/historyList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

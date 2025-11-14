@@ -26,6 +26,7 @@
     <color name="colorPrimaryDark">#388E3C</color>
     <color name="fieldDisabled">#EEEEEE</color>
     <color name="fieldStroke">#BDBDBD</color>
+    <color name="ic_launcher_background">#0AF373</color>
     <color name="md_theme_background">#F5F5F5</color>
     <color name="md_theme_error">#B00020</color>
     <color name="md_theme_onBackground">#000000</color>
@@ -46,10 +47,14 @@
     <color name="textPrimary">#212121</color>
     <color name="textSecondary">#757575</color>
     <color name="white">#FFFFFF</color>
-    <string name="app_name">Inventory App</string>
+    <string name="app_name">AAA Flowers Inventory</string>
     <string name="btn_login">Login</string>
     <string name="bucket_intake">Bucket Intake</string>
+    <string name="bucket_intake_batch_mode">🏷️ Bucket Intake (Batch Mode)</string>
     <string name="bucket_scan_out">📦 Bucket Scan-Out</string>
+    <string name="coldroom">Coldroom</string>
+    <string name="default_quantity">100</string>
+    <string name="flower_variety">Flower Variety</string>
     <string name="greenhouse_block">Greenhouse / Block</string>
     <string name="hint_bucket_name">Bucket Name</string>
     <string name="hint_farm">Farm</string>
@@ -65,15 +70,21 @@
     <string name="intake">Intake</string>
     <string name="last_10_scan_outs">📋 Last 10 Scan-Outs</string>
     <string name="login">Login</string>
+    <string name="new_intake">New Intake</string>
     <string name="open_camera_scanner">Open Camera Scanner</string>
     <string name="open_camera_scanner_out">Open Camera Scanner Out</string>
     <string name="password">Password</string>
+    <string name="press_enter_after_scanning_each_qr_default_stems_100_editable_per_qr">Press Enter after scanning each QR. Default stems = 100 (editable per QR).</string>
+    <string name="scan_bucket_qr">Scan bucket QR...</string>
     <string name="scan_or_enter_qr_code">Scan or enter QR code...</string>
-    <string name="splash_title">Inventory App</string>
+    <string name="scan_qr_codes">Scan QR Codes</string>
+    <string name="splash_title">AAA Flowers Inventory</string>
     <string name="submit">\@string/submit</string>
     <string name="submit_intake">Submit Intake</string>
+    <string name="submit_intake_batch">✅ Submit Intake Batch</string>
     <string name="sync">\@string/sync</string>
     <string name="sync_unsynced"/>
+    <string name="type_or_search_variety">Type or search variety...</string>
     <string name="username">Username</string>
     <style name="Theme.YourApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         

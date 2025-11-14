@@ -50,6 +50,18 @@
                 app:iconGravity="textStart"/>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnIntake"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/new_intake"
+                android:layout_marginBottom="16dp"
+                app:cornerRadius="16dp"
+                android:padding="16dp"
+                app:icon="@drawable/ic_scan_in"
+                app:iconPadding="8dp"
+                app:iconGravity="textStart"/>
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnScanOut"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -58,6 +70,18 @@
                 app:cornerRadius="16dp"
                 android:padding="16dp"
                 app:icon="@drawable/ic_scan_out"
+                app:iconPadding="8dp"
+                app:iconGravity="textStart"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnScanBackColdroom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scan Back To Coldroom"
+                android:layout_marginBottom="16dp"
+                app:cornerRadius="16dp"
+                android:padding="16dp"
+                app:icon="@drawable/ic_coldroom"
                 app:iconPadding="8dp"
                 app:iconGravity="textStart"/>
 

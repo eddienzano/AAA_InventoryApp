@@ -50,32 +50,6 @@
             android:dropDownWidth="match_parent"
             android:popupElevation="8dp" />
 
-        <!-- Variety -->
-        <AutoCompleteTextView
-            android:id="@+id/variety"
-            android:hint="@string/hint_flower_variety"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:backgroundTint="@color/teal_700"
-            android:padding="12dp"
-            android:layout_marginBottom="12dp"
-            android:textColor="@color/textPrimary"
-            android:textColorHint="@color/textHint" />
-
-        <!-- Quantity -->
-        <EditText
-            android:id="@+id/quantity"
-            android:hint="@string/hint_flower_quantity"
-            android:inputType="number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/teal_700"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp"
-            android:textColor="@color/textPrimary"
-            android:textColorHint="@color/textHint" />
-
         <!-- Scan Button -->
         <Button
             android:id="@+id/scanBtn"
@@ -102,6 +76,33 @@
             android:gravity="start"
             android:textColor="@color/textPrimary"
             android:textColorHint="@color/textHint" />
+
+        <!-- Variety -->
+        <AutoCompleteTextView
+            android:id="@+id/variety"
+            android:hint="@string/hint_flower_variety"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:backgroundTint="@color/teal_700"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textHint" />
+
+        <!-- Quantity -->
+        <EditText
+            android:id="@+id/quantity"
+            android:hint="@string/hint_flower_quantity"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textHint" />
+
 
         <!-- Hidden Fields -->
         <EditText

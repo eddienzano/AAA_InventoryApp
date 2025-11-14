@@ -97,6 +97,12 @@
             android:name="com.yourapp.ScanToWipActivity"
             android:exported="true" />
         <activity
+            android:name="com.yourapp.ScanBackColdroomActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.yourapp.NewIntakeActivity"
+            android:exported="true" />
+        <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:clearTaskOnLaunch="true"
             android:screenOrientation="sensorLandscape"

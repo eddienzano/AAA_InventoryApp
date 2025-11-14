@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:background="@android:color/white"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="4dp"
+    android:elevation="2dp">
+
+    <TextView
+        android:id="@+id/tvQr"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="QR CODE"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:ellipsize="end"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/etStems"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text="100"
+        android:backgroundTint="@color/teal_700"
+        android:textAlignment="center"
+        android:background="@android:drawable/edit_text"
+        android:padding="4dp"
+        android:layout_marginEnd="8dp"/>
+
+    <ImageButton
+        android:id="@+id/btnRemove"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@android:color/transparent"
+        android:src="@android:drawable/ic_delete"
+        android:contentDescription="Remove QR"/>
+</LinearLayout>
