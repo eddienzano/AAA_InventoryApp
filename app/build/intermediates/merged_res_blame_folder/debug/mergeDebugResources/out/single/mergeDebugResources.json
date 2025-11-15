@@ -52,10 +52,6 @@
         "source": "C:\\Users\\Fred\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\drawable\\ic_scan_out.xml"
     },
     {
-        "merged": "com.yourapp-debug-42:/layout_activity_main_dashboard.xml.flat",
-        "source": "com.yourapp-main-44:/layout/activity_main_dashboard.xml"
-    },
-    {
         "merged": "C:\\Users\\Fred\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\mipmap-xhdpi_ic_launcher_foreground.webp.flat",
         "source": "C:\\Users\\Fred\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\mipmap-xhdpi\\ic_launcher_foreground.webp"
     },
@@ -224,6 +220,10 @@
         "source": "C:\\Users\\Fred\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\drawable\\bg_edittext.xml"
     },
     {
+        "merged": "com.yourapp-debug-42:/layout_activity_floor_dashboard.xml.flat",
+        "source": "com.yourapp-main-44:/layout/activity_floor_dashboard.xml"
+    },
+    {
         "merged": "C:\\Users\\Fred\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\layout_activity_new_intake.xml.flat",
         "source": "C:\\Users\\Fred\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\layout\\activity_new_intake.xml"
     },
@@ -254,5 +254,9 @@
     {
         "merged": "C:\\Users\\Fred\\.gradle\\daemon\\8.13\\com.yourapp-debug-42:\\drawable_bg_input.xml.flat",
         "source": "C:\\Users\\Fred\\.gradle\\daemon\\8.13\\com.yourapp-main-44:\\drawable\\bg_input.xml"
+    },
+    {
+        "merged": "com.yourapp-debug-42:/layout_activity_wip_scan.xml.flat",
+        "source": "com.yourapp-main-44:/layout/activity_wip_scan.xml"
     }
 ]

@@ -74,6 +74,7 @@ id coldroom
 id edtCellNo
 id edtStems
 id edtTableNo
+id etQr
 id etQrInput
 id etStems
 id etVariety
@@ -89,6 +90,7 @@ id length
 id loginBtn
 id loginTitle
 id mainContent
+id newscanToWipBtn
 id password
 id qcBtn
 id qrInput
@@ -141,6 +143,7 @@ layout activity_scan_out
 layout activity_scan_out_rework
 layout activity_scan_out_wip
 layout activity_scan_to_wip
+layout activity_wip_scan
 layout autocomplete_item
 layout item_qr
 layout spinner_dropdown_item

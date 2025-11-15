@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-79:12
-INJECTED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-79:12
-INJECTED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-79:12
-INJECTED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-79:12
+ADDED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-83:12
+INJECTED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-83:12
+INJECTED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-83:12
+INJECTED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-83:12
 MERGED from [com.google.android.material:material:1.13.0] C:\Users\Fred\.gradle\caches\8.13\transforms\35f5f8d31370e8faa83b154d61521161\transformed\material-1.13.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.7.1] C:\Users\Fred\.gradle\caches\8.13\transforms\7c47a2516c2695b3a2324fd9b5a7c7b0\transformed\jetified-appcompat-resources-1.7.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] C:\Users\Fred\.gradle\caches\8.13\transforms\1dc6ad7b86c7c1efcf93a8c4026f83a3\transformed\constraintlayout-2.1.0\AndroidManifest.xml:2:1-11:12
@@ -78,8 +78,8 @@ ADDED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\And
 	android:name
 		ADDED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:7:22-63
 application
-ADDED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:9:5-78:19
-INJECTED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:9:5-78:19
+ADDED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:9:5-82:19
+INJECTED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:9:5-82:19
 MERGED from [com.google.android.material:material:1.13.0] C:\Users\Fred\.gradle\caches\8.13\transforms\35f5f8d31370e8faa83b154d61521161\transformed\material-1.13.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.13.0] C:\Users\Fred\.gradle\caches\8.13\transforms\35f5f8d31370e8faa83b154d61521161\transformed\material-1.13.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] C:\Users\Fred\.gradle\caches\8.13\transforms\1dc6ad7b86c7c1efcf93a8c4026f83a3\transformed\constraintlayout-2.1.0\AndroidManifest.xml:9:5-20
@@ -208,6 +208,12 @@ ADDED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\And
 		ADDED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:76:13-36
 	android:name
 		ADDED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:75:13-46
+activity#com.yourapp.WipScanActivity
+ADDED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:78:9-80:39
+	android:exported
+		ADDED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:80:13-36
+	android:name
+		ADDED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:79:13-44
 uses-sdk
 INJECTED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Fred\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml

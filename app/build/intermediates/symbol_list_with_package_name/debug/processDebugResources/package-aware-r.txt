@@ -3937,6 +3937,7 @@ id enterAlways
 id enterAlwaysCollapsed
 id entireSpace
 id escape
+id etQr
 id etQrInput
 id etStems
 id etVariety
@@ -4087,6 +4088,7 @@ id navigation_menu_subheader_label
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
+id newscanToWipBtn
 id noScroll
 id noState
 id none
@@ -4467,6 +4469,7 @@ layout activity_scan_out
 layout activity_scan_out_rework
 layout activity_scan_out_wip
 layout activity_scan_to_wip
+layout activity_wip_scan
 layout autocomplete_item
 layout custom_dialog
 layout design_bottom_navigation_item

@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class FloorDashboardActivity extends AppCompatActivity {
 
     TextView floorWelcomeText;
-    Button scanToWipBtn, scanToBoxBtn, scanOutWipBtn, scanOutReworkBtn;
+    Button newscanToWipBtn, scanToWipBtn, scanToBoxBtn, scanOutWipBtn, scanOutReworkBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class FloorDashboardActivity extends AppCompatActivity {
         scanToBoxBtn = findViewById(R.id.scanToBoxBtn);
         scanOutWipBtn = findViewById(R.id.scanOutWipBtn);
         scanOutReworkBtn = findViewById(R.id.scanOutReworkBtn);
+        newscanToWipBtn = findViewById(R.id.newscanToWipBtn);
 
         String username = getIntent().getStringExtra("username");
         floorWelcomeText.setText("Floor Dashboard - " + username);
@@ -29,6 +30,12 @@ public class FloorDashboardActivity extends AppCompatActivity {
         // Button actions - link to your scanning activities
         scanToWipBtn.setOnClickListener(v -> {
             Intent intent = new Intent(FloorDashboardActivity.this, ScanToWipActivity.class);
+            startActivity(intent);
+        });
+
+        // Button actions - link to your scanning activities
+        newscanToWipBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(FloorDashboardActivity.this, WipScanActivity.class);
             startActivity(intent);
         });
 
