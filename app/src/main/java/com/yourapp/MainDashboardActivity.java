@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainDashboardActivity extends AppCompatActivity {
 
     TextView welcomeText;
-    Button intakeBtn, floorBtn;
+    Button intakeBtn, floorBtn, qcBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class MainDashboardActivity extends AppCompatActivity {
         welcomeText = findViewById(R.id.welcomeText);
         intakeBtn = findViewById(R.id.intakeBtn);
         floorBtn = findViewById(R.id.floorBtn);
+        qcBtn = findViewById(R.id.qcBtn);
 
         // Get username from Login
         String username = getIntent().getStringExtra("username");
@@ -40,6 +41,13 @@ public class MainDashboardActivity extends AppCompatActivity {
         // Navigate to FloorDashboard (new)
         floorBtn.setOnClickListener(v -> {
             Intent intent = new Intent(MainDashboardActivity.this, FloorDashboardActivity.class);
+            intent.putExtra("username", username);
+            startActivity(intent);
+        });
+
+        // Navigate to FloorDashboard (new)
+        qcBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainDashboardActivity.this, RejectionActivity.class);
             intent.putExtra("username", username);
             startActivity(intent);
         });

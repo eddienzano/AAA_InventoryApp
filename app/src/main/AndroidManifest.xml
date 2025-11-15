@@ -71,6 +71,9 @@
         <activity
             android:name=".NewIntakeActivity"
             android:exported="true" />
+        <activity
+            android:name=".RejectionActivity"
+            android:exported="true" />
 
     </application>
 </manifest>

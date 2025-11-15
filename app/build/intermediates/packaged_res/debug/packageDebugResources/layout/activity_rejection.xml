@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Record Rejection"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Farm -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Farm"
+            android:textStyle="bold"
+            android:textColor="#444444"
+            android:layout_marginBottom="4dp"/>
+        <Spinner
+            android:id="@+id/spinnerFarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2E7D32"
+            android:textColor="#444444"
+
+            />
+
+        <!-- Variety -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Variety"
+            android:textStyle="bold"
+            android:textColor="#444444"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"/>
+        <AutoCompleteTextView
+            android:id="@+id/autoVariety"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="#444444"
+            android:background="@drawable/edittext_bg"
+            android:padding="10dp"/>
+
+        <!-- Length -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Length"
+            android:textStyle="bold"
+            android:textColor="#444444"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"/>
+        <Spinner
+            android:id="@+id/spinnerLength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#444444"
+            android:backgroundTint="#2E7D32"/>
+
+        <!-- Stems -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stems"
+            android:textStyle="bold"
+            android:textColor="#444444"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"/>
+        <EditText
+            android:id="@+id/edtStems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:background="@drawable/edittext_bg"
+            android:textColor="#444444"
+            android:padding="10dp"/>
+
+        <!-- Cell Number -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cell Number"
+            android:textStyle="bold"
+            android:textColor="#444444"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"/>
+        <EditText
+            android:id="@+id/edtCellNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:background="@drawable/edittext_bg"
+            android:textColor="#444444"
+            android:padding="10dp"/>
+
+        <!-- Table Number -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Table Number"
+            android:textStyle="bold"
+            android:textColor="#444444"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"/>
+        <EditText
+            android:id="@+id/edtTableNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:background="@drawable/edittext_bg"
+            android:textColor="#444444"
+            android:padding="10dp"/>
+
+        <!-- Rejection Reason -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rejection Reason"
+            android:textStyle="bold"
+            android:textColor="#444444"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"/>
+        <Spinner
+            android:id="@+id/spinnerReason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#444444"
+            android:backgroundTint="#2E7D32"/>
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2E7D32"
+            android:layout_marginTop="24dp"
+            android:padding="12dp"
+            android:textAllCaps="false"
+            android:elevation="4dp"/>
+    </LinearLayout>
+</ScrollView>

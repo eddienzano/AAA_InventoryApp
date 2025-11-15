@@ -7,19 +7,18 @@
 
     <ImageView
         android:id="@+id/splashLogo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@mipmap/ic_launcher"
+        android:layout_width="311dp"
+        android:layout_height="264dp"
         android:contentDescription="@string/app_name"
-        android:layout_centerInParent="true"/>
+        android:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/splash_title"
-        android:textSize="20sp"
-        android:textColor="@android:color/white"
+        android:layout_width="308dp"
+        android:layout_height="37dp"
         android:layout_below="@id/splashLogo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="6dp"
+        android:text="@string/splash_title"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
 </RelativeLayout>

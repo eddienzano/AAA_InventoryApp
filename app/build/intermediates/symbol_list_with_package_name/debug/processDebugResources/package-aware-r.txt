@@ -3826,6 +3826,7 @@ id autoCompleteToEnd
 id autoCompleteToStart
 id autoHide
 id autoLimit
+id autoVariety
 id availableSpace
 id barrier
 id baseline
@@ -3925,6 +3926,9 @@ id east
 id edge
 id edit_query
 id edit_text_id
+id edtCellNo
+id edtStems
+id edtTableNo
 id elastic
 id embed
 id end
@@ -4131,6 +4135,7 @@ id postLayout
 id pressed
 id progress_circular
 id progress_horizontal
+id qcBtn
 id qrInput
 id qrListLayout
 id qr_code
@@ -4205,6 +4210,9 @@ id south
 id spacer
 id special_effects_controller_view_tag
 id spinnerColdroom
+id spinnerFarm
+id spinnerLength
+id spinnerReason
 id splashLogo
 id spline
 id split_action_bar
@@ -4453,6 +4461,7 @@ layout activity_login
 layout activity_main
 layout activity_main_dashboard
 layout activity_new_intake
+layout activity_rejection
 layout activity_scan_back_coldroom
 layout activity_scan_out
 layout activity_scan_out_rework

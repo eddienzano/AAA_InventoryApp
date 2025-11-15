@@ -57,6 +57,7 @@ drawable ic_scan_out
 drawable ic_sync
 drawable rounded_edittext
 drawable shimmer_placeholder
+id autoVariety
 id block_display
 id btnCameraScan
 id btnIntake
@@ -70,6 +71,9 @@ id btnSync
 id bucket_name
 id buncherInput
 id coldroom
+id edtCellNo
+id edtStems
+id edtTableNo
 id etQrInput
 id etStems
 id etVariety
@@ -86,6 +90,7 @@ id loginBtn
 id loginTitle
 id mainContent
 id password
+id qcBtn
 id qrInput
 id qrListLayout
 id qr_code
@@ -105,6 +110,9 @@ id scrollView
 id serial
 id shimmerOverlay
 id spinnerColdroom
+id spinnerFarm
+id spinnerLength
+id spinnerReason
 id splashLogo
 id subText
 id submitBtn
@@ -127,6 +135,7 @@ layout activity_login
 layout activity_main
 layout activity_main_dashboard
 layout activity_new_intake
+layout activity_rejection
 layout activity_scan_back_coldroom
 layout activity_scan_out
 layout activity_scan_out_rework

@@ -34,6 +34,16 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#2196F3"
         android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/qcBtn"
+        android:text="REJECTIONS"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F35C21"
+        android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
 </LinearLayout>
