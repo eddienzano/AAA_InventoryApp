@@ -1,4 +1,4 @@
-#Sat Nov 15 08:54:04 EAT 2025
-base.0=C\:\\Users\\Fred\\AndroidStudioProjects\\AAA_InventoryApp\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
+#Tue Nov 18 15:38:37 EAT 2025
+base.0=C\:\\Users\\hi\\AndroidStudioProjects\\AndroidApp_Complete\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
 path.0=0/classes.dex
 renamed.0=classes.dex

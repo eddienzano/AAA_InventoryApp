@@ -5,10 +5,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.ToneGenerator;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -140,6 +145,26 @@ public class NewIntakeActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(v -> submitIntake());
     }
 
+    private void vibrateError() {
+        try {
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            if (vibrator != null) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    vibrator.vibrate(android.os.VibrationEffect.createOneShot(300, VibrationEffect.DEFAULT_AMPLITUDE));
+                } else {
+                    vibrator.vibrate(300); // deprecated but works on older devices
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void playErrorBeep() {
+        ToneGenerator toneGen = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+        toneGen.startTone(ToneGenerator.TONE_PROP_BEEP, 150); // 150ms beep
+    }
+
     @SuppressLint("UnspecifiedRegisterReceiverFlag")
     private void setupHoneywellScanner() {
         honeywellScanReceiver = new BroadcastReceiver() {
@@ -225,6 +250,8 @@ public class NewIntakeActivity extends AppCompatActivity {
             if (item.qr.equals(qr)) {
                 Toast.makeText(this, "Duplicate QR: " + qr, Toast.LENGTH_SHORT).show();
                 etQrInput.setText("");
+                vibrateError(); // 🔔 Vibrate on duplicate
+                playErrorBeep();
                 return;
             }
         }
@@ -264,6 +291,8 @@ public class NewIntakeActivity extends AppCompatActivity {
                                 qrItem.isInvalid = true;
                                 qrItem.errorMessage = errors.optString(qrItem.qr);
                                 qrAdapter.notifyDataSetChanged();
+                                vibrateError(); // 🔔 Vibrate on error
+                                playErrorBeep();
                                 Toast.makeText(this, "❌ Invalid: " + qrItem.errorMessage, Toast.LENGTH_SHORT).show();
                             }
                         } else {
@@ -488,74 +517,90 @@ public class NewIntakeActivity extends AppCompatActivity {
         });
     }
 
-    /** Submit intake **/
+
+    /** Submit intake */
     private void submitIntake() {
+        // 1️⃣ Validate variety selection
         if (selectedVarietyId == null) {
             Toast.makeText(this, "Please select a flower variety", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        // 2️⃣ Validate coldroom selection
         if (spinnerColdroom.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "Please select a coldroom", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        // 3️⃣ Validate at least one QR scanned
         if (scannedQRCodes.isEmpty()) {
             Toast.makeText(this, "No QR codes scanned", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        EditText etStems = findViewById(R.id.etStems);
-        String stemsInput = etStems.getText().toString().trim();
-        if (TextUtils.isEmpty(stemsInput)) {
-            Toast.makeText(this, "Please enter number of stems", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        int stems = Integer.parseInt(stemsInput);
-
+        // 4️⃣ Prepare QR JSON array with stems validation
         JSONArray qrArray = new JSONArray();
-        try {
-            for (QrItem item : scannedQRCodes) {
-                JSONObject obj = new JSONObject();
+        for (QrItem item : scannedQRCodes) {
+            // Ensure stems is a positive number
+            if (item.stems <= 0) item.stems = 1;
+
+            JSONObject obj = new JSONObject();
+            try {
                 obj.put("qr", item.qr);
                 obj.put("serial", item.serial);
                 obj.put("bucket_name", item.bucket_name);
                 obj.put("farm", item.farm);
                 obj.put("length", item.length);
+                obj.put("stems", item.stems); // per-bucket stems
                 qrArray.put(obj);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(this, "Error preparing QR: " + item.qr, Toast.LENGTH_SHORT).show();
+                return;
             }
+        }
 
-            JSONObject postData = new JSONObject();
+        // 5️⃣ Prepare POST payload
+        JSONObject postData = new JSONObject();
+        try {
             postData.put("qrcodes", qrArray);
-            postData.put("stems", stems);
 
             int pos = spinnerColdroom.getSelectedItemPosition();
             String[] coldroomValues = getResources().getStringArray(R.array.coldroom_values);
             String coldroomValue = (pos >= 0 && pos < coldroomValues.length) ? coldroomValues[pos] : "";
             postData.put("coldroom", coldroomValue);
+
             postData.put("variety_id", selectedVarietyId);
             postData.put("variety_name", selectedVarietyName);
             postData.put("block", selectedGreenhouseName);
-            postData.put("user_id", 123); // TODO: replace with actual user session
-
-            String url = BASE_URL + "new_intake_process.php";
-            RequestQueue queue = Volley.newRequestQueue(this);
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, postData,
-                    response -> {
-                        String status = response.optString("status");
-                        String message = response.optString("message");
-                        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-                        if ("success".equals(status)) {
-                            scannedQRCodes.clear();
-                            qrAdapter.notifyDataSetChanged();
-//                            btnSubmit.setEnabled(false);
-                        }
-                    },
-                    error -> Toast.makeText(this, "Submission error: " + error.getMessage(), Toast.LENGTH_SHORT).show());
-            queue.add(request);
+            postData.put("user_id", 123); // replace with actual user session
         } catch (Exception e) {
             e.printStackTrace();
+            Toast.makeText(this, "Error preparing intake data", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        // 6️⃣ Submit to server
+        String url = BASE_URL + "new_intake_process.php";
+        RequestQueue queue = Volley.newRequestQueue(this);
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, postData,
+                response -> {
+                    String status = response.optString("status");
+                    String message = response.optString("message");
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+
+                    if ("success".equals(status)) {
+                        scannedQRCodes.clear();
+                        qrAdapter.notifyDataSetChanged();
+
+                        // Reset UI
+                        etVariety.setText("");
+                        spinnerColdroom.setSelection(0);
+                    }
+                },
+                error -> Toast.makeText(this, "Submission error: " + error.getMessage(), Toast.LENGTH_SHORT).show()
+        );
+        queue.add(request);
     }
 
 

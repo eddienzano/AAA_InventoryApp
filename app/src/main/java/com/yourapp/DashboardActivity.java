@@ -37,8 +37,8 @@ public class DashboardActivity extends AppCompatActivity {
 
         // Get values passed from LoginActivity
         Intent intent = getIntent();
-        userId = intent.getIntExtra("user_id", -1);
-        username = intent.getStringExtra("username");
+        String username = getIntent().getStringExtra("username");
+        int userId = getIntent().getIntExtra("user_id", -1);
 
         // Show user info
         txtUserInfo.setText("User: " + username + " (ID: " + userId + ")");

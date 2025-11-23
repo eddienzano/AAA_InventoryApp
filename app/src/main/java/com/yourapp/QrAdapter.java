@@ -35,17 +35,15 @@ public class QrAdapter extends RecyclerView.Adapter<QrAdapter.ViewHolder> {
         NewIntakeActivity.QrItem item = qrList.get(position);
 
         holder.tvQr.setText(item.qr);
+
+        // Remove any previous TextWatcher
+        if (holder.etStems.getTag() instanceof TextWatcher) {
+            holder.etStems.removeTextChangedListener((TextWatcher) holder.etStems.getTag());
+        }
+
         holder.etStems.setText(String.valueOf(item.stems));
 
-        // Remove button
-        holder.btnRemove.setOnClickListener(v -> {
-            qrList.remove(holder.getAdapterPosition());
-            notifyItemRemoved(holder.getAdapterPosition());
-            notifyItemRangeChanged(holder.getAdapterPosition(), qrList.size());
-        });
-
-        // Stems input
-        holder.etStems.addTextChangedListener(new TextWatcher() {
+        TextWatcher watcher = new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override public void onTextChanged(CharSequence s, int start, int before, int count) {}
             @Override
@@ -58,6 +56,15 @@ public class QrAdapter extends RecyclerView.Adapter<QrAdapter.ViewHolder> {
                     item.stems = 1;
                 }
             }
+        };
+        holder.etStems.addTextChangedListener(watcher);
+        holder.etStems.setTag(watcher);
+
+        // Remove button
+        holder.btnRemove.setOnClickListener(v -> {
+            qrList.remove(holder.getAdapterPosition());
+            notifyItemRemoved(holder.getAdapterPosition());
+            notifyItemRangeChanged(holder.getAdapterPosition(), qrList.size());
         });
 
         // Dynamic invalid highlight
@@ -67,6 +74,7 @@ public class QrAdapter extends RecyclerView.Adapter<QrAdapter.ViewHolder> {
             holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(android.R.color.white));
         }
     }
+
 
     @Override
     public int getItemCount() {

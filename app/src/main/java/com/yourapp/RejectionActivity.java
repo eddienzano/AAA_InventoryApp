@@ -1,10 +1,21 @@
 package com.yourapp;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.widget.*;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,23 +25,27 @@ import okhttp3.*;
 
 public class RejectionActivity extends AppCompatActivity {
 
-    private Spinner spinnerFarm, spinnerReason;
+    private Spinner spinnerFarm, spinnerReason, spinnerLength;
     private AutoCompleteTextView autoVariety;
     private EditText edtStems, edtCellNo, edtTableNo;
-    private Button btnSubmit;
+    private Spinner spinnerCellNo, spinnerTableNo;
+    private Button btnAddToList, btnSubmitAll;
+    private RecyclerView recyclerView;
 
-    private Spinner spinnerLength;
+    private ArrayList<RejectionEntry> tempRejections = new ArrayList<>();
+    private RejectionAdapter adapter;
+
+    private HashMap<String,Integer> farmMap = new HashMap<>();
+    private HashMap<String,Integer> reasonMap = new HashMap<>();
 
     private int selectedVarietyId = -1;
     private String selectedVarietyName = "";
 
-    private ArrayAdapter<String> varietyAdapter;
-    private ArrayList<String> varietyList = new ArrayList<>();
-    private HashMap<String,Integer> farmMap = new HashMap<>();
-    private HashMap<String,Integer> reasonMap = new HashMap<>();
-
     private OkHttpClient client = new OkHttpClient();
     private final String BASE_URL = "https://www.aaagrowers.co.ke/inventory/";
+
+    private ActivityResultLauncher<Intent> photoLauncher;
+    private Bitmap capturedPhoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,48 +54,69 @@ public class RejectionActivity extends AppCompatActivity {
 
         spinnerFarm = findViewById(R.id.spinnerFarm);
         spinnerReason = findViewById(R.id.spinnerReason);
+//        spinnerLength = findViewById(R.id.spinnerLength);
         autoVariety = findViewById(R.id.autoVariety);
         edtStems = findViewById(R.id.edtStems);
-        edtCellNo = findViewById(R.id.edtCellNo);
-        edtTableNo = findViewById(R.id.edtTableNo);
-        btnSubmit = findViewById(R.id.btnSubmit);
+//        edtCellNo = findViewById(R.id.edtCellNo);
+//        edtTableNo = findViewById(R.id.edtTableNo);
+        btnAddToList = findViewById(R.id.btnAddToList);
+        btnSubmitAll = findViewById(R.id.btnSubmitAll);
+        recyclerView = findViewById(R.id.recyclerViewRejections);
 
-        varietyAdapter = new ArrayAdapter<>(this, R.layout.spinner_dropdown_item, varietyList);
-        autoVariety.setAdapter(varietyAdapter);
+        adapter = new RejectionAdapter(tempRejections);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
 
-        spinnerLength = findViewById(R.id.spinnerLength);
+        spinnerCellNo = findViewById(R.id.spinnerCellNo);
+        spinnerTableNo = findViewById(R.id.spinnerTableNo);
 
-// Set lengths
-        String[] lengths = {"40cm","50cm","60cm","70cm","80cm","90cm","100cm"};
-        ArrayAdapter<String> lengthAdapter = new ArrayAdapter<>(this, R.layout.spinner_dropdown_item, lengths);
-        lengthAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spinnerLength.setAdapter(lengthAdapter);
+        setupCells();
+        setupTables();
 
-
-
-
+//        setupLengths();
         loadFarms();
         loadReasons();
+        setupVarietyAutoComplete();
 
-        spinnerFarm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override public void onItemSelected(AdapterView<?> parent, android.view.View view, int position, long id) {
-                String farmName = spinnerFarm.getSelectedItem().toString();
-                int farmId = farmMap.get(farmName);
-                loadVarieties(farmId,""); // load all varieties initially
-            }
-            @Override public void onNothingSelected(AdapterView<?> parent) {}
-        });
+        btnAddToList.setOnClickListener(v -> addRejectionToList());
+        btnSubmitAll.setOnClickListener(v -> capturePhotoAndSubmit());
 
-        autoVariety.addTextChangedListener(new SimpleTextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String farmName = spinnerFarm.getSelectedItem().toString();
-                int farmId = farmMap.get(farmName);
-                loadVarieties(farmId,s.toString());
+        photoLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if(result.getResultCode() == RESULT_OK){
+                capturedPhoto = (Bitmap) result.getData().getExtras().get("data");
+                submitAllRejections();
             }
         });
+    }
 
-        btnSubmit.setOnClickListener(v -> submitForm());
+//    private void setupLengths() {
+//        String[] lengths = {"40cm","50cm","60cm","70cm","80cm","90cm","100cm"};
+//        ArrayAdapter<String> lengthAdapter = new ArrayAdapter<>(this, R.layout.spinner_dropdown_item, lengths);
+//        lengthAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+//        spinnerLength.setAdapter(lengthAdapter);
+//    }
+
+    private void setupCells() {
+        // Example: 1A, 1B, 1C, 2A, 2B, 2C ...
+        List<String> cells = new ArrayList<>();
+        for (int row = 1; row <= 4; row++) {      // adjust max row
+            for (char col = 'A'; col <= 'C'; col++) { // adjust max column
+                cells.add(row + "" + col);
+            }
+        }
+        ArrayAdapter<String> cellAdapter = new ArrayAdapter<>(this, R.layout.spinner_dropdown_item, cells);
+        cellAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spinnerCellNo.setAdapter(cellAdapter);
+    }
+
+    private void setupTables() {
+        List<String> tables = new ArrayList<>();
+        for (int i = 1; i <= 8; i++) {  // adjust max table number
+            tables.add(String.valueOf(i));
+        }
+        ArrayAdapter<String> tableAdapter = new ArrayAdapter<>(this, R.layout.spinner_dropdown_item, tables);
+        tableAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spinnerTableNo.setAdapter(tableAdapter);
     }
 
     private void loadFarms() {
@@ -89,18 +125,14 @@ public class RejectionActivity extends AppCompatActivity {
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) { e.printStackTrace(); }
+            @Override public void onFailure(Call call, IOException e) { e.printStackTrace(); }
 
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            @Override public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) return;
-
                 try {
                     JSONArray arr = new JSONArray(response.body().string());
                     ArrayList<String> names = new ArrayList<>();
                     farmMap.clear();
-
                     for (int i = 0; i < arr.length(); i++) {
                         JSONObject obj = arr.getJSONObject(i);
                         int id = obj.getInt("id");
@@ -108,14 +140,11 @@ public class RejectionActivity extends AppCompatActivity {
                         farmMap.put(name, id);
                         names.add(name);
                     }
-
                     runOnUiThread(() -> {
                         ArrayAdapter<String> adapter = new ArrayAdapter<>(RejectionActivity.this, R.layout.spinner_dropdown_item, names);
-//                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
                         spinnerFarm.setAdapter(adapter);
                     });
-
                 } catch (Exception e) { e.printStackTrace(); }
             }
         });
@@ -131,12 +160,10 @@ public class RejectionActivity extends AppCompatActivity {
 
             @Override public void onResponse(Call call, Response response) throws IOException {
                 if(!response.isSuccessful()) return;
-
                 try {
                     JSONArray arr = new JSONArray(response.body().string());
                     ArrayList<String> names = new ArrayList<>();
                     reasonMap.clear();
-
                     for(int i=0;i<arr.length();i++){
                         JSONObject obj = arr.getJSONObject(i);
                         int id = obj.getInt("id");
@@ -144,15 +171,24 @@ public class RejectionActivity extends AppCompatActivity {
                         names.add(name);
                         reasonMap.put(name,id);
                     }
-
                     runOnUiThread(() -> {
                         ArrayAdapter<String> adapter = new ArrayAdapter<>(RejectionActivity.this, R.layout.spinner_dropdown_item, names);
-//                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
                         spinnerReason.setAdapter(adapter);
                     });
-
                 } catch(Exception e){ e.printStackTrace(); }
+            }
+        });
+    }
+
+    private void setupVarietyAutoComplete() {
+        autoVariety.addTextChangedListener(new SimpleTextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String farmName = (spinnerFarm.getSelectedItem() != null) ? spinnerFarm.getSelectedItem().toString() : "";
+                if(farmName.isEmpty()) return;
+                int farmId = farmMap.get(farmName);
+                loadVarieties(farmId, s.toString());
             }
         });
     }
@@ -168,13 +204,11 @@ public class RejectionActivity extends AppCompatActivity {
 
                 Request request = new Request.Builder().url(url).build();
                 Response response = client.newCall(request).execute();
-
                 if (!response.isSuccessful() || response.body() == null) return;
 
                 JSONArray arr = new JSONArray(response.body().string());
                 List<String> names = new ArrayList<>();
                 List<Integer> ids = new ArrayList<>();
-
                 for (int i = 0; i < arr.length(); i++) {
                     JSONObject o = arr.getJSONObject(i);
                     names.add(o.getString("VarietyName"));
@@ -185,96 +219,101 @@ public class RejectionActivity extends AppCompatActivity {
                     VarietyAdapter2 adapter = new VarietyAdapter2(RejectionActivity.this, names, ids);
                     autoVariety.setAdapter(adapter);
                     autoVariety.showDropDown();
-
                     autoVariety.setOnItemClickListener((parent, view, position, id) -> {
                         selectedVarietyId = adapter.getVarietyId(position);
                         selectedVarietyName = adapter.getItem(position);
                     });
                 });
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            } catch (Exception e) { e.printStackTrace(); }
         }).start();
     }
 
-
-    private void submitForm() {
-        String farmId = String.valueOf(farmMap.get(spinnerFarm.getSelectedItem().toString()));
-        String variety = autoVariety.getText().toString();
-        String stems = edtStems.getText().toString();
-        String cellNo = edtCellNo.getText().toString();
-        String tableNo = edtTableNo.getText().toString();
-        String reasonId = String.valueOf(reasonMap.get(spinnerReason.getSelectedItem().toString()));
-        String length = spinnerLength.getSelectedItem().toString();
-
-        if(variety.isEmpty() || stems.isEmpty()){
-            Toast.makeText(this,"Please fill required fields",Toast.LENGTH_SHORT).show();
+    private void addRejectionToList() {
+        if(spinnerFarm.getSelectedItem() == null || spinnerReason.getSelectedItem() == null){
+            Toast.makeText(this,"Please select farm and reason", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        FormBody formBody = new FormBody.Builder()
-                .add("farm",farmId)
-                .add("variety",variety)
-                .add("stems",stems)
-                .add("cell_no",cellNo)
-                .add("table_no",tableNo)
-                .add("rejection_reason",reasonId)
-                 .add("length", length) // <-- new field
-                .build();
+        String farmName = spinnerFarm.getSelectedItem().toString();
+        int farmId = farmMap.get(farmName);
+        String variety = autoVariety.getText().toString();
+        if(variety.isEmpty() || selectedVarietyId == -1){
+            Toast.makeText(this,"Select a valid variety", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        Request request = new Request.Builder()
-                .url(BASE_URL + "rejection_form.php")
-                .post(formBody)
-                .build();
+//        String length = spinnerLength.getSelectedItem().toString();
+        String stemsStr = edtStems.getText().toString();
+        String cellNo = spinnerCellNo.getSelectedItem().toString();
+        String tableNo = spinnerTableNo.getSelectedItem().toString();
+        int stems = stemsStr.isEmpty() ? 0 : Integer.parseInt(stemsStr);
+
+        int reasonId = reasonMap.get(spinnerReason.getSelectedItem().toString());
+        String reasonName = spinnerReason.getSelectedItem().toString();
+
+        RejectionEntry entry = new RejectionEntry(
+                farmName, farmId,
+                variety, selectedVarietyId,
+                 stems, cellNo, tableNo,
+                reasonName, reasonId
+        );
+
+        tempRejections.add(entry);
+        adapter.notifyItemInserted(tempRejections.size() - 1);
+
+        // clear inputs
+//        autoVariety.setText("");
+        edtStems.setText("");
+//        edtCellNo.setText("");
+//        edtTableNo.setText("");
+        spinnerReason.setSelection(0);
+    }
+
+    private void capturePhotoAndSubmit() {
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        photoLauncher.launch(cameraIntent);
+    }
+
+    private void submitAllRejections() {
+        if(tempRejections.isEmpty()){
+            Toast.makeText(this,"No rejections to submit", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
+        for(RejectionEntry r : tempRejections){
+            builder.addFormDataPart("farm[]", String.valueOf(r.farmId));
+            builder.addFormDataPart("variety[]", r.varietyName);
+//            builder.addFormDataPart("length[]", r.length);
+            builder.addFormDataPart("stems[]", String.valueOf(r.stems));
+          builder.addFormDataPart("cell_no[]", r.cellNo);
+            builder.addFormDataPart("table_no[]", r.tableNo);
+            builder.addFormDataPart("rejection_reason[]", String.valueOf(r.rejectionReasonId));
+        }
+
+        if(capturedPhoto != null){
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            capturedPhoto.compress(Bitmap.CompressFormat.JPEG, 80, bos);
+            builder.addFormDataPart("photo","bunch.jpg",
+                    RequestBody.create(bos.toByteArray(), MediaType.parse("image/jpeg")));
+        }
+
+        RequestBody requestBody = builder.build();
+        Request request = new Request.Builder().url(BASE_URL+"rejection_form.php").post(requestBody).build();
 
         client.newCall(request).enqueue(new Callback() {
             @Override public void onFailure(Call call, IOException e) {
-                runOnUiThread(() -> {
-                    new androidx.appcompat.app.AlertDialog.Builder(RejectionActivity.this)
-                            .setTitle("Error")
-                            .setMessage("Submission failed. Please try again.")
-                            .setPositiveButton("OK", null)
-                            .show();
-                });
+                runOnUiThread(() -> Toast.makeText(RejectionActivity.this,"Submission failed",Toast.LENGTH_SHORT).show());
             }
             @Override public void onResponse(Call call, Response response) throws IOException {
-                String respStr = response.body().string();
                 runOnUiThread(() -> {
-                    try {
-                        JSONObject obj = new JSONObject(respStr);
-                        if (obj.getString("status").equals("success")) {
-                            // Clear fields
-                            autoVariety.setText("");
-                            edtStems.setText("");
-                            edtCellNo.setText("");
-                            edtTableNo.setText("");
-                            spinnerFarm.setSelection(0);
-                            spinnerReason.setSelection(0);
-                            spinnerLength.setSelection(0);
-
-                            new androidx.appcompat.app.AlertDialog.Builder(RejectionActivity.this)
-                                    .setTitle("Success")
-                                    .setMessage("Rejection submitted successfully at " + obj.optString("submitted_at"))
-                                    .setPositiveButton("OK", null)
-                                    .show();
-                        } else {
-                            new androidx.appcompat.app.AlertDialog.Builder(RejectionActivity.this)
-                                    .setTitle("Error")
-                                    .setMessage(obj.optString("message", "An error occurred"))
-                                    .setPositiveButton("OK", null)
-                                    .show();
-                        }
-                    } catch (Exception e) {
-                        new androidx.appcompat.app.AlertDialog.Builder(RejectionActivity.this)
-                                .setTitle("Error")
-                                .setMessage("Invalid response from server")
-                                .setPositiveButton("OK", null)
-                                .show();
-                    }
+                    Toast.makeText(RejectionActivity.this,"Rejections submitted successfully",Toast.LENGTH_SHORT).show();
+                    tempRejections.clear();
+                    adapter.notifyDataSetChanged();
+                    capturedPhoto = null;
                 });
             }
         });
     }
-
 }

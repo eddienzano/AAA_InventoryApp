@@ -1,0 +1,163 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Record Rejection"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#2E7D32"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Scrollable selection area -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Farm -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Farm"
+                android:textStyle="bold"
+                android:textColor="#444444"
+                android:layout_marginTop="8dp"/>
+            <Spinner
+                android:id="@+id/spinnerFarm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#2E7D32"/>
+
+            <!-- Cell Number -->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Cell Number"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="#444444"-->
+<!--                android:layout_marginTop="16dp"/>-->
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnerCellNo"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:backgroundTint="#2E7D32"/>-->
+
+            <!-- Table Number -->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Table Number"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="#444444"-->
+<!--                android:layout_marginTop="16dp"/>-->
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnerTableNo"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:backgroundTint="#2E7D32"/>-->
+
+            <!-- Variety -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Variety"
+                android:textStyle="bold"
+                android:textColor="#444444"
+                android:layout_marginTop="16dp"/>
+            <AutoCompleteTextView
+                android:id="@+id/autoVariety"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:backgroundTint="@color/teal_700"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:textColor="@color/textPrimary"
+                android:textColorHint="@color/textHint"/>
+
+            <!-- Start Rejections Button -->
+            <Button
+                android:id="@+id/btnStartRejections"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Start Rejections"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2E7D32"
+                android:layout_marginTop="16dp"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Current Rejection Reason Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardCurrentReason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvCurrentReason"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rejection Reason"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#444444"/>
+
+            <EditText
+                android:id="@+id/edtCurrentStems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter stems"
+                android:inputType="number"
+                android:backgroundTint="@color/teal_700"
+                android:padding="12dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/textPrimary"
+                android:textColorHint="@color/textHint"/>
+
+            <Button
+                android:id="@+id/btnNextReason"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2E7D32"
+                android:layout_marginTop="12dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Submit All Button -->
+    <Button
+        android:id="@+id/btnSubmitAll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit All + Capture Photo"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#388E3C"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"/>
+</LinearLayout>
