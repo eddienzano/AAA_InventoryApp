@@ -1,0 +1,19 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="6dp">
+
+    <TextView
+        android:text="Variety"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:text="Total Stems Rejected"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"/>
+</LinearLayout>

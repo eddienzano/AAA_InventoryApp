@@ -19,6 +19,21 @@
 
         <!-- Customize status bar / nav bar -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+
+
+
+
     </style>
+    <style name="HeaderCell">
+        <item name="android:width">80dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+
+    <style name="DashboardButton"></style>
 
 </resources>

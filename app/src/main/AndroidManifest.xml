@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
 
 
     <application
@@ -16,6 +18,15 @@
         android:usesCleartextTraffic="true"
 
         >
+
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
 
         <!-- LoginActivity (no launcher intent, no need exported) -->
         <activity android:name=".LoginActivity" />
@@ -83,6 +94,36 @@
         <activity
             android:name=".RejectActivity"
             android:exported="true" />
+        <activity
+            android:name=".QualityAnalysisActivity"
+            android:exported="true" />
+
+        <activity android:name=".WrongScanActivity"
+            android:exported="true"/>
+
+        <activity android:name=".PriorityActivity"
+            android:exported="true"/>
+
+        <activity android:name=".ScanToQuarantineActivity"
+            android:exported="true"/>
+
+        <activity android:name=".ScanFromQuarantineActivity"
+            android:exported="true"/>
+
+        <activity android:name=".ScanActivity"
+            android:exported="true"/>
+
+        <activity android:name=".PriorityConfirmationActivity"
+            android:exported="true"/>
+
+        <activity android:name=".RejectionHistoryActivity"
+            android:exported="true"/>
+
+        <activity android:name=".RejectionReportsActivity"
+            android:exported="true"/>
+
+
+
 
     </application>
 </manifest>

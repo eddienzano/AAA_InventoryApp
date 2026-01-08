@@ -10,11 +10,14 @@ public class RejectionEntry2 {
     public String tableNo;
     public String rejectionReasonName;
     public int rejectionReasonId;
+    public String greenhouseName;         // ✅ will be set from constructor
+    public String selectedGreenhouseName; // optional, can keep for clarity
 
     public RejectionEntry2(String farmName, int farmId,
                            String varietyName, int varietyId,
                            int stems,
-                           String rejectionReasonName, int rejectionReasonId) {
+                           String rejectionReasonName, int rejectionReasonId,
+                           String greenhouseName) {
         this.farmName = farmName;
         this.farmId = farmId;
         this.varietyName = varietyName;
@@ -24,5 +27,7 @@ public class RejectionEntry2 {
         this.tableNo = tableNo;
         this.rejectionReasonName = rejectionReasonName;
         this.rejectionReasonId = rejectionReasonId;
+        this.selectedGreenhouseName = greenhouseName;
+        this.greenhouseName = greenhouseName; // ✅ ensures submitAllRejections gets it
     }
 }

@@ -18,7 +18,7 @@ public class FloorDashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_floor_dashboard);
 
         floorWelcomeText = findViewById(R.id.floorWelcomeText);
-        scanToWipBtn = findViewById(R.id.scanToWipBtn);
+//        scanToWipBtn = findViewById(R.id.scanToWipBtn);
         scanToBoxBtn = findViewById(R.id.scanToBoxBtn);
         scanOutWipBtn = findViewById(R.id.scanOutWipBtn);
         scanOutReworkBtn = findViewById(R.id.scanOutReworkBtn);
@@ -28,10 +28,10 @@ public class FloorDashboardActivity extends AppCompatActivity {
         floorWelcomeText.setText("Floor Dashboard - " + username);
 
         // Button actions - link to your scanning activities
-        scanToWipBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(FloorDashboardActivity.this, ScanToWipActivity.class);
-            startActivity(intent);
-        });
+//        scanToWipBtn.setOnClickListener(v -> {
+//            Intent intent = new Intent(FloorDashboardActivity.this, ScanToWipActivity.class);
+//            startActivity(intent);
+//        });
 
         // Button actions - link to your scanning activities
         newscanToWipBtn.setOnClickListener(v -> {

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="firebase_database_url" translatable="false">https://nscapp-2e953.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">596612171476</string>
+    <string name="google_api_key" translatable="false">AIzaSyDHrufgg3hwxusMyQPWsaUqYhMU9Ewp58w</string>
+    <string name="google_app_id" translatable="false">1:596612171476:android:e7847a2cff255280a81d41</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDHrufgg3hwxusMyQPWsaUqYhMU9Ewp58w</string>
+    <string name="google_storage_bucket" translatable="false">nscapp-2e953.firebasestorage.app</string>
+    <string name="project_id" translatable="false">nscapp-2e953</string>
+</resources>

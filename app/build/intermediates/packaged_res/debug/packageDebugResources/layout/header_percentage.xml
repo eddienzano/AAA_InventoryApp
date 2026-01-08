@@ -1,0 +1,12 @@
+<LinearLayout android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView android:text="Variety" android:layout_width="120dp" android:layout_height="12dp"/>
+    <TextView android:text="Rejected Stems" android:layout_width="120dp" android:layout_height="12dp"/>
+    <TextView android:text="Scanned Qty" android:layout_width="120dp" android:layout_height="12dp"/>
+    <TextView android:text="Returned (Floor)" android:layout_width="140dp" android:layout_height="12dp"/>
+    <TextView android:text="Usable Qty" android:layout_width="120dp" android:layout_height="12dp"/>
+    <TextView android:text="Rejection %" android:layout_width="120dp" android:layout_height="12dp"/>
+</LinearLayout>

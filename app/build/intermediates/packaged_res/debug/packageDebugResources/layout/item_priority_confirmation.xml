@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/txtFarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Farm"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtVariety"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Variety"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/txtStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:textSize="14sp"
+            android:textColor="#555"/>
+
+        <!-- Container for dynamic lengths -->
+        <LinearLayout
+            android:id="@+id/lengthsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:scrollbars="horizontal"
+            android:paddingTop="8dp"/>
+    </LinearLayout>
+
+
+
+</HorizontalScrollView>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "596612171476",
+    "firebase_url": "https://nscapp-2e953.firebaseio.com",
+    "project_id": "nscapp-2e953",
+    "storage_bucket": "nscapp-2e953.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596612171476:android:e7847a2cff255280a81d41",
+        "android_client_info": {
+          "package_name": "com.yourapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHrufgg3hwxusMyQPWsaUqYhMU9Ewp58w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

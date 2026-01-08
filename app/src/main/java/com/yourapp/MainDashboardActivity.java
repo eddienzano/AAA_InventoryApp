@@ -7,10 +7,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.messaging.FirebaseMessaging;
+
+import com.yourapp.*;
+
 public class MainDashboardActivity extends AppCompatActivity {
 
     TextView welcomeText;
-    Button intakeBtn, floorBtn, qcBtn1, qcBtn;
+    Button intakeBtn, floorBtn, qcBtn1, qaBtn, qcBtn2, priorityBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +24,24 @@ public class MainDashboardActivity extends AppCompatActivity {
         welcomeText = findViewById(R.id.welcomeText);
         intakeBtn = findViewById(R.id.intakeBtn);
         floorBtn = findViewById(R.id.floorBtn);
-        qcBtn = findViewById(R.id.qcBtn);
+       qcBtn2 = findViewById(R.id.qcBtn2);
         qcBtn1 = findViewById(R.id.qcBtn1);
+        qaBtn = findViewById(R.id.qaBtn);
+        priorityBtn= findViewById(R.id.priorityBtn);
+
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        System.out.println("Fetching FCM token failed: " + task.getException());
+                        return;
+                    }
+                    // Get new FCM token
+                    String token = task.getResult();
+                    System.out.println("🔥 FCM TOKEN: " + token);
+                    MyFirebaseMessagingService.sendTokenToServer(token, 1);
+                });
+
 
 
         int userId = getIntent().getIntExtra("user_id", -1);
@@ -49,8 +69,8 @@ public class MainDashboardActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        qcBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(MainDashboardActivity.this, RejectionActivity.class);
+        qcBtn2.setOnClickListener(v -> {
+            Intent intent = new Intent(MainDashboardActivity.this, RejectionHistoryActivity.class);
             intent.putExtra("username", username);
             intent.putExtra("user_id", userId);
             startActivity(intent);
@@ -58,6 +78,20 @@ public class MainDashboardActivity extends AppCompatActivity {
 
         qcBtn1.setOnClickListener(v -> {
             Intent intent = new Intent(MainDashboardActivity.this, RejectActivity.class);
+            intent.putExtra("username", username);
+            intent.putExtra("user_id", userId);
+            startActivity(intent);
+        });
+
+        qaBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainDashboardActivity.this, QualityAnalysisActivity.class);
+            intent.putExtra("username", username);
+            intent.putExtra("user_id", userId);
+            startActivity(intent);
+        });
+
+        priorityBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainDashboardActivity.this, PriorityActivity.class);
             intent.putExtra("username", username);
             intent.putExtra("user_id", userId);
             startActivity(intent);

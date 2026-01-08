@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.Chip xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Length"
+    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+    app:chipBackgroundColor="@color/md_theme_primarycontainer"
+    app:chipCornerRadius="12dp"
+    app:chipStrokeWidth="0dp"
+    app:chipMinHeight="36dp"
+    app:checkedIconVisible="false"
+    android:maxLines="1"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="6dp" />

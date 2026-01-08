@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wrongScanRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".WrongScanActivity">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/headerWrongScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wrong Scan Correction"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="12dp" />
+
+    <!-- QR Code Input -->
+    <EditText
+        android:id="@+id/qr_code_wrong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Scan or enter QR code"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Scan Button -->
+    <Button
+        android:id="@+id/scanBtnWrong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scan QR Code"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Last Wrong Scans Table -->
+    <TextView
+        android:id="@+id/lastWrongScansHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Wrong Scans"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TableLayout
+            android:id="@+id/wrongScanTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:shrinkColumns="*">
+            <!-- Rows will be added dynamically -->
+        </TableLayout>
+
+    </ScrollView>
+
+</LinearLayout>

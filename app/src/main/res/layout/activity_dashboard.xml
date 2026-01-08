@@ -37,23 +37,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnScanIn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Scan In"
-                android:layout_marginBottom="16dp"
-                app:cornerRadius="16dp"
-                android:padding="16dp"
-                app:icon="@drawable/ic_scan_in"
-                app:iconPadding="8dp"
-                app:iconGravity="textStart"/>
-
+            <!-- Intake -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnIntake"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/new_intake"
+                android:text="@string/intake"
                 android:layout_marginBottom="16dp"
                 app:cornerRadius="16dp"
                 android:padding="16dp"
@@ -61,18 +50,20 @@
                 app:iconPadding="8dp"
                 app:iconGravity="textStart"/>
 
+            <!-- Scan Out -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnScanOut"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Scan Out"
                 android:layout_marginBottom="16dp"
-                app:cornerRadius="16dp"
                 android:padding="16dp"
+                android:text="Scan Out"
+                app:cornerRadius="16dp"
                 app:icon="@drawable/ic_scan_out"
-                app:iconPadding="8dp"
-                app:iconGravity="textStart"/>
+                app:iconGravity="textStart"
+                app:iconPadding="8dp" />
 
+            <!-- Back to Coldroom -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnScanBackColdroom"
                 android:layout_width="match_parent"
@@ -85,11 +76,12 @@
                 app:iconPadding="8dp"
                 app:iconGravity="textStart"/>
 
+            <!-- To Quarantine -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSync"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sync"
+                android:text="SCAN TO QUARANTINE"
                 android:layout_marginBottom="16dp"
                 app:cornerRadius="16dp"
                 android:padding="16dp"
@@ -97,6 +89,48 @@
                 app:iconPadding="8dp"
                 app:iconGravity="textStart"/>
 
+            <!-- From Quarantine -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSFQ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SCAN FROM QUARANTINE"
+                android:layout_marginBottom="16dp"
+                app:cornerRadius="16dp"
+                android:padding="16dp"
+                app:icon="@drawable/ic_sync"
+                app:iconPadding="8dp"
+                app:iconGravity="textStart"/>
+
+            <!-- Stock Scan -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnStock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="STOCK SCAN"
+                android:layout_marginBottom="16dp"
+                app:cornerRadius="16dp"
+                android:padding="16dp"
+                app:icon="@drawable/ic_sync"
+                app:iconPadding="8dp"
+                app:iconGravity="textStart"/>
+
+            <!-- Wrong Scan -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWrongScan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Correct Wrong Scan"
+                app:cornerRadius="16dp"
+                android:padding="16dp"
+                android:backgroundTint="@color/md_theme_error"
+                android:textColor="@android:color/white"
+                app:icon="@drawable/ic_logout"
+                app:iconPadding="8dp"
+                android:layout_marginBottom="16dp"
+                app:iconGravity="textStart"/>
+
+            <!-- Logout -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
@@ -109,6 +143,11 @@
                 app:icon="@drawable/ic_logout"
                 app:iconPadding="8dp"
                 app:iconGravity="textStart"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/shimmer_placeholder" />
 
         </LinearLayout>
     </ScrollView>
@@ -133,7 +172,6 @@
             android:padding="32dp"
             android:clipToPadding="false">
 
-            <!-- Shimmer placeholders for the buttons -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
@@ -150,14 +188,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/shimmer_placeholder"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
                 android:background="@drawable/shimmer_placeholder"/>
 
         </LinearLayout>
+
     </com.facebook.shimmer.ShimmerFrameLayout>
 
 </FrameLayout>

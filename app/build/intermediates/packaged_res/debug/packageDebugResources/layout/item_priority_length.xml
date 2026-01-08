@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="8dp"
+    android:background="@drawable/length_item_bg">
+
+    <TextView
+        android:id="@+id/txtLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50 cm"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#1A1A1A"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/txtNeeded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Needed"
+        android:textSize="13sp"
+        android:textColor="#666666" />
+
+    <TextView
+        android:id="@+id/txtReceived"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Received"
+        android:textSize="13sp"
+        android:textColor="#666666"
+        android:paddingBottom="6dp" />
+
+    <EditText
+        android:id="@+id/editConfirmed"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:inputType="number"
+        android:gravity="center"
+        android:background="@drawable/input_modern"
+        android:textSize="16sp"
+        android:padding="6dp" />
+</LinearLayout>

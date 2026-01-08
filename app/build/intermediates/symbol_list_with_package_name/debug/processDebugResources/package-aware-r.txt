@@ -239,6 +239,7 @@ attr buttonIconDimen
 attr buttonIconTint
 attr buttonIconTintMode
 attr buttonPanelSideLayout
+attr buttonSize
 attr buttonSizeChange
 attr buttonStyle
 attr buttonStyleSmall
@@ -301,6 +302,7 @@ attr chipStrokeColor
 attr chipStrokeWidth
 attr chipStyle
 attr chipSurfaceColor
+attr circleCrop
 attr circleRadius
 attr circularProgressIndicatorStyle
 attr circularflow_angles
@@ -381,6 +383,7 @@ attr colorPrimaryFixedDim
 attr colorPrimaryInverse
 attr colorPrimarySurface
 attr colorPrimaryVariant
+attr colorScheme
 attr colorSecondary
 attr colorSecondaryContainer
 attr colorSecondaryFixed
@@ -703,6 +706,8 @@ attr iconTintMode
 attr iconifiedByDefault
 attr ifTagNotSet
 attr ifTagSet
+attr imageAspectRatio
+attr imageAspectRatioAdjust
 attr imageButtonStyle
 attr imagePanX
 attr imagePanY
@@ -1103,6 +1108,7 @@ attr round
 attr roundPercent
 attr saturation
 attr scaleFromTextSize
+attr scopeUris
 attr scrimAnimationDuration
 attr scrimBackground
 attr scrimVisibleHeightTrigger
@@ -1238,6 +1244,7 @@ attr suffixText
 attr suffixTextAppearance
 attr suffixTextColor
 attr suggestionRowLayout
+attr swipeRefreshLayoutProgressSpinnerBackgroundColor
 attr switchMinWidth
 attr switchPadding
 attr switchStyle
@@ -1562,6 +1569,17 @@ color cardview_shadow_start_color
 color colorAccent
 color colorPrimary
 color colorPrimaryDark
+color common_google_signin_btn_text_dark
+color common_google_signin_btn_text_dark_default
+color common_google_signin_btn_text_dark_disabled
+color common_google_signin_btn_text_dark_focused
+color common_google_signin_btn_text_dark_pressed
+color common_google_signin_btn_text_light
+color common_google_signin_btn_text_light_default
+color common_google_signin_btn_text_light_disabled
+color common_google_signin_btn_text_light_focused
+color common_google_signin_btn_text_light_pressed
+color common_google_signin_btn_tint
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -2391,7 +2409,9 @@ color md_theme_onError
 color md_theme_onPrimary
 color md_theme_onSecondary
 color md_theme_onSurface
+color md_theme_outlinevariant
 color md_theme_primary
+color md_theme_primarycontainer
 color md_theme_secondary
 color md_theme_surface
 color mtrl_btn_bg_color_selector
@@ -3608,12 +3628,14 @@ drawable avd_show_password
 drawable bg_button
 drawable bg_card
 drawable bg_edittext
+drawable bg_gradient_modern
 drawable bg_history_item
 drawable bg_input
 drawable bg_input_small
 drawable bg_result_error
 drawable bg_result_neutral
 drawable bg_result_success
+drawable bg_soft_gradient
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3622,6 +3644,25 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable common_full_open_on_phone
+drawable common_google_signin_btn_icon_dark
+drawable common_google_signin_btn_icon_dark_focused
+drawable common_google_signin_btn_icon_dark_normal
+drawable common_google_signin_btn_icon_dark_normal_background
+drawable common_google_signin_btn_icon_disabled
+drawable common_google_signin_btn_icon_light
+drawable common_google_signin_btn_icon_light_focused
+drawable common_google_signin_btn_icon_light_normal
+drawable common_google_signin_btn_icon_light_normal_background
+drawable common_google_signin_btn_text_dark
+drawable common_google_signin_btn_text_dark_focused
+drawable common_google_signin_btn_text_dark_normal
+drawable common_google_signin_btn_text_dark_normal_background
+drawable common_google_signin_btn_text_disabled
+drawable common_google_signin_btn_text_light
+drawable common_google_signin_btn_text_light_focused
+drawable common_google_signin_btn_text_light_normal
+drawable common_google_signin_btn_text_light_normal_background
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
@@ -3629,6 +3670,9 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable edittext_background
 drawable edittext_bg
+drawable googleg_disabled_color_18
+drawable googleg_standard_color_18
+drawable header_gradient
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
 drawable ic_call_answer_low
@@ -3654,10 +3698,14 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_notification
 drawable ic_scan_in
 drawable ic_scan_out
 drawable ic_search_black_24
 drawable ic_sync
+drawable input_box
+drawable input_modern
+drawable length_item_bg
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3731,8 +3779,11 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable primary_button
+drawable priority_bg_gradient
 drawable rounded_edittext
 drawable shimmer_placeholder
+drawable spinner_modern
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3807,6 +3858,8 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id adjust_height
+id adjust_width
 id advance
 id alertTitle
 id aligned
@@ -3844,23 +3897,33 @@ id bounceStart
 id btnAddToList
 id btnCamera
 id btnCameraScan
+id btnCommentsNext
 id btnIntake
 id btnLogout
 id btnNextReason
+id btnPickDate
+id btnPrevReason
 id btnRemove
+id btnSFQ
 id btnScanBackColdroom
-id btnScanIn
 id btnScanOut
+id btnStartAnalysis
 id btnStartRejections
+id btnStock
 id btnSubmit
 id btnSubmitAll
+id btnSubmitPriority
 id btnSync
+id btnWrongScan
 id bucket_name
 id buncherInput
 id buttonPanel
 id cache_measures
 id cancel_button
+id card
+id cardComments
 id cardCurrentReason
+id cardSummary
 id carryVelocity
 id center
 id centerCrop
@@ -3871,6 +3934,8 @@ id chain
 id chains
 id checkbox
 id checked
+id chipGroupLengths
+id chipStatus
 id chronometer
 id circle_center
 id clear_text
@@ -3896,6 +3961,7 @@ id currentState
 id custom
 id customPanel
 id cut
+id dark
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -3930,9 +3996,14 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editConfirmed
 id edit_query
 id edit_text_id
+id edtComments
+id edtCurrentCount
 id edtCurrentStems
+id edtQuantity
+id edtSampleSpace
 id edtStems
 id elastic
 id embed
@@ -3941,10 +4012,15 @@ id endToStart
 id enterAlways
 id enterAlwaysCollapsed
 id entireSpace
+id errorLayout
+id errorMsg
 id escape
+id etFromDate
 id etQr
 id etQrInput
+id etQuantity
 id etStems
+id etToDate
 id etVariety
 id exitUntilCollapsed
 id expand_activities_button
@@ -3978,6 +4054,8 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
+id headerContainer
+id headerWrongScan
 id header_title
 id hidden
 id hide_ime_id
@@ -3991,6 +4069,7 @@ id honorRequest
 id horizontal_only
 id icon
 id icon_group
+id icon_only
 id ifRoom
 id ignore
 id ignoreRequest
@@ -3999,20 +4078,25 @@ id immediateStop
 id included
 id indeterminate
 id info
+id inputScan
 id intakeBtn
 id invisible
 id inward
+id is_pooling_container_tag
 id italic
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
 id labeled
+id lastWrongScansHeader
 id layout
 id left
 id leftToRight
 id left_to_right
 id legacy
 id length
+id lengthsContainer
+id light
 id line1
 id line3
 id linear
@@ -4137,27 +4221,39 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id pooling_container_listener_holder_tag
 id position
 id postLayout
 id pressed
+id priorityBtn
+id priorityButton
+id priorityConfirmationButton
 id progress_circular
 id progress_horizontal
-id qcBtn
+id qaBtn
 id qcBtn1
+id qcBtn2
 id qrInput
 id qrListLayout
 id qr_code
 id qr_code_out
+id qr_code_quarantine
+id qr_code_wrong
 id quantity
+id quarantineTable
 id radial
 id radio
 id ratio
 id rectangles
+id recycler
+id recyclerRejections
 id recyclerViewRejections
+id rejectionReportButton
 id report_drawn
 id restart
 id resultBox
 id retreat
+id retryBtn
 id reverse
 id reverseSawtooth
 id right
@@ -4165,6 +4261,7 @@ id rightToLeft
 id right_icon
 id right_side
 id right_to_left
+id rootContainer
 id rounded
 id row_index_key
 id rvQrList
@@ -4175,10 +4272,11 @@ id scale
 id scanBox
 id scanBtn
 id scanBtnOut
+id scanBtnQuarantine
+id scanBtnWrong
 id scanOutReworkBtn
 id scanOutWipBtn
 id scanToBoxBtn
-id scanToWipBtn
 id scanoutTable
 id screen
 id scroll
@@ -4202,6 +4300,7 @@ id selection_type
 id serial
 id sharedValueSet
 id sharedValueUnset
+id shimmer
 id shimmerOverlay
 id shortcut
 id showCustom
@@ -4221,6 +4320,8 @@ id special_effects_controller_view_tag
 id spinnerCellNo
 id spinnerColdroom
 id spinnerFarm
+id spinnerLength
+id spinnerManager
 id spinnerReason
 id spinnerTableNo
 id splashLogo
@@ -4248,7 +4349,9 @@ id submenuarrow
 id submitBtn
 id submit_area
 id supportScrollUp
+id swipeRefresh
 id syncBtn
+id tabLayout
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -4301,15 +4404,35 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvBotrytis
 id tvCellTable
 id tvCurrentReason
+id tvDowny
+id tvFarmVariety
 id tvLengthStems
+id tvMech
+id tvOthers
+id tvPowdery
 id tvQr
 id tvQrNote
 id tvReason
+id tvSub
+id tvSubtitle
+id tvThrips
 id tvTitle
+id tvTotal
 id tvVariety
+id txtDetails
+id txtFarm
+id txtLength
+id txtNeeded
+id txtReason
+id txtReceived
+id txtStatus
+id txtTime
+id txtTitle
 id txtUserInfo
+id txtVariety
 id unchecked
 id uniform
 id unlabeled
@@ -4321,6 +4444,7 @@ id varietyInput
 id variety_id
 id variety_name
 id vertical_only
+id viewPager
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -4331,12 +4455,15 @@ id visible
 id visible_removing_fragment_view_tag
 id welcomeText
 id west
+id wide
 id withText
 id with_icon
 id withinBounds
 id wrap
 id wrap_content
 id wrap_content_constrained
+id wrongScanRoot
+id wrongScanTable
 id x_left
 id x_right
 id zxing_back_button
@@ -4360,6 +4487,7 @@ integer cancel_button_image_alpha
 integer config_tooltipAnimTime
 integer design_snackbar_text_max_lines
 integer design_tab_indicator_anim_duration_ms
+integer google_play_services_version
 integer hide_password_duration
 integer m3_badge_max_number
 integer m3_btn_anim_delay_ms
@@ -4476,14 +4604,23 @@ layout activity_login
 layout activity_main
 layout activity_main_dashboard
 layout activity_new_intake
+layout activity_priority
+layout activity_priority_confirmation
+layout activity_quality_analysis
 layout activity_reject
 layout activity_rejection
+layout activity_rejection_history
+layout activity_rejection_reports
+layout activity_scan
 layout activity_scan_back_coldroom
+layout activity_scan_from_quarantine
 layout activity_scan_out
 layout activity_scan_out_rework
 layout activity_scan_out_wip
+layout activity_scan_to_quarantine
 layout activity_scan_to_wip
 layout activity_wip_scan
+layout activity_wrong_scan
 layout autocomplete_item
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -4501,8 +4638,17 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_rejection_tab
+layout header_by_reason
+layout header_by_variety
+layout header_by_variety_by_reason
+layout header_cell
+layout header_percentage
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_length_chip
+layout item_priority_confirmation
+layout item_priority_length
 layout item_qr
 layout item_rejection
 layout m3_alert_dialog
@@ -4564,6 +4710,11 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout priority_item
+layout rejection_header
+layout row_by_variety
+layout row_rejection
+layout row_rejection_history
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -4577,6 +4728,7 @@ mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
+raw firebase_common_keep
 raw zxing_beep
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -4630,6 +4782,24 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string clear_text_end_icon_content_description
 string coldroom
+string common_google_play_services_enable_button
+string common_google_play_services_enable_text
+string common_google_play_services_enable_title
+string common_google_play_services_install_button
+string common_google_play_services_install_text
+string common_google_play_services_install_title
+string common_google_play_services_notification_channel_name
+string common_google_play_services_notification_ticker
+string common_google_play_services_unknown_issue
+string common_google_play_services_unsupported_text
+string common_google_play_services_update_button
+string common_google_play_services_update_text
+string common_google_play_services_update_title
+string common_google_play_services_updating_text
+string common_google_play_services_wear_update_text
+string common_open_on_phone
+string common_signin_button_text
+string common_signin_button_text_long
 string default_quantity
 string define_zxingandroidembedded
 string error_a11y_label
@@ -4637,7 +4807,14 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string fcm_fallback_notification_channel_label
+string firebase_database_url
 string flower_variety
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
+string google_storage_bucket
 string greenhouse_block
 string hide_bottom_view_on_scroll_behavior
 string hint_bucket_name
@@ -4782,6 +4959,7 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string press_enter_after_scanning_each_qr_default_stems_100_editable_per_qr
+string project_id
 string scan_bucket_qr
 string scan_or_enter_qr_code
 string scan_qr_codes
@@ -5097,6 +5275,8 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style DashboardButton
+style HeaderCell
 style MaterialAlertDialog_Material3
 style MaterialAlertDialog_Material3_Animation
 style MaterialAlertDialog_Material3_Body_Text
@@ -6113,6 +6293,7 @@ styleable LinearLayoutCompat android_gravity android_orientation android_baselin
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
 styleable LinearProgressIndicator indeterminateAnimationType indicatorDirectionLinear trackInnerCornerRadius trackStopIndicatorPadding trackStopIndicatorSize
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
+styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
 styleable LoadingIndicator containerColor containerHeight containerWidth indicatorColor indicatorSize
 styleable MaterialAlertDialog backgroundInsetBottom backgroundInsetEnd backgroundInsetStart backgroundInsetTop backgroundTint
 styleable MaterialAlertDialogTheme materialAlertDialogBodyTextStyle materialAlertDialogButtonSpacerVisibility materialAlertDialogTheme materialAlertDialogTitleIconStyle materialAlertDialogTitlePanelStyle materialAlertDialogTitleTextStyle
@@ -6166,6 +6347,7 @@ styleable ShapeAppearance cornerFamily cornerFamilyBottomLeft cornerFamilyBottom
 styleable ShapeableImageView contentPadding contentPaddingBottom contentPaddingEnd contentPaddingLeft contentPaddingRight contentPaddingStart contentPaddingTop shapeAppearance shapeAppearanceOverlay strokeColor strokeWidth
 styleable ShimmerFrameLayout shimmer_auto_start shimmer_base_alpha shimmer_base_color shimmer_clip_to_children shimmer_colored shimmer_direction shimmer_dropoff shimmer_duration shimmer_fixed_height shimmer_fixed_width shimmer_height_ratio shimmer_highlight_alpha shimmer_highlight_color shimmer_intensity shimmer_repeat_count shimmer_repeat_delay shimmer_repeat_mode shimmer_shape shimmer_tilt shimmer_width_ratio
 styleable SideSheetBehavior_Layout android_maxWidth android_maxHeight android_elevation backgroundTint behavior_draggable coplanarSiblingViewId shapeAppearance shapeAppearanceOverlay
+styleable SignInButton buttonSize colorScheme scopeUris
 styleable Slider android_enabled android_value android_orientation android_stepSize android_valueFrom android_valueTo centered haloColor haloRadius labelBehavior labelStyle minTouchTargetSize thumbColor thumbElevation thumbHeight thumbRadius thumbStrokeColor thumbStrokeWidth thumbTrackGapSize thumbWidth tickColor tickColorActive tickColorInactive tickRadiusActive tickRadiusInactive tickVisibilityMode tickVisible trackColor trackColorActive trackColorInactive trackCornerSize trackHeight trackIconActiveColor trackIconActiveEnd trackIconActiveStart trackIconInactiveColor trackIconInactiveEnd trackIconInactiveStart trackIconSize trackInsideCornerSize trackStopIndicatorSize
 styleable Snackbar snackbarButtonStyle snackbarStyle snackbarTextViewStyle
 styleable SnackbarLayout android_maxWidth actionTextColorAlpha animationMode backgroundOverlayColorAlpha backgroundTint backgroundTintMode elevation maxActionInlineWidth shapeAppearance shapeAppearanceOverlay
@@ -6175,6 +6357,7 @@ styleable StateListDrawable android_dither android_visible android_variablePaddi
 styleable StateListDrawableItem android_drawable
 styleable StateListSizeChange widthChange
 styleable StateSet defaultState
+styleable SwipeRefreshLayout swipeRefreshLayoutProgressSpinnerBackgroundColor
 styleable SwitchCompat android_textOn android_textOff android_thumb showText splitTrack switchMinWidth switchPadding switchTextAppearance thumbTextPadding thumbTint thumbTintMode track trackTint trackTintMode
 styleable SwitchMaterial useMaterialThemeColors
 styleable TabItem android_icon android_layout android_text

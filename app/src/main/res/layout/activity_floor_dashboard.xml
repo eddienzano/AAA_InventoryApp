@@ -21,19 +21,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/scanToWipBtn"
-            android:text="Scan to WIP"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#4CAF50"
-            android:layout_marginBottom="20dp" />
+<!--        <Button-->
+<!--            android:id="@+id/scanToWipBtn"-->
+<!--            android:text="Scan to WIP"-->
+<!--            android:layout_width="260dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:backgroundTint="#4CAF50"-->
+<!--            android:layout_marginBottom="20dp" />-->
 
         <Button
             android:id="@+id/newscanToWipBtn"
-            android:text="New Scan to WIP"
+            android:text="BUNCHER SCAN"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:textSize="18sp"

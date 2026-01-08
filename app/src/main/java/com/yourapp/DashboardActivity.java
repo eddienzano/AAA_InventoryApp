@@ -12,7 +12,7 @@ import com.google.android.material.button.MaterialButton;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    private MaterialButton btnScanIn, btnScanOut, btnSync, btnLogout, btnIntake;
+    private MaterialButton btnScanIn, btnScanOut, btnSync, btnLogout, btnWrongScan, btnSFQ, btnStock, btnIntake;
     private MaterialButton btnScanBackColdroom;
     private ShimmerFrameLayout shimmerOverlay;
     private TextView txtUserInfo;
@@ -26,14 +26,17 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         // Bind UI elements
-        btnScanIn = findViewById(R.id.btnScanIn);
+//        btnScanIn = findViewById(R.id.btnScanIn);
         btnIntake = findViewById(R.id.btnIntake);
         btnScanOut = findViewById(R.id.btnScanOut);
+        btnStock= findViewById(R.id.btnStock);
         btnSync = findViewById(R.id.btnSync);
+        btnSFQ = findViewById(R.id.btnSFQ);
         btnLogout = findViewById(R.id.btnLogout);
         shimmerOverlay = findViewById(R.id.shimmerOverlay);
         txtUserInfo = findViewById(R.id.txtUserInfo);
         btnScanBackColdroom = findViewById(R.id.btnScanBackColdroom);
+        btnWrongScan = findViewById(R.id.btnWrongScan);
 
         // Get values passed from LoginActivity
         Intent intent = getIntent();
@@ -50,12 +53,12 @@ public class DashboardActivity extends AppCompatActivity {
         shimmerOverlay.setVisibility(View.GONE);
 
         // Set button actions
-        btnScanIn.setOnClickListener(v -> {
-            Intent in = new Intent(DashboardActivity.this, IntakeActivity.class);
-            in.putExtra("user_id", userId);
-            in.putExtra("username", username);
-            startActivity(in);
-        });
+//        btnScanIn.setOnClickListener(v -> {
+//            Intent in = new Intent(DashboardActivity.this, IntakeActivity.class);
+//            in.putExtra("user_id", userId);
+//            in.putExtra("username", username);
+//            startActivity(in);
+//        });
 
         // Set button actions
         btnIntake.setOnClickListener(v -> {
@@ -79,8 +82,35 @@ public class DashboardActivity extends AppCompatActivity {
             startActivity(back);
         });
 
+        btnWrongScan.setOnClickListener(v -> {
+            Intent back = new Intent(DashboardActivity.this, WrongScanActivity.class);
+            back.putExtra("user_id", userId);
+            back.putExtra("username", username);
+            startActivity(back);
+        });
+
         btnSync.setOnClickListener(v -> {
             // TODO: implement SQLite sync functionality later
+            Intent back = new Intent(DashboardActivity.this, ScanToQuarantineActivity.class);
+            back.putExtra("user_id", userId);
+            back.putExtra("username", username);
+            startActivity(back);
+        });
+
+        btnSFQ.setOnClickListener(v -> {
+            // TODO: implement SQLite sync functionality later
+            Intent back = new Intent(DashboardActivity.this, ScanFromQuarantineActivity.class);
+            back.putExtra("user_id", userId);
+            back.putExtra("username", username);
+            startActivity(back);
+        });
+
+        btnStock.setOnClickListener(v -> {
+            // TODO: implement SQLite sync functionality later
+            Intent back = new Intent(DashboardActivity.this, ScanActivity.class);
+            back.putExtra("user_id", userId);
+            back.putExtra("username", username);
+            startActivity(back);
         });
 
         btnLogout.setOnClickListener(v -> finish());

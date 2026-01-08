@@ -267,6 +267,9 @@ public class NewIntakeActivity extends AppCompatActivity {
         qrAdapter.notifyDataSetChanged();
         etQrInput.setText("");
 
+        // 🔥 ALSO send to stock scan endpoint
+        StockScanUploader.upload(this, parsed.qr);
+
         // ✅ validate just this one QR
         validateSingleQR(parsed);
     }

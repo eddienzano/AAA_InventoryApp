@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F7FA"
+    android:padding="20dp">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center"
+        android:background="@drawable/header_gradient"
+        android:elevation="6dp"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coldroom Stock Scanner"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan using Honeywell or Camera"
+            android:textSize="14sp"
+            android:textColor="#E6FFFFFF"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+
+    <!-- Input box (Honeywell keyboard wedge) -->
+    <EditText
+        android:id="@+id/inputScan"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Scan QR code here"
+        android:padding="16dp"
+        android:textSize="18sp"
+        android:background="@drawable/input_box"
+        android:singleLine="true"
+        android:autofillHints=""
+        android:importantForAutofill="no"
+        android:textColor="#000000"
+        android:textColorHint="#999999"
+        android:layout_marginBottom="30dp" />
+
+    <!-- Camera Scan Button -->
+    <Button
+        android:id="@+id/btnCameraScan"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="📷  Scan With Camera"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="@drawable/primary_button"
+        android:textColor="#FFFFFF"
+        android:elevation="4dp" />
+
+</LinearLayout>

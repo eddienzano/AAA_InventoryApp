@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="spinnerLength" type="id" />
+    <item name="edtQuantity" type="id" />
+    <item name="btnSubmitPriority" type="id" />
+    <item name="txtReceived" type="id" />
+    <item name="txtLength" type="id" />
+    <item name="txtNeeded" type="id" />
+    <item name="editConfirmed" type="id" />
+</resources>

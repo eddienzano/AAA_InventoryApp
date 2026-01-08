@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.card.MaterialCardView;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,6 +25,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity {
+
     EditText usernameInput, passwordInput;
     Button loginBtn;
 
@@ -43,6 +46,33 @@ public class LoginActivity extends AppCompatActivity {
         apiClient = ApiClient.getInstance();
 
         loginBtn.setOnClickListener(v -> loginUser());
+
+        /* =======================
+           PRIORITY LIST
+        ======================== */
+        MaterialCardView priorityButton = findViewById(R.id.priorityButton);
+        priorityButton.setOnClickListener(v -> {
+            Intent i = new Intent(LoginActivity.this, PriorityActivity.class);
+            startActivity(i);
+        });
+
+        /* =======================
+           REJECTION REPORT (NEW)
+        ======================== */
+        MaterialCardView rejectionReportButton = findViewById(R.id.rejectionReportButton);
+        rejectionReportButton.setOnClickListener(v -> {
+            Intent i = new Intent(LoginActivity.this, RejectionReportsActivity.class);
+            startActivity(i);
+        });
+
+        /* =======================
+           PRIORITY CONFIRMATION
+        ======================== */
+        MaterialCardView priorityConfirmationButton = findViewById(R.id.priorityConfirmationButton);
+        priorityConfirmationButton.setOnClickListener(v -> {
+            Intent i = new Intent(LoginActivity.this, PriorityConfirmationActivity.class);
+            startActivity(i);
+        });
     }
 
     private void loginUser() {
@@ -66,11 +96,14 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
 
         apiClient.getClient().newCall(request).enqueue(new Callback() {
+
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 Log.e(TAG, "Network error", e);
                 runOnUiThread(() ->
-                        Toast.makeText(LoginActivity.this, "Network Error: " + e.getMessage(), Toast.LENGTH_LONG).show()
+                        Toast.makeText(LoginActivity.this,
+                                "Network Error: " + e.getMessage(),
+                                Toast.LENGTH_LONG).show()
                 );
             }
 
@@ -100,14 +133,18 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         } else {
-                            Toast.makeText(LoginActivity.this, "Login Failed: " + message, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this,
+                                    "Login Failed: " + message,
+                                    Toast.LENGTH_SHORT).show();
                         }
                     });
 
                 } catch (IOException | JSONException e) {
                     Log.e(TAG, "Response parsing error", e);
                     runOnUiThread(() ->
-                            Toast.makeText(LoginActivity.this, "Invalid server response", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(LoginActivity.this,
+                                    "Invalid server response",
+                                    Toast.LENGTH_SHORT).show()
                     );
                 } finally {
                     response.close();
