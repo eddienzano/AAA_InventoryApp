@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class FloorDashboardActivity extends AppCompatActivity {
 
     TextView floorWelcomeText;
-    Button newscanToWipBtn, scanToWipBtn, scanToBoxBtn, scanOutWipBtn, scanOutReworkBtn;
+    Button newscanToWipBtn, scanToWipBtn, scanToBoxBtn, scanOutWipBtn,rejectBtn, scanOutReworkBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class FloorDashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_floor_dashboard);
 
         floorWelcomeText = findViewById(R.id.floorWelcomeText);
-//        scanToWipBtn = findViewById(R.id.scanToWipBtn);
+       rejectBtn = findViewById(R.id.rejectBtn);
         scanToBoxBtn = findViewById(R.id.scanToBoxBtn);
         scanOutWipBtn = findViewById(R.id.scanOutWipBtn);
         scanOutReworkBtn = findViewById(R.id.scanOutReworkBtn);
@@ -53,5 +53,11 @@ public class FloorDashboardActivity extends AppCompatActivity {
             Intent intent = new Intent(FloorDashboardActivity.this, ScanOutReworkActivity.class);
             startActivity(intent);
         });
-    }
+
+
+      rejectBtn.setOnClickListener(v -> {
+        Intent intent = new Intent(FloorDashboardActivity.this, RejectionReportsActivity.class);
+        startActivity(intent);
+    });
+}
 }

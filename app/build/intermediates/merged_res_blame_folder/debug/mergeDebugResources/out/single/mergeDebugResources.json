@@ -128,6 +128,10 @@
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-51:\\layout\\item_length_chip.xml"
     },
     {
+        "merged": "com.yourapp-debug-49:/layout_activity_floor_dashboard.xml.flat",
+        "source": "com.yourapp-main-51:/layout/activity_floor_dashboard.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-49:\\drawable_bg_edittext.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-51:\\drawable\\bg_edittext.xml"
     },
@@ -222,10 +226,6 @@
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-49:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-51:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
-    },
-    {
-        "merged": "com.yourapp-debug-49:/layout_fragment_rejection_tab.xml.flat",
-        "source": "com.yourapp-main-51:/layout/fragment_rejection_tab.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-49:\\layout_activity_rejection_reports.xml.flat",

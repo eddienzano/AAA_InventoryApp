@@ -4248,6 +4248,7 @@ id rectangles
 id recycler
 id recyclerRejections
 id recyclerViewRejections
+id rejectBtn
 id rejectionReportButton
 id report_drawn
 id restart

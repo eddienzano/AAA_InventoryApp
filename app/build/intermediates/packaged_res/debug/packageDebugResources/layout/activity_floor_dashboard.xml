@@ -70,5 +70,14 @@
             android:textColor="#FFFFFF"
             android:backgroundTint="#F44336" />
 
+        <Button
+            android:id="@+id/rejectBtn"
+            android:text="Rejection Report"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#F44336" />
+
     </LinearLayout>
 </ScrollView>

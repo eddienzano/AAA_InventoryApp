@@ -4247,6 +4247,7 @@ int id rectangles 0x7f0901c4
 int id recycler 0x7f0901c5
 int id recyclerRejections 0x7f0902a4
 int id recyclerViewRejections 0x7f0901c6
+int id rejectBtn 0x7f0902b5
 int id rejectionReportButton 0x7f0902aa
 int id report_drawn 0x7f0901c7
 int id restart 0x7f0901c8

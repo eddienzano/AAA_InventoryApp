@@ -153,6 +153,7 @@ id quarantineTable
 id recycler
 id recyclerRejections
 id recyclerViewRejections
+id rejectBtn
 id rejectionReportButton
 id resultBox
 id retryBtn
