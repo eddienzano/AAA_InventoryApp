@@ -1,0 +1,27 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Reusable row -->
+        <include layout="@layout/length_row" android:id="@+id/len40"/>
+        <include layout="@layout/length_row" android:id="@+id/len50"/>
+        <include layout="@layout/length_row" android:id="@+id/len60"/>
+        <include layout="@layout/length_row" android:id="@+id/len70"/>
+        <include layout="@layout/length_row" android:id="@+id/len80"/>
+        <include layout="@layout/length_row" android:id="@+id/len90"/>
+        <include layout="@layout/length_row" android:id="@+id/len100"/>
+
+        <Button
+            android:id="@+id/btnSubmitLengths"
+            android:text="Submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</ScrollView>

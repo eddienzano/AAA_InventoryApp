@@ -1,0 +1,36 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <Button
+        android:id="@+id/btnScanConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scan Box With Camera"/>
+
+    <!-- Hidden input for Honeywell scanner -->
+    <EditText
+        android:id="@+id/etScannerInput"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </ScrollView>
+
+</LinearLayout>

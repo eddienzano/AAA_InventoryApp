@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.yourapp-mergeDebugResources-47:/values-he/values-he.xml",
+            "outputFile": "com.yourapp-mergeDebugResources-48:/values-he/values-he.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Pandey\\.gradle\\caches\\8.13\\transforms\\50f3d90c3210953ca24b5ba3f4266302\\transformed\\jetified-zxing-android-embedded-4.3.0\\res\\values-he\\values-he.xml",
+                    "source": "C:\\Users\\Pandey\\.gradle\\caches\\8.13\\transforms\\677cc78a74b695891db22290d86f55bc\\transformed\\jetified-zxing-android-embedded-4.3.0\\res\\values-he\\values-he.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

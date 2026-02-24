@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Farm Spinner -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select Farm">
+        <Spinner
+            android:id="@+id/spinnerFarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:spinnerMode="dropdown"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Scan Title -->
+    <TextView
+        android:layout_marginTop="16dp"
+        android:text="Scan boxes remaining in store"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- QR Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Scan QR Code">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etScanQr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Camera Scan Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCameraScan"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scan with Camera"
+
+        app:iconGravity="textStart"
+        style="@style/Widget.MaterialComponents.Button"/>
+
+    <!-- Scan Count -->
+    <TextView
+        android:id="@+id/txtCount"
+        android:layout_marginTop="12dp"
+        android:text="Scanned: 0"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Recent Scans Scroll -->
+    <ScrollView
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+        <TextView
+            android:id="@+id/tvRecent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp"/>
+    </ScrollView>
+
+    <!-- Scanned Items RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvScans"
+        android:layout_marginTop="12dp"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical"/>
+
+    <!-- Sync Button -->
+    <Button
+        android:id="@+id/btnSync"
+        android:layout_marginTop="8dp"
+        android:text="SYNC NOW"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- End Session Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEndSession"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="End Stock Scan Session"
+        style="@style/Widget.MaterialComponents.Button"
+        android:backgroundTint="@color/teal_700"
+        android:textColor="@color/white"/>
+</LinearLayout>

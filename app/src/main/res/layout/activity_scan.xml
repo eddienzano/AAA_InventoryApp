@@ -65,4 +65,10 @@
         android:textColor="#FFFFFF"
         android:elevation="4dp" />
 
+    <Button
+        android:id="@+id/btnSendDb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEND TO DB"/>
+
 </LinearLayout>

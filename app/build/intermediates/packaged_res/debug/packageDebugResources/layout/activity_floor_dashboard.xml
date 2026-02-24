@@ -21,15 +21,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-<!--        <Button-->
-<!--            android:id="@+id/scanToWipBtn"-->
-<!--            android:text="Scan to WIP"-->
-<!--            android:layout_width="260dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textColor="#FFFFFF"-->
-<!--            android:backgroundTint="#4CAF50"-->
-<!--            android:layout_marginBottom="20dp" />-->
+        <Button
+            android:id="@+id/gradedBtn"
+            android:text="Graded stock"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#4CAF50"
+            android:layout_marginBottom="20dp" />
 
         <Button
             android:id="@+id/newscanToWipBtn"
@@ -50,6 +50,28 @@
             android:textColor="#FFFFFF"
             android:backgroundTint="#2196F3"
             android:layout_marginBottom="20dp" />
+
+        <Button
+            android:id="@+id/scanStockBtn"
+            android:text="StocK scan"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FF9800"
+            android:layout_marginBottom="20dp" />
+
+
+        <Button
+            android:id="@+id/boxConfirm"
+            android:text="Confirm Box Details"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
+            android:layout_marginBottom="20dp" />
+
 
         <Button
             android:id="@+id/scanOutWipBtn"

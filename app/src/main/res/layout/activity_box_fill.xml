@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F6F8"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- HEADER -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Box Fill / Scan"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#1F2937"
+            android:paddingBottom="12dp" />
+
+        <!-- FARM & VARIETY CARD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:elevation="4dp">
+
+            <TextView
+                android:text="Farm"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="#374151"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/spinnerFarm"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="12dp"/>
+
+
+            <TextView
+                android:text="Variety"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="#374151"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/varietyInput"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Tap to select variety"
+                android:inputType="text"
+                android:padding="10dp"
+                android:background="@android:drawable/edit_text"
+                />
+
+        </LinearLayout>
+
+        <!-- QUANTITIES CARD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@android:color/white"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:elevation="4dp">
+
+
+            <EditText
+                android:id="@+id/etBunches"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:hint="Length"
+                android:inputType="number"
+                android:layout_marginEnd="8dp"/>
+
+
+            <EditText
+                android:id="@+id/etStems"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:hint="Pack Rate"
+                android:inputType="number"/>
+        </LinearLayout>
+
+        <!-- PACKAGING CARD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:elevation="4dp">
+
+            <TextView
+                android:text="Packaging"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="#374151"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="SFK"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="#374151"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <Spinner
+                android:id="@+id/spinnerSFK"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="8dp"/>
+            <TextView
+                android:text="SLEEVE"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="#374151"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/spinnerSleeve"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:text="BOX"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="#374151"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/spinnerBoxType"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnScanBox"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Scan Box"
+            android:textStyle="bold"
+            android:backgroundTint="#10B981"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="12dp"/>
+
+
+        <EditText
+            android:id="@+id/etScanSink"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Scan box QR"
+            android:inputType="textNoSuggestions"
+            android:importantForAutofill="no"
+            android:imeOptions="actionDone"
+            android:layout_marginBottom="12dp"/>
+
+
+
+
+
+        <!-- SAVE BUTTON -->
+        <Button
+            android:id="@+id/btnSaveBox"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Save Boxes (Offline)"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#2563EB"
+            android:layout_marginBottom="12dp"/>
+
+
+        <Button
+            android:id="@+id/btnSyncNow"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Sync Now"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#F59E0B"
+            android:layout_marginBottom="12dp"/>
+
+
+        <!-- SCANNED BOXES LIST -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scanned Boxes"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="#374151"
+            android:layout_marginBottom="6dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvScannedBoxes"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@android:color/white"
+            android:elevation="4dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

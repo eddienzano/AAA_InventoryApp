@@ -137,7 +137,7 @@
             android:name="com.yourapp.ScanFromQuarantineActivity"
             android:exported="true" />
         <activity
-            android:name="com.yourapp.ScanActivity"
+            android:name="com.yourapp.stocks.ScanActivity"
             android:exported="true" />
         <activity
             android:name="com.yourapp.PriorityConfirmationActivity"
@@ -148,6 +148,24 @@
         <activity
             android:name="com.yourapp.RejectionReportsActivity"
             android:exported="true" />
+        <activity
+            android:name="com.yourapp.gradedstock.GradedEntryActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.yourapp.gradedstock.ConfirmEntryActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yourapp.boxfill.BoxFillActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yourapp.warehouse.WarehouseStockScanActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yourapp.boxfill.BoxConfirmActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yourapp.ScanToDampActivity"
+            android:exported="false" />
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:clearTaskOnLaunch="true"
@@ -315,6 +333,27 @@
                 android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
         </service>
+        <service
+            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+            android:directBootAware="true"
+            android:exported="false" >
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+        </service>
+
+        <provider
+            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+            android:authorities="com.yourapp.mlkitinitprovider"
+            android:exported="false"
+            android:initOrder="99" />
+
         <service
             android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
             android:exported="false" >

@@ -48,6 +48,7 @@
     <color name="textSecondary">#757575</color>
     <color name="white">#FFFFFF</color>
     <drawable name="ic_notification"/>
+    <drawable name="placeholder"/>
     <item name="btnSubmitPriority" type="id"/>
     <item name="editConfirmed" type="id"/>
     <item name="edtQuantity" type="id"/>

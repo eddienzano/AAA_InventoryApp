@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lengthRowRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/txtLength"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="40cm"/>
+
+    <EditText
+        android:id="@+id/edtQty"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"/>
+</LinearLayout>

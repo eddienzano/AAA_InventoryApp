@@ -9,6 +9,8 @@
 
 
 
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -110,7 +112,7 @@
         <activity android:name=".ScanFromQuarantineActivity"
             android:exported="true"/>
 
-        <activity android:name=".ScanActivity"
+        <activity android:name=".stocks.ScanActivity"
             android:exported="true"/>
 
         <activity android:name=".PriorityConfirmationActivity"
@@ -121,6 +123,29 @@
 
         <activity android:name=".RejectionReportsActivity"
             android:exported="true"/>
+
+        <activity android:name=".gradedstock.GradedEntryActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".gradedstock.ConfirmEntryActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".boxfill.BoxFillActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".warehouse.WarehouseStockScanActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".boxfill.BoxConfirmActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ScanToDampActivity"
+            android:exported="false" />
 
 
 

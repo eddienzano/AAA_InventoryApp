@@ -1,6 +1,7 @@
 package com.yourapp;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -11,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.card.MaterialCardView;
+import com.yourapp.boxfill.FlowerDbHelper;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -33,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String BASE_URL = "https://www.aaagrowers.co.ke/inventory/";
 
     private ApiClient apiClient;
+    private FlowerDbHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,30 +48,22 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.loginBtn);
 
         apiClient = ApiClient.getInstance();
+        dbHelper = new FlowerDbHelper(this);
 
         loginBtn.setOnClickListener(v -> loginUser());
 
-        /* =======================
-           PRIORITY LIST
-        ======================== */
         MaterialCardView priorityButton = findViewById(R.id.priorityButton);
         priorityButton.setOnClickListener(v -> {
             Intent i = new Intent(LoginActivity.this, PriorityActivity.class);
             startActivity(i);
         });
 
-        /* =======================
-           REJECTION REPORT (NEW)
-        ======================== */
         MaterialCardView rejectionReportButton = findViewById(R.id.rejectionReportButton);
         rejectionReportButton.setOnClickListener(v -> {
             Intent i = new Intent(LoginActivity.this, RejectionReportsActivity.class);
             startActivity(i);
         });
 
-        /* =======================
-           PRIORITY CONFIRMATION
-        ======================== */
         MaterialCardView priorityConfirmationButton = findViewById(R.id.priorityConfirmationButton);
         priorityConfirmationButton.setOnClickListener(v -> {
             Intent i = new Intent(LoginActivity.this, PriorityConfirmationActivity.class);
@@ -122,16 +118,19 @@ public class LoginActivity extends AppCompatActivity {
 
                     runOnUiThread(() -> {
                         if ("success".equalsIgnoreCase(status)) {
-                            String uname = json.optString("username", "");
-                            int userId = json.optInt("user_id", -1);
 
-                            Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this,
+                                    "Login Success. Syncing data...",
+                                    Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(LoginActivity.this, MainDashboardActivity.class);
-                            intent.putExtra("username", uname);
-                            intent.putExtra("user_id", userId);
-                            startActivity(intent);
-                            finish();
+                            syncFarmsAndVarieties(() -> {
+                                Intent intent = new Intent(LoginActivity.this, MainDashboardActivity.class);
+                                intent.putExtra("username", json.optString("username", ""));
+                                intent.putExtra("user_id", json.optInt("user_id", -1));
+                                startActivity(intent);
+                                finish();
+                            });
+
                         } else {
                             Toast.makeText(LoginActivity.this,
                                     "Login Failed: " + message,
@@ -152,4 +151,96 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    // =====================================================
+    // MASTER DATA SYNC (LOGIN TIME)
+    // =====================================================
+    private void syncFarmsAndVarieties(Runnable onDone) {
+
+        Request farmsReq = new Request.Builder()
+                .url(BASE_URL + "get_farms.php")
+                .get()
+                .build();
+
+        apiClient.getClient().newCall(farmsReq).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                Log.e(TAG, "Farm sync failed", e);
+                runOnUiThread(onDone);
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) {
+                try {
+                    JSONArray farms = new JSONArray(response.body().string());
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                    db.beginTransaction();
+
+                    for (int i = 0; i < farms.length(); i++) {
+                        JSONObject f = farms.getJSONObject(i);
+                        db.execSQL(
+                                "INSERT OR REPLACE INTO farms_local (id,name) VALUES (?,?)",
+                                new Object[]{f.getInt("id"), f.getString("name")}
+                        );
+                    }
+                    db.setTransactionSuccessful();
+                    db.endTransaction();
+
+                } catch (Exception e) {
+                    Log.e(TAG, "Farm sync parse error", e);
+                } finally {
+                    response.close();
+                    syncVarieties(onDone);
+                }
+            }
+        });
+    }
+
+    private void syncVarieties(Runnable onDone) {
+
+        Request req = new Request.Builder()
+                .url(BASE_URL + "fetch_varieties.php")
+                .get()
+                .build();
+
+        apiClient.getClient().newCall(req).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                Log.e(TAG, "Variety sync failed", e);
+                runOnUiThread(onDone);
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) {
+                try {
+                    JSONArray arr = new JSONArray(response.body().string());
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                    db.beginTransaction();
+
+                    for (int i = 0; i < arr.length(); i++) {
+                        JSONObject v = arr.getJSONObject(i);
+
+                        int varietyId = v.getInt("VarietyId");
+                        int farmId    = v.getInt("FarmId");
+                        String name   = v.getString("VarietyName");
+
+                        db.execSQL(
+                                "INSERT OR REPLACE INTO varieties_local (id,farm_id,name) VALUES (?,?,?)",
+                                new Object[]{ varietyId, farmId, name }
+                        );
+                    }
+
+                    db.setTransactionSuccessful();
+                    db.endTransaction();
+
+                } catch (Exception e) {
+                    Log.e(TAG, "Variety sync parse error", e);
+                } finally {
+                    response.close();
+                    runOnUiThread(onDone);
+                }
+            }
+        });
+    }
+
 }

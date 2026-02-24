@@ -1,0 +1,61 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- FARM + SESSION INFO -->
+    <TextView
+        android:id="@+id/txtFarm"
+        android:text="Farm: AAA"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_height="48dp"
+        android:layout_width="350dp"/>
+
+    <TextView
+        android:id="@+id/txtSession"
+        android:text="Session: OPEN"
+        android:textSize="14sp"
+        android:layout_height="48dp"
+         android:layout_width="350dp"/>
+
+    <!-- LIVE COUNTER -->
+    <TextView
+        android:id="@+id/txtCount"
+        android:text="Running Stock: 0"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:padding="12dp"
+        android:gravity="center"
+        android:layout_height="60dp"
+        android:layout_width="400dp"/>
+
+    <!-- LAST SCAN -->
+    <TextView
+        android:id="@+id/txtLastScan"
+        android:text="Last scan: —"
+        android:textSize="14sp"
+        android:layout_height="300dp"
+        android:layout_width="400dp"/>
+
+    <!-- SCAN BUTTON -->
+    <Button
+        android:id="@+id/btnScan"
+        android:text="SCAN BOX"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:layout_height="48dp" android:layout_width="400dp"/>
+
+    <!-- CLOSE SESSION -->
+    <Button
+        android:id="@+id/btnClose"
+        android:text="CLOSE SCAN"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#B71C1C"
+        android:textColor="#FFFFFF"
+        android:layout_height="48dp"
+        android:layout_width="400dp"/>
+
+</LinearLayout>

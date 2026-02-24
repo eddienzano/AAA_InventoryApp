@@ -9,10 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.button.MaterialButton;
+import com.yourapp.stocks.ScanActivity;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    private MaterialButton btnScanIn, btnScanOut, btnSync, btnLogout, btnWrongScan, btnSFQ, btnStock, btnIntake;
+    private MaterialButton btnScanIn, btnScanOut, btnSync, btnLogout, btnWrongScan, btnSFQ, btnStock, btnIntake, btnDampscan ;
     private MaterialButton btnScanBackColdroom;
     private ShimmerFrameLayout shimmerOverlay;
     private TextView txtUserInfo;
@@ -37,6 +38,7 @@ public class DashboardActivity extends AppCompatActivity {
         txtUserInfo = findViewById(R.id.txtUserInfo);
         btnScanBackColdroom = findViewById(R.id.btnScanBackColdroom);
         btnWrongScan = findViewById(R.id.btnWrongScan);
+        btnDampscan = findViewById(R.id.btnDampscan);
 
         // Get values passed from LoginActivity
         Intent intent = getIntent();
@@ -108,6 +110,14 @@ public class DashboardActivity extends AppCompatActivity {
         btnStock.setOnClickListener(v -> {
             // TODO: implement SQLite sync functionality later
             Intent back = new Intent(DashboardActivity.this, ScanActivity.class);
+            back.putExtra("user_id", userId);
+            back.putExtra("username", username);
+            startActivity(back);
+        });
+
+        btnDampscan.setOnClickListener(v -> {
+            // TODO: implement SQLite sync functionality later
+            Intent back = new Intent(DashboardActivity.this, ScanToDampActivity.class);
             back.putExtra("user_id", userId);
             back.putExtra("username", username);
             startActivity(back);

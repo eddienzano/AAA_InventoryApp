@@ -144,7 +144,7 @@ public class ScanOutActivity extends AppCompatActivity {
                         Toast.makeText(ScanOutActivity.this, message, Toast.LENGTH_LONG).show();
                         qrInput.requestFocus();
                         if ("success".equals(status)) {
-                            loadLastScans();
+                            //loadLastScans();
                         }
                     });
                 } catch (JSONException e) {

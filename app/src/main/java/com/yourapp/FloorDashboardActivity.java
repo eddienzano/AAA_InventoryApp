@@ -1,17 +1,25 @@
 package com.yourapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.yourapp.boxfill.BoxConfirmActivity;
+import com.yourapp.gradedstock.GradedEntryActivity;
+
+
 import androidx.appcompat.app.AppCompatActivity;
+import com.yourapp.boxfill.BoxFillActivity;
+import com.yourapp.warehouse.WarehouseStockScanActivity;
 
 public class FloorDashboardActivity extends AppCompatActivity {
 
     TextView floorWelcomeText;
-    Button newscanToWipBtn, scanToWipBtn, scanToBoxBtn, scanOutWipBtn,rejectBtn, scanOutReworkBtn;
+    Button newscanToWipBtn, scanToWipBtn, gradedBtn, scanToBoxBtn, scanOutWipBtn,rejectBtn, scanOutReworkBtn, scanStockBtn, boxConfirm;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,15 +31,23 @@ public class FloorDashboardActivity extends AppCompatActivity {
         scanOutWipBtn = findViewById(R.id.scanOutWipBtn);
         scanOutReworkBtn = findViewById(R.id.scanOutReworkBtn);
         newscanToWipBtn = findViewById(R.id.newscanToWipBtn);
+        gradedBtn=findViewById(R.id.gradedBtn);
+        scanStockBtn=findViewById(R.id.scanStockBtn);
+        boxConfirm =findViewById(R.id.boxConfirm);
+
 
         String username = getIntent().getStringExtra("username");
         floorWelcomeText.setText("Floor Dashboard - " + username);
 
         // Button actions - link to your scanning activities
-//        scanToWipBtn.setOnClickListener(v -> {
-//            Intent intent = new Intent(FloorDashboardActivity.this, ScanToWipActivity.class);
-//            startActivity(intent);
-//        });
+        gradedBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    FloorDashboardActivity.this,
+                    GradedEntryActivity.class
+            );
+            startActivity(intent);
+        });
+
 
         // Button actions - link to your scanning activities
         newscanToWipBtn.setOnClickListener(v -> {
@@ -59,5 +75,33 @@ public class FloorDashboardActivity extends AppCompatActivity {
         Intent intent = new Intent(FloorDashboardActivity.this, RejectionReportsActivity.class);
         startActivity(intent);
     });
-}
+
+        scanToBoxBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    FloorDashboardActivity.this,
+                    BoxFillActivity.class
+            );
+            startActivity(intent);
+        });
+
+        scanStockBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    FloorDashboardActivity.this,
+                    WarehouseStockScanActivity.class
+            );
+            startActivity(intent);
+        });
+
+        boxConfirm.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    FloorDashboardActivity.this,
+                    BoxConfirmActivity.class
+            );
+            startActivity(intent);
+        });
+
+
+
+
+    }
 }
