@@ -31,6 +31,16 @@
             android:layout_marginBottom="12dp"
             android:elevation="4dp">
 
+            <Button
+                android:id="@+id/btnSyncBoxes"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Sync Boxes"
+                android:textStyle="bold"
+                android:backgroundTint="#10B981"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="12dp"/>
+
             <TextView
                 android:text="Farm"
                 android:textStyle="bold"

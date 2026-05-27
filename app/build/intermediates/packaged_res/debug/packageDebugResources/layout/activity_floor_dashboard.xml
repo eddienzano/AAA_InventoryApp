@@ -1,105 +1,349 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F3F4F6">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="24dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- HEADER -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/floorWelcomeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Floor Dashboard"
+                android:textColor="#111827"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Production and Scanning Operations"
+                android:textColor="#6B7280"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <!-- MAIN GRID -->
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:rowCount="4"
+            android:useDefaultMargins="false">
+
+            <!-- GRADED STOCK -->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/dashboard_card_green"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📦"
+                    android:textSize="34sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Graded Stock"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/gradedBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="14dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:text="OPEN"
+                    android:textAllCaps="false"
+                    android:textColor="#166534"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- BUNCHER SCAN -->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/dashboard_card_blue"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📱"
+                    android:textSize="34sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Buncher Scan"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/newscanToWipBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="14dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:text="OPEN"
+                    android:textAllCaps="false"
+                    android:textColor="#1D4ED8"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- SCAN TO BOX -->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/dashboard_card_orange"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📦"
+                    android:textSize="34sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Scan To Box"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/scanToBoxBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="14dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:text="OPEN"
+                    android:textAllCaps="false"
+                    android:textColor="#C2410C"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- SUMMER BACK -->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/dashboard_card_purple"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="❄️"
+                    android:textSize="34sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Summers Back To Coldroom"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/SummerBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="14dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:text="OPEN"
+                    android:textAllCaps="false"
+                    android:textColor="#6D28D9"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- STOCK SCAN -->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/dashboard_card_teal"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📋"
+                    android:textSize="34sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Stock Scan"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/scanStockBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="14dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:text="OPEN"
+                    android:textAllCaps="false"
+                    android:textColor="#0F766E"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- CONFIRM BOX -->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/dashboard_card_red"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✅"
+                    android:textSize="34sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Confirm Box"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/boxConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="14dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:text="OPEN"
+                    android:textAllCaps="false"
+                    android:textColor="#991B1B"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </GridLayout>
+
+        <!-- SECONDARY ACTIONS -->
 
         <TextView
-            android:id="@+id/floorWelcomeText"
-            android:text="Floor Dashboard"
-            android:textColor="#333333"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="40dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/gradedBtn"
-            android:text="Graded stock"
-            android:layout_width="260dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="14dp"
+            android:text="Additional Actions"
+            android:textColor="#111827"
             android:textSize="18sp"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#4CAF50"
-            android:layout_marginBottom="20dp" />
-
-        <Button
-            android:id="@+id/newscanToWipBtn"
-            android:text="BUNCHER SCAN"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#4CAF50"
-            android:layout_marginBottom="20dp" />
-
-        <Button
-            android:id="@+id/scanToBoxBtn"
-            android:text="Scan to Box"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#2196F3"
-            android:layout_marginBottom="20dp" />
-
-        <Button
-            android:id="@+id/scanStockBtn"
-            android:text="StocK scan"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#FF9800"
-            android:layout_marginBottom="20dp" />
-
-
-        <Button
-            android:id="@+id/boxConfirm"
-            android:text="Confirm Box Details"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#2196F3"
-            android:layout_marginBottom="20dp" />
-
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/scanOutWipBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#F59E0B"
             android:text="Scan Out from WIP"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#FF9800"
-            android:layout_marginBottom="20dp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/scanOutReworkBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#EF4444"
             android:text="Scan Out for Rework"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#F44336" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/rejectBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:backgroundTint="#DC2626"
             android:text="Rejection Report"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#F44336" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
+
 </ScrollView>

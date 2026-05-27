@@ -10,11 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import com.yourapp.*;
+import com.yourapp.summers.SummersIntakeActivity;
 
 public class MainDashboardActivity extends AppCompatActivity {
 
     TextView welcomeText;
-    Button intakeBtn, floorBtn, qcBtn1, qaBtn, qcBtn2, priorityBtn;
+    Button intakeBtn, floorBtn, qcBtn1, qaBtn, qcBtn2, priorityBtn, SummersBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class MainDashboardActivity extends AppCompatActivity {
         qcBtn1 = findViewById(R.id.qcBtn1);
         qaBtn = findViewById(R.id.qaBtn);
         priorityBtn= findViewById(R.id.priorityBtn);
+        SummersBtn=findViewById(R.id.SummersBtn);
 
 
         FirebaseMessaging.getInstance().getToken()
@@ -92,6 +94,13 @@ public class MainDashboardActivity extends AppCompatActivity {
 
         priorityBtn.setOnClickListener(v -> {
             Intent intent = new Intent(MainDashboardActivity.this, PriorityActivity.class);
+            intent.putExtra("username", username);
+            intent.putExtra("user_id", userId);
+            startActivity(intent);
+        });
+
+        SummersBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainDashboardActivity.this, SummersIntakeActivity.class);
             intent.putExtra("username", username);
             intent.putExtra("user_id", userId);
             startActivity(intent);

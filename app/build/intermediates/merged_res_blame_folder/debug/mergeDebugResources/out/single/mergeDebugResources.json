@@ -1,11 +1,23 @@
 [
     {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_input_bg.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\input_bg.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_dashboard_card_blue.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\dashboard_card_blue.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_bg_result_neutral.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\bg_result_neutral.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_dashboard_card_green.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\dashboard_card_green.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_item_length_chip.xml.flat",
@@ -32,20 +44,32 @@
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\mipmap-xxhdpi\\exclusive.png"
     },
     {
-        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_priority_bg_gradient.xml.flat",
-        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\priority_bg_gradient.xml"
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_tile_purple.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\tile_purple.xml"
     },
     {
-        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_scan_to_wip.xml.flat",
-        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_scan_to_wip.xml"
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_priority_bg_gradient.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\priority_bg_gradient.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_scan_to_wip.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_scan_to_wip.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_header_glass.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\header_glass.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_priority_item.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\priority_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_dashboard_card_orange.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\dashboard_card_orange.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\mipmap-mdpi_ic_launcher_round.webp.flat",
@@ -76,8 +100,16 @@
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\autocomplete_item.xml"
     },
     {
+        "merged": "com.yourapp-debug-50:/layout_activity_main_dashboard.xml.flat",
+        "source": "com.yourapp-main-52:/layout/activity_main_dashboard.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_scan_from_quarantine.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_scan_from_quarantine.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_packhouse_verify.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_packhouse_verify.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_rounded_input.xml.flat",
@@ -86,6 +118,10 @@
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_main_dashboard.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_main_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_dashboard_card_purple.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\dashboard_card_purple.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_header_percentage.xml.flat",
@@ -98,6 +134,14 @@
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_scan_to_storage.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_scan_to_storage.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_tile_orange.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\tile_orange.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_bg_input.xml.flat",
@@ -128,6 +172,10 @@
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\ic_coldroom.xml"
     },
     {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_dialog_grading.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\dialog_grading.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_priority.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_priority.xml"
     },
@@ -148,6 +196,10 @@
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\mipmap-anydpi-v26\\exclusive.png"
     },
     {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_summers_intake.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_summers_intake.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_row_rejection.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\row_rejection.xml"
     },
@@ -160,8 +212,16 @@
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_scan_back_coldroom.xml"
     },
     {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_dashboard_card_red.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\dashboard_card_red.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_quality_analysis.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_quality_analysis.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_item_verify_variety.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\item_verify_variety.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_item_variety_card.xml.flat",
@@ -170,6 +230,10 @@
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_input_modern.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\input_modern.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_tile_green.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\tile_green.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_length_row.xml.flat",
@@ -192,6 +256,10 @@
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_warehouse_scan.xml"
     },
     {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_item_bucket.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\item_bucket.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_spinner_item.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\spinner_item.xml"
     },
@@ -200,24 +268,36 @@
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\item_priority_length.xml"
     },
     {
-        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_warehouse_stock_scan.xml.flat",
-        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_warehouse_stock_scan.xml"
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_simple_dropdown_item_1line.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\simple_dropdown_item_1line.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_bg_card.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\bg_card.xml"
     },
     {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_warehouse_stock_scan.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_warehouse_stock_scan.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\mipmap-mdpi_exclusive.png.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\mipmap-mdpi\\exclusive.png"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_bg_history_item.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\bg_history_item.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_row_rejection_history.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\row_rejection_history.xml"
     },
     {
-        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_bg_history_item.xml.flat",
-        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\bg_history_item.xml"
+        "merged": "com.yourapp-debug-50:/drawable_tile_dark.xml.flat",
+        "source": "com.yourapp-main-52:/drawable/tile_dark.xml"
+    },
+    {
+        "merged": "com.yourapp-debug-50:/drawable_tile_blue.xml.flat",
+        "source": "com.yourapp-main-52:/drawable/tile_blue.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_box_confirm.xml.flat",
@@ -236,12 +316,12 @@
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\spinner_dropdown_item.xml"
     },
     {
-        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\mipmap-xhdpi_ic_launcher_foreground.webp.flat",
-        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\mipmap-xhdpi\\ic_launcher_foreground.webp"
+        "merged": "com.yourapp-debug-50:/drawable_tile_orange.xml.flat",
+        "source": "com.yourapp-main-52:/drawable/tile_orange.xml"
     },
     {
-        "merged": "com.yourapp-debug-50:/layout_activity_box_confirm.xml.flat",
-        "source": "com.yourapp-main-52:/layout/activity_box_confirm.xml"
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\mipmap-xhdpi\\ic_launcher_foreground.webp"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_box_fill.xml.flat",
@@ -254,6 +334,10 @@
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\mipmap-xxhdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_scan_back_summer.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_scan_back_summer.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\color_md_theme_primarycontainer.xml.flat",
@@ -328,6 +412,10 @@
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\ic_logout.xml"
     },
     {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_scanout.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_scanout.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_header_by_variety.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\header_by_variety.xml"
     },
@@ -342,6 +430,10 @@
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_header_cell.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\header_cell.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_farm_select.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_farm_select.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_scan_out_rework.xml.flat",
@@ -364,12 +456,28 @@
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_scan.xml"
     },
     {
+        "merged": "com.yourapp-debug-50:/drawable_tile_red.xml.flat",
+        "source": "com.yourapp-main-52:/drawable/tile_red.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_tile_red.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\tile_red.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_intake.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_intake.xml"
     },
     {
+        "merged": "com.yourapp-debug-50:/layout_activity_dashboard.xml.flat",
+        "source": "com.yourapp-main-52:/layout/activity_dashboard.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_reject.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_reject.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_dashboard_header_bg.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\dashboard_header_bg.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_shimmer_placeholder.xml.flat",
@@ -378,6 +486,18 @@
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.yourapp-debug-50:/drawable_tile_purple.xml.flat",
+        "source": "com.yourapp-main-52:/drawable/tile_purple.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_tile_blue.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\tile_blue.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_dashboard_card_teal.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\dashboard_card_teal.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_rejection_header.xml.flat",
@@ -392,6 +512,10 @@
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\xml\\network_security_config.xml"
     },
     {
+        "merged": "com.yourapp-debug-50:/drawable_tile_teal.xml.flat",
+        "source": "com.yourapp-main-52:/drawable/tile_teal.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_item_qr.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\item_qr.xml"
     },
@@ -404,8 +528,16 @@
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\item_rejection.xml"
     },
     {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_card_bg.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\card_bg.xml"
+    },
+    {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_activity_priority_confirmation.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\activity_priority_confirmation.xml"
+    },
+    {
+        "merged": "com.yourapp-debug-50:/drawable_header_glass.xml.flat",
+        "source": "com.yourapp-main-52:/drawable/header_glass.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_primary_button.xml.flat",
@@ -414,6 +546,10 @@
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_bg_result_success.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\bg_result_success.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\layout_item_graded_qr.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\layout\\item_graded_qr.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
@@ -442,6 +578,14 @@
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_spinner_modern.xml.flat",
         "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\spinner_modern.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\drawable_tile_button_white.xml.flat",
+        "source": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-main-52:\\drawable\\tile_button_white.xml"
+    },
+    {
+        "merged": "com.yourapp-debug-50:/drawable_tile_green.xml.flat",
+        "source": "com.yourapp-main-52:/drawable/tile_green.xml"
     },
     {
         "merged": "C:\\Users\\Pandey\\.gradle\\daemon\\8.13\\com.yourapp-debug-50:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",

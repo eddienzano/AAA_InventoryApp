@@ -1,0 +1,81 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF5F8"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:text="🚚 Scan-Out"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#C2185B"
+            android:gravity="center"
+            android:paddingBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/scanBtn"
+            android:text="📷 Open Scanner"
+            android:backgroundTint="#E91E63"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/qrInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Scan or enter QR here"
+            android:background="@android:drawable/edit_text"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:textColorHint="#888"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/serial"
+            android:text="Serial:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/statusText"
+            android:text="Status:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- 🔥 NEW LIST -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/itemsRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"/>
+
+        <!-- 🔥 PARTIAL SUBMIT -->
+        <Button
+            android:id="@+id/submitPartialBtn"
+            android:text="📦 Submit Partial"
+            android:backgroundTint="#4CAF50"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/confirmBtn"
+            android:text="✅ Full Scan-Out"
+            android:backgroundTint="#AD1457"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</ScrollView>

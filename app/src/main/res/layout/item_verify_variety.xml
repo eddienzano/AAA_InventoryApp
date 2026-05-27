@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_bg"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp">
+
+    <!-- Variety Name -->
+    <TextView
+        android:id="@+id/varietyName"
+        android:text="Variety"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#333"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+
+    <!-- Original Quantity -->
+    <TextView
+        android:id="@+id/originalQty"
+        android:text="Original: 100"
+        android:textColor="#666"
+        android:layout_marginTop="4dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+
+    <!-- Editable Quantity -->
+    <EditText
+        android:id="@+id/verifiedQty"
+        android:hint="Verified Qty"
+        android:inputType="number"
+        android:background="@drawable/edittext_bg"
+        android:padding="10dp"
+        android:layout_marginTop="6dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+
+    <!-- Delete Button -->
+    <Button
+        android:id="@+id/deleteBtn"
+        android:text="❌ Remove"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#D32F2F"
+        android:layout_marginTop="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

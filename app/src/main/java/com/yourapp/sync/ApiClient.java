@@ -12,10 +12,16 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 public class ApiClient {
 
     private static final String TAG = "ApiClient";
     private static final String BASE_URL = "https://www.aaagrowers.co.ke/inventory";
+
+    private final OkHttpClient client = new OkHttpClient();
 
     // =============================
     // Fire-and-forget POST with JSONArray
@@ -122,5 +128,21 @@ public class ApiClient {
         } finally {
             if (conn != null) conn.disconnect();
         }
+    }
+
+    public JSONArray getArray(String endpoint) throws Exception {
+
+        Request request = new Request.Builder()
+                .url(BASE_URL + endpoint)
+                .get()
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        if (!response.isSuccessful())
+            throw new Exception("HTTP " + response.code());
+
+        String body = response.body().string();
+        return new JSONArray(body);
     }
 }

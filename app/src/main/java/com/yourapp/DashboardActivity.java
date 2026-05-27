@@ -10,10 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.button.MaterialButton;
 import com.yourapp.stocks.ScanActivity;
+import com.yourapp.summers.PackhouseVerifyActivity;
+import com.yourapp.summers.SummersScanOutActivity;
+
 
 public class DashboardActivity extends AppCompatActivity {
 
-    private MaterialButton btnScanIn, btnScanOut, btnSync, btnLogout, btnWrongScan, btnSFQ, btnStock, btnIntake, btnDampscan ;
+    private MaterialButton btnSummersOut, btnScanIn, btnSummers, btnScanOut, btnSync, btnLogout, btnWrongScan, btnSFQ, btnStock, btnIntake, btnDampscan, btnStorageScan;
     private MaterialButton btnScanBackColdroom;
     private ShimmerFrameLayout shimmerOverlay;
     private TextView txtUserInfo;
@@ -39,6 +42,10 @@ public class DashboardActivity extends AppCompatActivity {
         btnScanBackColdroom = findViewById(R.id.btnScanBackColdroom);
         btnWrongScan = findViewById(R.id.btnWrongScan);
         btnDampscan = findViewById(R.id.btnDampscan);
+        btnStorageScan = findViewById(R.id.btnStorageScan);
+        btnSummers=findViewById(R.id.btnSummers);
+        btnSummersOut = findViewById(R.id.btnSummersOut);
+
 
         // Get values passed from LoginActivity
         Intent intent = getIntent();
@@ -61,6 +68,16 @@ public class DashboardActivity extends AppCompatActivity {
 //            in.putExtra("username", username);
 //            startActivity(in);
 //        });
+
+        btnSummersOut.setOnClickListener(v -> {
+            Intent out = new Intent(
+                    DashboardActivity.this,
+                    SummersScanOutActivity.class
+            );
+            out.putExtra("user_id", userId);
+            out.putExtra("username", username);
+            startActivity(out);
+        });
 
         // Set button actions
         btnIntake.setOnClickListener(v -> {
@@ -118,6 +135,22 @@ public class DashboardActivity extends AppCompatActivity {
         btnDampscan.setOnClickListener(v -> {
             // TODO: implement SQLite sync functionality later
             Intent back = new Intent(DashboardActivity.this, ScanToDampActivity.class);
+            back.putExtra("user_id", userId);
+            back.putExtra("username", username);
+            startActivity(back);
+        });
+
+        btnStorageScan.setOnClickListener(v -> {
+            // TODO: implement SQLite sync functionality later
+            Intent back = new Intent(DashboardActivity.this, ScanToSorageActivity.class);
+            back.putExtra("user_id", userId);
+            back.putExtra("username", username);
+            startActivity(back);
+        });
+
+        btnSummers.setOnClickListener(v -> {
+            // TODO: implement SQLite sync functionality later
+            Intent back = new Intent(DashboardActivity.this, PackhouseVerifyActivity.class);
             back.putExtra("user_id", userId);
             back.putExtra("username", username);
             startActivity(back);

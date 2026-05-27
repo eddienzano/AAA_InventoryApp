@@ -1,22 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="12dp"
+    android:background="#F5F7FB"
+    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".gradedstock.GradedEntryActivity">
 
-    <!-- FARM DROPDOWN -->
-    <Spinner
-        android:id="@+id/spFarm"
-        android:layout_width="match_parent"
+    <!-- Screen Title -->
+
+    <TextView
+        android:text="Graded Stock Entry"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#1F2937"
+        android:layout_marginBottom="4dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <!-- VARIETY LIST -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvVarieties"
+    <!-- Instruction -->
+
+    <TextView
+        android:text="Scan bucket QR codes to record graded stock."
+        android:textSize="14sp"
+        android:textColor="#6B7280"
+        android:layout_marginBottom="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- Scan Counter -->
+
+    <TextView
+        android:id="@+id/tvScanCount"
+        android:text="Scanned: 0"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#2563EB"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- QR Scan Card -->
+
+    <LinearLayout
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:elevation="3dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="10dp"/>
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Scan QR Code"
+            android:textStyle="bold"
+            android:textColor="#374151"
+            android:layout_marginBottom="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnCameraScan"
+            android:text="Scan using Camera"
+            android:textAllCaps="false"
+            android:backgroundTint="#F59E0B"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"/>
+
+        <EditText
+            android:id="@+id/etQrInput"
+            android:hint="Tap scanner or scan using device"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <!-- Buttons -->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:text="Save Offline"
+            android:textAllCaps="false"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:layout_width="0dp"
+            android:layout_height="50dp"/>
+
+        <Button
+            android:id="@+id/btnSync"
+            android:text="Sync to Server"
+            android:textAllCaps="false"
+            android:backgroundTint="#2563EB"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:layout_width="0dp"
+            android:layout_height="50dp"/>
+
+    </LinearLayout>
+
+    <!-- List Title -->
+
+    <TextView
+        android:text="Scanned Buckets"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#1F2937"
+        android:layout_marginBottom="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- Scan List -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
 </LinearLayout>

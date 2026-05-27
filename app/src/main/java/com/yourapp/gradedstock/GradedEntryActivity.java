@@ -1,260 +1,371 @@
 package com.yourapp.gradedstock;
 
-import android.app.AlertDialog;
-import android.os.Build;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.*;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+import android.content.Intent;
+
 import com.yourapp.R;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 
 public class GradedEntryActivity extends AppCompatActivity {
 
-    private static final String TAG = "GradedEntryActivity";
+    EditText etQrInput;
+    Button btnSubmit, btnSync, btnCameraScan;
+    RecyclerView rvList;
 
-    private Spinner spFarm;
-    private RecyclerView rvVarieties;
-    private VarietyAdapter adapter;
-    private final List<VarietyModel> varieties = new ArrayList<>();
+    ArrayList<QrItem> scanned = new ArrayList<>();
+    QrAdapter adapter;
 
-    private static final String BASE_URL = "https://www.aaagrowers.co.ke/inventory/";
-    private final OkHttpClient client = new OkHttpClient();
+    int farmId = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graded_entry);
-        Log.d(TAG, "onCreate");
 
-        spFarm = findViewById(R.id.spFarm);
-        rvVarieties = findViewById(R.id.rvVarieties);
+        etQrInput = findViewById(R.id.etQrInput);
+        btnSubmit = findViewById(R.id.btnSubmit);
+        btnSync = findViewById(R.id.btnSync);
+        btnCameraScan = findViewById(R.id.btnCameraScan);
+        rvList = findViewById(R.id.rvList);
 
-        rvVarieties.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new VarietyAdapter(this, varieties);
-        rvVarieties.setAdapter(adapter);
+        if (getIntent().hasExtra("farm_id"))
+            farmId = getIntent().getIntExtra("farm_id", 1);
 
-        loadFarms();
+        adapter = new QrAdapter(scanned);
+        rvList.setLayoutManager(new LinearLayoutManager(this));
+        rvList.setAdapter(adapter);
 
-        spFarm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String farm = parent.getItemAtPosition(position).toString();
-                Log.d(TAG, "Farm selected: " + farm);
-                loadVarieties(farm);
+        etQrInput.requestFocus();
+        etQrInput.setShowSoftInputOnFocus(false);
 
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) { }
+        btnCameraScan.setOnClickListener(v -> {
+            IntentIntegrator integrator = new IntentIntegrator(this);
+            integrator.setPrompt("Scan Bucket QR");
+            integrator.setBeepEnabled(true);
+            integrator.setOrientationLocked(false);
+            integrator.initiateScan();
         });
+
+        etQrInput.addTextChangedListener(new android.text.TextWatcher() {
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            public void afterTextChanged(android.text.Editable s) {
+
+                String qr = s.toString().trim();
+
+                if (qr.length() < 10) return;
+
+                etQrInput.setText("");
+                handleScan(qr);
+            }
+        });
+
+        btnSubmit.setOnClickListener(v -> saveOffline());
+        btnSync.setOnClickListener(v -> syncServer());
     }
 
-    // -------------------------------
-    // LOAD FARMS
-    // -------------------------------
-    private void loadFarms() {
-        Request request = new Request.Builder()
-                .url(BASE_URL + "get_farms.php")
-                .build();
+    // =========================
+    // 🔥 MAIN FIX ENTRY POINT
+    // =========================
+    private void handleScan(String qr){
 
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, java.io.IOException e) {
-                Log.e(TAG, "loadFarms failed", e);
-            }
+        // 1. Already scanned in current session
+        if (existsInMemory(qr)) {
+            toast("Already scanned (in list)");
+            return;
+        }
 
-            @Override
-            public void onResponse(Call call, Response response) throws java.io.IOException {
-                if (!response.isSuccessful()) return;
-                try {
-                    org.json.JSONArray arr = new org.json.JSONArray(response.body().string());
-                    List<String> farms = new ArrayList<>();
-                    for (int i = 0; i < arr.length(); i++) {
-                        farms.add(arr.getJSONObject(i).getString("name"));
+        // 2. Already saved locally but not synced
+        if (isPendingDuplicate(qr)) {
+            toast("Already saved (not yet synced)");
+            return;
+        }
+
+        // 3. Already active in system
+        if (isActiveBucket(qr)) {
+            toast("Bucket already active");
+            return;
+        }
+
+        QrItem item = parseQR(qr);
+
+        if (item == null) {
+            toast("Invalid QR");
+            return;
+        }
+
+        showDialog(item);
+    }
+
+    // =========================
+    // ✅ MEMORY CHECK
+    // =========================
+    private boolean existsInMemory(String qr){
+        for(QrItem i : scanned){
+            if(i.qr.equals(qr)) return true;
+        }
+        return false;
+    }
+
+    // =========================
+    // ✅ LOCAL DB CHECK (UNSYNCED ONLY)
+    // =========================
+    private boolean isPendingDuplicate(String qr){
+
+        SQLiteDatabase db = new StockDbHelper(this).getReadableDatabase();
+
+        Cursor c = db.rawQuery(
+                "SELECT qr FROM graded_pending WHERE qr=? AND synced=0",
+                new String[]{qr}
+        );
+
+        boolean exists = c.moveToFirst();
+        c.close();
+
+        return exists;
+    }
+
+    // =========================
+    // EXISTING CHECK
+    // =========================
+    private boolean isActiveBucket(String qr){
+
+        SQLiteDatabase db = new StockDbHelper(this).getReadableDatabase();
+
+        Cursor c = db.rawQuery(
+                "SELECT qr FROM graded_active_qrs WHERE qr=?",
+                new String[]{qr}
+        );
+
+        boolean exist = c.moveToFirst();
+        c.close();
+
+        return exist;
+    }
+
+    private QrItem parseQR(String qr){
+
+        try{
+            Pattern pattern = Pattern.compile(
+                    "Serial:\\s*([^|]+)\\|\\s*Bucket:\\s*([^|]+)\\|\\s*Farm:\\s*([^|]+)\\|\\s*Length:\\s*(\\d+)",
+                    Pattern.CASE_INSENSITIVE
+            );
+
+            Matcher matcher = pattern.matcher(qr);
+
+            if(!matcher.find()) return null;
+
+            QrItem item = new QrItem();
+            item.qr = qr;
+            item.serial = matcher.group(1).trim();
+            item.bucket_name = matcher.group(2).trim();
+            item.length = Integer.parseInt(matcher.group(4).trim());
+
+            return item;
+
+        }catch(Exception e){
+            return null;
+        }
+    }
+
+    private void showDialog(QrItem item){
+
+        View v = getLayoutInflater().inflate(R.layout.dialog_grading, null);
+
+        Spinner spVariety = v.findViewById(R.id.spinnerVariety);
+        EditText etBunches = v.findViewById(R.id.etBunches);
+        EditText etStems = v.findViewById(R.id.etStems);
+
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Integer> ids = new ArrayList<>();
+
+        SQLiteDatabase db = new StockDbHelper(this).getReadableDatabase();
+
+        Cursor c = db.rawQuery(
+                "SELECT id,name FROM varieties WHERE farm_id=? ORDER BY name",
+                new String[]{String.valueOf(farmId)}
+        );
+
+        while(c.moveToNext()){
+            ids.add(c.getInt(0));
+            names.add(c.getString(1));
+        }
+
+        c.close();
+
+        ArrayAdapter<String> ad = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, names);
+        ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spVariety.setAdapter(ad);
+
+        new AlertDialog.Builder(this)
+                .setTitle("Enter Grading")
+                .setView(v)
+                .setPositiveButton("OK",(d,w)->{
+
+                    if(TextUtils.isEmpty(etBunches.getText()) ||
+                            TextUtils.isEmpty(etStems.getText())){
+                        toast("Enter all values");
+                        return;
                     }
-                    runOnUiThread(() -> spFarm.setAdapter(new ArrayAdapter<>(
-                            GradedEntryActivity.this,
-                            android.R.layout.simple_spinner_dropdown_item,
-                            farms
-                    )));
-                } catch (Exception e) {
-                    Log.e(TAG, "Farm JSON error", e);
-                }
-            }
-        });
-    }
 
-    // -------------------------------
-    // LOAD VARIETIES
-    // -------------------------------
-    private void loadVarieties(String farmName) {
-        HttpUrl url = HttpUrl.parse(BASE_URL + "fetch_varieties.php")
-                .newBuilder()
-                .addQueryParameter("farm", farmName)
-                .build();
+                    item.variety_id = ids.get(spVariety.getSelectedItemPosition());
+                    item.bunches = Integer.parseInt(etBunches.getText().toString());
+                    item.stems = Integer.parseInt(etStems.getText().toString());
 
-        Request request = new Request.Builder().url(url).build();
-
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, java.io.IOException e) {
-                Log.e(TAG, "loadVarieties failed", e);
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws java.io.IOException {
-                if (!response.isSuccessful()) return;
-                try {
-                    org.json.JSONArray arr = new org.json.JSONArray(response.body().string());
-                    varieties.clear();
-                    for (int i = 0; i < arr.length(); i++) {
-                        org.json.JSONObject o = arr.getJSONObject(i);
-                        String img = o.optString("image");
-                        if (!img.isEmpty() && !img.startsWith("http")) img = BASE_URL + img;
-                        varieties.add(new VarietyModel(
-                                o.getInt("VarietyId"),
-                                o.getString("VarietyName"),
-                                img
-                        ));
-                    }
-                    runOnUiThread(() -> adapter.notifyDataSetChanged());
-                } catch (Exception e) {
-                    Log.e(TAG, "Variety JSON error", e);
-                }
-            }
-        });
-    }
-
-    // -------------------------------
-    // CONFIRM + SUBMIT
-    // -------------------------------
-    public void confirmAndSubmit(VarietyModel model) {
-        if (model == null) return;
-
-        String summary = model.getSummary();
-
-        // Use dialog like NewIntakeActivity
-        new androidx.appcompat.app.AlertDialog.Builder(this)
-                .setTitle("Confirm Entry")
-                .setMessage(summary + "\n\nFarm: " + spFarm.getSelectedItem().toString())
-                .setPositiveButton("SUBMIT", (dialog, which) -> submitToWipStock(model))
-                .setNegativeButton("CANCEL", null)
+                    scanned.add(item);
+                    adapter.notifyItemInserted(scanned.size()-1);
+                })
+                .setNegativeButton("Cancel", null)
                 .show();
     }
 
-    private void submitToWipStock(VarietyModel model) {
-        if (model == null) return;
+    private void saveOffline(){
 
-        Map<Integer, Integer> lengths = model.getLengths();
-        if (lengths == null || lengths.isEmpty()) {
-            Toast.makeText(this, "No lengths entered", Toast.LENGTH_SHORT).show();
+        if(scanned.isEmpty()){
+            toast("Nothing to save");
             return;
         }
 
-        String farm = spFarm.getSelectedItem() != null ? spFarm.getSelectedItem().toString() : "";
-        if (farm.isEmpty()) {
-            Toast.makeText(this, "Select a farm first", Toast.LENGTH_SHORT).show();
-            return;
+        SQLiteDatabase db = new StockDbHelper(this).getWritableDatabase();
+
+        for(QrItem i:scanned){
+
+            ContentValues cv = new ContentValues();
+
+            cv.put("qr", i.qr);
+            cv.put("serial", i.serial);
+            cv.put("bucket_name", i.bucket_name);
+            cv.put("farm_id", farmId);
+            cv.put("length", i.length);
+            cv.put("variety_id", i.variety_id);
+            cv.put("bunches", i.bunches);
+            cv.put("stems_per_bunch", i.stems);
+            cv.put("synced", 0);
+
+            db.insert("graded_pending", null, cv);
         }
 
-        org.json.JSONObject payload = new org.json.JSONObject();
-        try {
-            payload.put("variety_id", model.getId());
-            payload.put("variety_name", model.getName());
-            payload.put("farm", farm);
+        scanned.clear();
+        adapter.notifyDataSetChanged();
 
-            org.json.JSONObject lenJson = new org.json.JSONObject();
-            int total = 0;
-            for (Map.Entry<Integer, Integer> e : lengths.entrySet()) {
-                if (e.getValue() > 0) {
-                    lenJson.put(String.valueOf(e.getKey()), e.getValue());
-                    total += e.getValue();
-                }
-            }
-            if (total == 0) {
-                Toast.makeText(this, "Nothing to submit", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            payload.put("lengths", lenJson);
-            payload.put("total_qty", total);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                payload.put("submitted_at",
-                        java.time.LocalDateTime.now()
-                                .format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Payload build failed", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        RequestBody body = RequestBody.create(payload.toString(), MediaType.parse("application/json"));
-
-        Request request = new Request.Builder()
-                .url(BASE_URL + "api/submit_wip_stock.php")
-                .post(body)
-                .build();
-
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, java.io.IOException e) {
-                runOnUiThread(() ->
-                        Toast.makeText(GradedEntryActivity.this, "Network error", Toast.LENGTH_SHORT).show());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) {
-                runOnUiThread(() -> {
-                    if (response.isSuccessful()) {
-                        Toast.makeText(GradedEntryActivity.this, "WIP stock saved", Toast.LENGTH_SHORT).show();
-
-                        // ✅ CLEAR FIELDS LIKE NewIntakeActivity
-                        model.clearLengths();
-                        adapter.notifyDataSetChanged();
-                        spFarm.setSelection(0);
-                    } else {
-                        Toast.makeText(GradedEntryActivity.this, "Server error", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
+        toast("Saved offline");
     }
-    // =====================================================
-    // FARM
-    // =====================================================
-    public String getSelectedFarmName() {
-        return spFarm.getSelectedItem() != null
-                ? spFarm.getSelectedItem().toString()
-                : "";
+
+    private void syncServer(){
+
+        SQLiteDatabase db = new StockDbHelper(this).getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM graded_pending WHERE synced=0", null);
+
+        JSONArray arr = new JSONArray();
+
+        while(c.moveToNext()){
+            try{
+                JSONObject o = new JSONObject();
+                o.put("qr", c.getString(c.getColumnIndexOrThrow("qr")));
+                o.put("serial", c.getString(c.getColumnIndexOrThrow("serial")));
+                o.put("bucket_name", c.getString(c.getColumnIndexOrThrow("bucket_name")));
+                o.put("farm_id", c.getInt(c.getColumnIndexOrThrow("farm_id")));
+                o.put("length", c.getInt(c.getColumnIndexOrThrow("length")));
+                o.put("variety_id", c.getInt(c.getColumnIndexOrThrow("variety_id")));
+                o.put("bunches", c.getInt(c.getColumnIndexOrThrow("bunches")));
+                o.put("stems_per_bunch", c.getInt(c.getColumnIndexOrThrow("stems_per_bunch")));
+
+                arr.put(o);
+
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        c.close();
+
+        if(arr.length()==0){
+            toast("Nothing to sync");
+            return;
+        }
+
+        JSONObject payload = new JSONObject();
+
+        try{
+            payload.put("records", arr);
+        }catch(Exception e){}
+
+        new Thread(() -> {
+            try{
+                String res = HttpHelper.postJson(
+                        "https://www.aaagrowers.co.ke/inventory/graded/sync_graded_upload.php",
+                        payload.toString()
+                );
+
+                JSONObject r = new JSONObject(res);
+
+                if(r.getString("status").equals("success")){
+
+                    db.execSQL("UPDATE graded_pending SET synced=1 WHERE synced=0");
+
+                    // 🔥 NEW: REFRESH ACTIVE STOCK
+                    SyncManager.syncActiveStock(this, farmId, new SyncManager.SyncCallback() {
+
+                        @Override
+                        public void onSuccess() {
+                            runOnUiThread(() -> toast("Synced + refreshed stock"));
+                        }
+
+                        @Override
+                        public void onError(String msg) {
+                            runOnUiThread(() -> toast("Synced but refresh failed"));
+                        }
+                    });
+                }
+            }catch(Exception e){
+                runOnUiThread(() -> toast("Sync error"));
+            }
+        }).start();
+    }
+
+    private void toast(String m){
+        Toast.makeText(this, m, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+
+        if(result != null){
+            if(result.getContents() != null){
+                handleScan(result.getContents());
+            }else{
+                toast("Scan cancelled");
+            }
+        }else{
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }
-
-
-
-
-

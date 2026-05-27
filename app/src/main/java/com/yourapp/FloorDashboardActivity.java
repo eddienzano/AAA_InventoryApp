@@ -7,17 +7,18 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.yourapp.boxfill.BoxConfirmActivity;
-import com.yourapp.gradedstock.GradedEntryActivity;
 
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.yourapp.boxfill.BoxFillActivity;
+import com.yourapp.summers.ScanBackSummerActivity;
 import com.yourapp.warehouse.WarehouseStockScanActivity;
+import com.yourapp.gradedstock.*;
 
 public class FloorDashboardActivity extends AppCompatActivity {
 
     TextView floorWelcomeText;
-    Button newscanToWipBtn, scanToWipBtn, gradedBtn, scanToBoxBtn, scanOutWipBtn,rejectBtn, scanOutReworkBtn, scanStockBtn, boxConfirm;
+    Button newscanToWipBtn, SummerBack, scanToWipBtn, gradedBtn, scanToBoxBtn, scanOutWipBtn,rejectBtn, scanOutReworkBtn, scanStockBtn, boxConfirm;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,6 +35,7 @@ public class FloorDashboardActivity extends AppCompatActivity {
         gradedBtn=findViewById(R.id.gradedBtn);
         scanStockBtn=findViewById(R.id.scanStockBtn);
         boxConfirm =findViewById(R.id.boxConfirm);
+        SummerBack =findViewById(R.id.SummerBack);
 
 
         String username = getIntent().getStringExtra("username");
@@ -43,7 +45,7 @@ public class FloorDashboardActivity extends AppCompatActivity {
         gradedBtn.setOnClickListener(v -> {
             Intent intent = new Intent(
                     FloorDashboardActivity.this,
-                    GradedEntryActivity.class
+                    FarmSelectActivity.class
             );
             startActivity(intent);
         });
@@ -52,6 +54,11 @@ public class FloorDashboardActivity extends AppCompatActivity {
         // Button actions - link to your scanning activities
         newscanToWipBtn.setOnClickListener(v -> {
             Intent intent = new Intent(FloorDashboardActivity.this, WipScanActivity.class);
+            startActivity(intent);
+        });
+
+        SummerBack.setOnClickListener(v -> {
+            Intent intent = new Intent(FloorDashboardActivity.this, ScanBackSummerActivity.class);
             startActivity(intent);
         });
 

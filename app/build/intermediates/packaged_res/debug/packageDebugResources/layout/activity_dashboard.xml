@@ -2,210 +2,816 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F4F6FA">
 
-    <!-- Main content -->
     <ScrollView
         android:id="@+id/mainContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#f8f9fa"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:clipToPadding="false"
+        android:scrollbars="none">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:padding="12dp">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txtUserInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="User info will appear here"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_margin="8dp"/>
-
-            <TextView
-                android:text="Welcome!"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="@color/md_theme_primary"
-                android:layout_marginBottom="24dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <!-- Intake -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnIntake"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/intake"
-                android:layout_marginBottom="16dp"
-                app:cornerRadius="16dp"
-                android:padding="16dp"
-                app:icon="@drawable/ic_scan_in"
-                app:iconPadding="8dp"
-                app:iconGravity="textStart"/>
-
-            <!-- Scan Out -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnScanOut"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:padding="16dp"
-                android:text="Scan Out"
-                app:cornerRadius="16dp"
-                app:icon="@drawable/ic_scan_out"
-                app:iconGravity="textStart"
-                app:iconPadding="8dp" />
-
-            <!-- Back to Coldroom -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnScanBackColdroom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Scan Back To Coldroom"
-                android:layout_marginBottom="16dp"
-                app:cornerRadius="16dp"
-                android:padding="16dp"
-                app:icon="@drawable/ic_coldroom"
-                app:iconPadding="8dp"
-                app:iconGravity="textStart"/>
-
-            <!-- To Quarantine -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSync"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="SCAN TO QUARANTINE"
-                android:layout_marginBottom="16dp"
-                app:cornerRadius="16dp"
-                android:padding="16dp"
-                app:icon="@drawable/ic_sync"
-                app:iconPadding="8dp"
-                app:iconGravity="textStart"/>
-
-            <!-- From Quarantine -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSFQ"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="SCAN FROM QUARANTINE"
-                android:layout_marginBottom="16dp"
-                app:cornerRadius="16dp"
-                android:padding="16dp"
-                app:icon="@drawable/ic_sync"
-                app:iconPadding="8dp"
-                app:iconGravity="textStart"/>
-
-            <!-- Stock Scan -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnStock"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="STOCK SCAN"
-                android:layout_marginBottom="16dp"
-                app:cornerRadius="16dp"
-                android:padding="16dp"
-                app:icon="@drawable/ic_sync"
-                app:iconPadding="8dp"
-                app:iconGravity="textStart"/>
-
-
-            <!-- Stock Scan -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDampscan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="SCAN TO DUMP"
-                android:layout_marginBottom="16dp"
-                app:cornerRadius="16dp"
-                android:padding="16dp"
-                app:icon="@drawable/ic_sync"
-                app:iconPadding="8dp"
-                app:iconGravity="textStart"/>
-
-            <!-- Wrong Scan -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnWrongScan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Correct Wrong Scan"
-                app:cornerRadius="16dp"
-                android:padding="16dp"
-                android:backgroundTint="@color/md_theme_error"
-                android:textColor="@android:color/white"
-                app:icon="@drawable/ic_logout"
-                app:iconPadding="8dp"
-                android:layout_marginBottom="16dp"
-                app:iconGravity="textStart"/>
-
-            <!-- Logout -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLogout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Logout"
-                app:cornerRadius="16dp"
-                android:padding="16dp"
-                android:backgroundTint="@color/md_theme_error"
-                android:textColor="@android:color/white"
-                app:icon="@drawable/ic_logout"
-                app:iconPadding="8dp"
-                app:iconGravity="textStart"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:background="@drawable/shimmer_placeholder" />
+            <!-- PREMIUM GLASS HEADER -->
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/header_glass"
+                android:elevation="10dp"
                 android:orientation="vertical"
-                android:padding="32dp">
+                android:padding="22dp">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/shimmer_placeholder" />
+                <TextView
+                    android:id="@+id/txtUserInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="👋 Hello Operator"
+                    android:textColor="#6B7280"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/shimmer_placeholder" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Dashboard"
+                    android:textColor="#111827"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/shimmer_placeholder" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Operations And Scanning Center"
+                    android:textColor="#9CA3AF"
+                    android:textSize="13sp" />
 
             </LinearLayout>
 
+            <!-- GRID -->
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:useDefaultMargins="false">
+
+                <!-- ===================== INTAKE ===================== -->
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/CardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="#2563EB"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="14dp"
+                    app:strokeColor="#60A5FA"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/tile_blue"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📦"
+                            android:textSize="38sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/intake"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Scan incoming stock"
+                            android:textColor="#DBEAFE"
+                            android:textSize="11sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnIntake"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="16dp"
+                            android:text="OPEN"
+                            android:textAllCaps="false"
+                            android:textColor="#2563EB"
+                            android:textStyle="bold"
+                            app:backgroundTint="#FFFFFF"
+                            app:cornerRadius="14dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ===================== SUMMERS ===================== -->
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/CardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="#DC2626"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="14dp"
+                    app:strokeColor="#FCA5A5"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/tile_red"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🌿"
+                            android:textSize="38sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Summers"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Farm operations"
+                            android:textColor="#FEE2E2"
+                            android:textSize="11sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnSummers"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="16dp"
+                            android:text="OPEN"
+                            android:textAllCaps="false"
+                            android:textColor="#DC2626"
+                            android:textStyle="bold"
+                            app:backgroundTint="#FFFFFF"
+                            app:cornerRadius="14dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ===================== SCAN OUT ===================== -->
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/CardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="#10B981"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="14dp"
+                    app:strokeColor="#6EE7B7"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/tile_green"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🚪"
+                            android:textSize="38sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Scan Out"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Outgoing stock"
+                            android:textColor="#D1FAE5"
+                            android:textSize="11sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnScanOut"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="16dp"
+                            android:text="OPEN"
+                            android:textAllCaps="false"
+                            android:textColor="#10B981"
+                            android:textStyle="bold"
+                            app:backgroundTint="#FFFFFF"
+                            app:cornerRadius="14dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ===================== COLDROOM ===================== -->
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/CardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="#8B5CF6"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="14dp"
+                    app:strokeColor="#C4B5FD"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/tile_purple"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="❄️"
+                            android:textSize="38sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Coldroom"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Storage control"
+                            android:textColor="#EDE9FE"
+                            android:textSize="11sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnScanBackColdroom"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="16dp"
+                            android:text="OPEN"
+                            android:textAllCaps="false"
+                            android:textColor="#8B5CF6"
+                            android:textStyle="bold"
+                            app:backgroundTint="#FFFFFF"
+                            app:cornerRadius="14dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ===================== QUARANTINE ===================== -->
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/CardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="#F59E0B"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="14dp"
+                    app:strokeColor="#FCD34D"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/tile_orange"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚠️"
+                            android:textSize="38sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Quarantine"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Isolated items"
+                            android:textColor="#FEF3C7"
+                            android:textSize="11sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnSync"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="16dp"
+                            android:text="OPEN"
+                            android:textAllCaps="false"
+                            android:textColor="#F59E0B"
+                            android:textStyle="bold"
+                            app:backgroundTint="#FFFFFF"
+                            app:cornerRadius="14dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ===================== FROM QUARANTINE ===================== -->
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/CardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="#14B8A6"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="14dp"
+                    app:strokeColor="#99F6E4"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/tile_teal"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔄"
+                            android:textSize="38sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="From Quarantine"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Recovery operations"
+                            android:textColor="#CCFBF1"
+                            android:textSize="11sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnSFQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="16dp"
+                            android:text="OPEN"
+                            android:textAllCaps="false"
+                            android:textColor="#14B8A6"
+                            android:textStyle="bold"
+                            app:backgroundTint="#FFFFFF"
+                            app:cornerRadius="14dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ===================== DUMP ===================== -->
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/CardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="#EF4444"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="14dp"
+                    app:strokeColor="#FCA5A5"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/tile_red"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🗑️"
+                            android:textSize="38sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Dump"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Disposed items"
+                            android:textColor="#FEE2E2"
+                            android:textSize="11sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnDampscan"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="16dp"
+                            android:text="OPEN"
+                            android:textAllCaps="false"
+                            android:textColor="#EF4444"
+                            android:textStyle="bold"
+                            app:backgroundTint="#FFFFFF"
+                            app:cornerRadius="14dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ===================== STORAGE ===================== -->
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/CardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="#334155"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="14dp"
+                    app:strokeColor="#94A3B8"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/tile_dark"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📁"
+                            android:textSize="38sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Storage"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Warehouse storage"
+                            android:textColor="#CBD5E1"
+                            android:textSize="11sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnStorageScan"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="16dp"
+                            android:text="OPEN"
+                            android:textAllCaps="false"
+                            android:textColor="#334155"
+                            android:textStyle="bold"
+                            app:backgroundTint="#FFFFFF"
+                            app:cornerRadius="14dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ===================== STOCK ===================== -->
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/CardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="#0F172A"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="14dp"
+                    app:strokeColor="#475569"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/tile_dark"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📊"
+                            android:textSize="38sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Stock"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Inventory overview"
+                            android:textColor="#CBD5E1"
+                            android:textSize="11sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnStock"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="16dp"
+                            android:text="OPEN"
+                            android:textAllCaps="false"
+                            android:textColor="#0F172A"
+                            android:textStyle="bold"
+                            app:backgroundTint="#FFFFFF"
+                            app:cornerRadius="14dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ===================== WRONG SCAN ===================== -->
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/CardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="#DC2626"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="14dp"
+                    app:strokeColor="#FCA5A5"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/tile_red"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="❌"
+                            android:textSize="38sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Wrong Scan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Scanning corrections"
+                            android:textColor="#FEE2E2"
+                            android:textSize="11sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnWrongScan"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="16dp"
+                            android:text="OPEN"
+                            android:textAllCaps="false"
+                            android:textColor="#DC2626"
+                            android:textStyle="bold"
+                            app:backgroundTint="#FFFFFF"
+                            app:cornerRadius="14dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ===================== SUMMERS OUT ===================== -->
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/CardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="#7C3AED"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="14dp"
+                    app:strokeColor="#C4B5FD"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/tile_purple"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🚚"
+                            android:textSize="38sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Summers Out"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Dispatch operations"
+                            android:textColor="#EDE9FE"
+                            android:textSize="11sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnSummersOut"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="16dp"
+                            android:text="OPEN"
+                            android:textAllCaps="false"
+                            android:textColor="#7C3AED"
+                            android:textStyle="bold"
+                            app:backgroundTint="#FFFFFF"
+                            app:cornerRadius="14dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ===================== LOGOUT ===================== -->
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/CardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="#111827"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="14dp"
+                    app:strokeColor="#6B7280"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/tile_dark"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🚪"
+                            android:textSize="38sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Logout"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Exit application"
+                            android:textColor="#D1D5DB"
+                            android:textSize="11sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnLogout"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="16dp"
+                            android:text="EXIT"
+                            android:textAllCaps="false"
+                            android:textColor="#111827"
+                            android:textStyle="bold"
+                            app:backgroundTint="#FFFFFF"
+                            app:cornerRadius="14dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </GridLayout>
+
         </LinearLayout>
+
     </ScrollView>
 
-    <!-- Shimmer overlay -->
+    <!-- SHIMMER -->
+
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#88000000"
-        android:visibility="visible"
-        android:clickable="true"
-        android:focusable="true"
-        app:shimmer_auto_start="true"
-        app:shimmer_duration="1500">
-
-    </com.facebook.shimmer.ShimmerFrameLayout>
+        android:visibility="gone"
+        app:shimmer_auto_start="true" />
 
 </FrameLayout>

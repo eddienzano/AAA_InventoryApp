@@ -95,10 +95,10 @@
             android:name="com.yourapp.MainDashboardActivity"
             android:exported="true" />
         <activity
-            android:name="com.yourapp.ScanOutReworkActivity"
+            android:name="com.yourapp.gradedstock.ScanOutReworkActivity"
             android:exported="true" />
         <activity
-            android:name="com.yourapp.ScanOutWipActivity"
+            android:name="com.yourapp.gradedstock.ScanOutWipActivity"
             android:exported="true" />
         <activity
             android:name="com.yourapp.ScanToBoxActivity"
@@ -152,7 +152,7 @@
             android:name="com.yourapp.gradedstock.GradedEntryActivity"
             android:exported="true" />
         <activity
-            android:name="com.yourapp.gradedstock.ConfirmEntryActivity"
+            android:name="com.yourapp.gradedstock.FarmSelectActivity"
             android:exported="false" />
         <activity
             android:name="com.yourapp.boxfill.BoxFillActivity"
@@ -165,6 +165,21 @@
             android:exported="false" />
         <activity
             android:name="com.yourapp.ScanToDampActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yourapp.ScanToSorageActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yourapp.summers.SummersIntakeActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yourapp.summers.PackhouseVerifyActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yourapp.summers.SummersScanOutActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yourapp.summers.ScanBackSummerActivity"
             android:exported="false" />
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"

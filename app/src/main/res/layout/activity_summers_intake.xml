@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF5F8"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- TITLE -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🌼 Summer Intake"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#C2185B"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- QR SECTION -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan QR Code"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingBottom="6dp" />
+
+        <Button
+            android:id="@+id/scanBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📷 Open Scanner"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#E91E63"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/qr_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Scan or paste QR..."
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#888"
+            android:singleLine="true"
+            android:imeOptions="actionDone"/>
+
+        <!-- STATUS -->
+        <TextView
+            android:id="@+id/statusText"
+            android:text="Status: Waiting..."
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- COLLAPSIBLE / COMPACT BUCKET DETAILS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:background="#FFF0F4"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📦 Bucket Info"
+                android:textStyle="bold"
+                android:textColor="#AD1457"
+                android:paddingBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/serial"
+                android:text="Serial:"
+                android:textColor="#333"
+                android:paddingBottom="4dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:id="@+id/bucket"
+                android:text="Bucket:"
+                android:textColor="#333"
+                android:paddingBottom="4dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:id="@+id/farm"
+                android:text="Farm:"
+                android:textColor="#333"
+                android:paddingBottom="4dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:id="@+id/length"
+                android:text="Length:"
+                android:textColor="#333"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+        </LinearLayout>
+
+        <!-- VARIETY SECTION -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Variety Input"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingTop="16dp"
+            android:paddingBottom="6dp"/>
+
+        <AutoCompleteTextView
+            android:id="@+id/varietyInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search variety..."
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:textColor="#000"
+            android:textColorHint="#777"/>
+
+        <EditText
+            android:id="@+id/quantityInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Quantity"
+            android:inputType="number"
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"/>
+
+        <!-- ADD VARIETY BUTTON -->
+        <Button
+            android:id="@+id/addVarietyBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="➕ Add Variety"
+            android:backgroundTint="#F06292"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"/>
+
+        <!-- VARIETY LIST -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/varietyList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"/>
+
+        <!-- SUBMIT -->
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✅ Submit Summer Intake"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:backgroundTint="#AD1457"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+</ScrollView>

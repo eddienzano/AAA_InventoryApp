@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-154:12
-INJECTED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-154:12
-INJECTED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-154:12
-INJECTED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-154:12
+ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-174:12
+INJECTED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-174:12
+INJECTED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-174:12
+INJECTED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:1:1-174:12
 MERGED from [com.google.android.material:material:1.13.0] C:\Users\Pandey\.gradle\caches\8.13\transforms\91cb7f4d77da4660de0fa5bba8f0f8b3\transformed\material-1.13.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.7.1] C:\Users\Pandey\.gradle\caches\8.13\transforms\9725dc0db39cef4bf223aed7246f537e\transformed\jetified-appcompat-resources-1.7.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] C:\Users\Pandey\.gradle\caches\8.13\transforms\92d9dc8cbc597c313b2ddde2cfbdc796\transformed\constraintlayout-2.1.0\AndroidManifest.xml:2:1-11:12
@@ -134,8 +134,8 @@ MERGED from [com.google.firebase:firebase-messaging:24.0.3] C:\Users\Pandey\.gra
 	android:name
 		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:8:22-74
 application
-ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:14:5-153:19
-INJECTED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:14:5-153:19
+ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:14:5-173:19
+INJECTED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:14:5-173:19
 MERGED from [com.google.android.material:material:1.13.0] C:\Users\Pandey\.gradle\caches\8.13\transforms\91cb7f4d77da4660de0fa5bba8f0f8b3\transformed\material-1.13.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.13.0] C:\Users\Pandey\.gradle\caches\8.13\transforms\91cb7f4d77da4660de0fa5bba8f0f8b3\transformed\material-1.13.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] C:\Users\Pandey\.gradle\caches\8.13\transforms\92d9dc8cbc597c313b2ddde2cfbdc796\transformed\constraintlayout-2.1.0\AndroidManifest.xml:9:5-20
@@ -268,18 +268,18 @@ ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\A
 		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:63:13-36
 	android:name
 		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:62:13-50
-activity#com.yourapp.ScanOutReworkActivity
+activity#com.yourapp.gradedstock.ScanOutReworkActivity
 ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:64:9-66:39
 	android:exported
 		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:66:13-36
 	android:name
-		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:65:13-50
-activity#com.yourapp.ScanOutWipActivity
+		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:65:13-62
+activity#com.yourapp.gradedstock.ScanOutWipActivity
 ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:68:9-70:39
 	android:exported
 		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:70:13-36
 	android:name
-		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:69:13-47
+		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:69:13-59
 activity#com.yourapp.ScanToBoxActivity
 ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:72:9-74:39
 	android:exported
@@ -382,12 +382,12 @@ ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\A
 		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:128:13-36
 	android:name
 		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:127:19-66
-activity#com.yourapp.gradedstock.ConfirmEntryActivity
+activity#com.yourapp.gradedstock.FarmSelectActivity
 ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:130:9-132:40
 	android:exported
 		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:132:13-37
 	android:name
-		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:131:13-61
+		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:131:13-59
 activity#com.yourapp.boxfill.BoxFillActivity
 ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:134:9-136:40
 	android:exported
@@ -412,6 +412,36 @@ ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\A
 		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:148:13-37
 	android:name
 		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:147:13-47
+activity#com.yourapp.ScanToSorageActivity
+ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:150:9-152:40
+	android:exported
+		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:152:13-37
+	android:name
+		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:151:13-49
+activity#com.yourapp.summers.SummersIntakeActivity
+ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:154:9-156:40
+	android:exported
+		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:156:13-37
+	android:name
+		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:155:13-58
+activity#com.yourapp.summers.PackhouseVerifyActivity
+ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:158:9-160:40
+	android:exported
+		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:160:13-37
+	android:name
+		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:159:13-60
+activity#com.yourapp.summers.SummersScanOutActivity
+ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:162:9-164:40
+	android:exported
+		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:164:13-37
+	android:name
+		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:163:13-59
+activity#com.yourapp.summers.ScanBackSummerActivity
+ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:166:9-168:40
+	android:exported
+		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:168:13-37
+	android:name
+		ADDED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml:167:13-59
 uses-sdk
 INJECTED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Pandey\AndroidStudioProjects\AAA_InventoryApp\app\src\main\AndroidManifest.xml

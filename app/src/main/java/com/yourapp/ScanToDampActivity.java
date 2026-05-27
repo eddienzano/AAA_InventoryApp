@@ -1,8 +1,11 @@
 package com.yourapp;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +20,10 @@ import java.io.IOException;
 
 import okhttp3.*;
 
+import android.content.ContentValues;
+import android.net.Uri;
+import android.provider.MediaStore;
+
 public class ScanToDampActivity extends AppCompatActivity {
 
     private boolean isProcessing = false;
@@ -24,6 +31,15 @@ public class ScanToDampActivity extends AppCompatActivity {
     private EditText qrInput;
     private Button scanBtn;
     private TableLayout tableLayout;
+
+    private Button btnCaptureDump;
+    private ImageView dumpPreview;
+
+    private boolean dumpUploaded = false;
+    private Uri imageUri;
+
+    private int dumpSessionId = 0;
+
 
     private static final String BASE_URL = "https://www.aaagrowers.co.ke/inventory/";
 
@@ -33,11 +49,18 @@ public class ScanToDampActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scan_out);
+        setContentView(R.layout.activity_scan_to_damp);
 
         qrInput = findViewById(R.id.qr_code_out);
         scanBtn = findViewById(R.id.scanBtnOut);
         tableLayout = findViewById(R.id.scanoutTable);
+
+        btnCaptureDump = findViewById(R.id.btnCaptureDump);
+        dumpPreview = findViewById(R.id.dumpPreview);
+
+        btnCaptureDump.setOnClickListener(v -> openCamera());
+
+        setScanningEnabled(false);
 
         apiClient = ApiClient.getInstance();
 
@@ -74,6 +97,43 @@ public class ScanToDampActivity extends AppCompatActivity {
         loadLastScans();
     }
 
+    private void openCamera() {
+
+        ContentValues values = new ContentValues();
+        values.put(MediaStore.Images.Media.TITLE, "DumpSheet");
+        values.put(MediaStore.Images.Media.DESCRIPTION, "Dump Sheet");
+
+        imageUri = getContentResolver().insert(
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                values
+        );
+
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+
+        cameraLauncher.launch(intent);
+    }
+
+    private void setScanningEnabled(boolean enabled) {
+        qrInput.setEnabled(enabled);
+        scanBtn.setEnabled(enabled);
+
+        qrInput.setAlpha(enabled ? 1f : 0.5f);
+        scanBtn.setAlpha(enabled ? 1f : 0.5f);
+    }
+
+    private final androidx.activity.result.ActivityResultLauncher<Intent> cameraLauncher =
+            registerForActivityResult(
+                    new androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult(),
+                    result -> {
+                        if (result.getResultCode() == RESULT_OK && imageUri != null) {
+
+                            dumpPreview.setImageURI(imageUri);
+
+                            uploadDumpSheet(imageUri);
+                        }
+                    });
+
     private void addHoneywellTextWatcher() {
         final Handler handler = new Handler();
         final Runnable processScanRunnable = () -> {
@@ -94,6 +154,129 @@ public class ScanToDampActivity extends AppCompatActivity {
             }
             @Override public void afterTextChanged(android.text.Editable s) {}
         });
+    }
+
+    private void uploadDumpSheet(Uri uri) {
+
+        try {
+
+            android.graphics.Bitmap bitmap =
+                    MediaStore.Images.Media.getBitmap(
+                            getContentResolver(),
+                            uri
+                    );
+
+            java.io.ByteArrayOutputStream baos =
+                    new java.io.ByteArrayOutputStream();
+
+            bitmap.compress(
+                    android.graphics.Bitmap.CompressFormat.JPEG,
+                    60,
+                    baos
+            );
+
+            byte[] imageBytes = baos.toByteArray();
+
+            RequestBody fileBody =
+                    RequestBody.create(
+                            imageBytes,
+                            MediaType.parse("image/jpeg")
+                    );
+
+            MultipartBody requestBody =
+                    new MultipartBody.Builder()
+                            .setType(MultipartBody.FORM)
+                            .addFormDataPart(
+                                    "dump_image",
+                                    "dump.jpg",
+                                    fileBody
+                            )
+                            .addFormDataPart(
+                                    "user_id",
+                                    String.valueOf(userId)
+                            )
+                            .build();
+
+            Request request = new Request.Builder()
+                    .url(BASE_URL + "api/upload_dump_sheet.php")
+                    .post(requestBody)
+                    .build();
+
+            apiClient.getClient().newCall(request).enqueue(new Callback() {
+
+                @Override
+                public void onFailure(
+                        @NonNull Call call,
+                        @NonNull IOException e
+                ) {
+
+                    runOnUiThread(() -> Toast.makeText(
+                            ScanToDampActivity.this,
+                            "Upload failed",
+                            Toast.LENGTH_LONG
+                    ).show());
+                }
+
+                @Override
+                public void onResponse(
+                        @NonNull Call call,
+                        @NonNull Response response
+                ) throws IOException {
+
+                    String resp = response.body().string();
+
+                    runOnUiThread(() -> {
+
+                        try {
+
+                            JSONObject json =
+                                    new JSONObject(resp);
+
+                            if (json.getString("status")
+                                    .equals("success")) {
+
+                                dumpSessionId =
+                                        json.getInt("session_id");
+
+                                dumpUploaded = true;
+
+                                setScanningEnabled(true);
+
+                                Toast.makeText(
+                                        ScanToDampActivity.this,
+                                        "Dump Session Started",
+                                        Toast.LENGTH_LONG
+                                ).show();
+
+                            } else {
+
+                                Toast.makeText(
+                                        ScanToDampActivity.this,
+                                        json.getString("message"),
+                                        Toast.LENGTH_LONG
+                                ).show();
+                            }
+
+                        } catch (Exception e) {
+
+                            Toast.makeText(
+                                    ScanToDampActivity.this,
+                                    "Invalid server response",
+                                    Toast.LENGTH_LONG
+                            ).show();
+                        }
+                    });
+                }
+            });
+
+        } catch (Exception e) {
+
+            Toast.makeText(
+                    this,
+                    "Image error: " + e.getMessage(),
+                    Toast.LENGTH_LONG
+            ).show();
+        }
     }
 
     private final androidx.activity.result.ActivityResultLauncher<ScanOptions> barcodeLauncher =
@@ -124,6 +307,7 @@ public class ScanToDampActivity extends AppCompatActivity {
         RequestBody body = new FormBody.Builder()
                 .add("qr_code", qrCode)
                 .add("user_id", String.valueOf(userId))
+                .add("session_id", String.valueOf(dumpSessionId))
                 .build();
 
         Request request = new Request.Builder()

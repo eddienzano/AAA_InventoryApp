@@ -62,11 +62,11 @@
             android:name=".MainDashboardActivity"
             android:exported="true" />
         <activity
-            android:name=".ScanOutReworkActivity"
+            android:name=".gradedstock.ScanOutReworkActivity"
             android:exported="true" />
 
         <activity
-            android:name=".ScanOutWipActivity"
+            android:name=".gradedstock.ScanOutWipActivity"
             android:exported="true" />
 
         <activity
@@ -128,7 +128,7 @@
             android:exported="true"/>
 
         <activity
-            android:name=".gradedstock.ConfirmEntryActivity"
+            android:name=".gradedstock.FarmSelectActivity"
             android:exported="false" />
 
         <activity
@@ -145,6 +145,26 @@
 
         <activity
             android:name=".ScanToDampActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ScanToSorageActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".summers.SummersIntakeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".summers.PackhouseVerifyActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".summers.SummersScanOutActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".summers.ScanBackSummerActivity"
             android:exported="false" />
 
 

@@ -101,12 +101,9 @@ public class StockRepository {
        API CALL
     ============================== */
     private static boolean sendToServer(String qrCode) {
-
         try {
             URL url = new URL(API_URL);
-            HttpURLConnection conn =
-                    (HttpURLConnection) url.openConnection();
-
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
             conn.setDoOutput(true);
             conn.setConnectTimeout(10000);
@@ -120,19 +117,23 @@ public class StockRepository {
             os.write(post.getBytes());
             os.close();
 
-            if (conn.getResponseCode() == 200) {
+            int code = conn.getResponseCode();
 
-                InputStream is = conn.getInputStream();
-                java.util.Scanner sc =
-                        new java.util.Scanner(is).useDelimiter("\\A");
+            InputStream is = (code == 200) ? conn.getInputStream() : conn.getErrorStream();
+            java.util.Scanner sc = new java.util.Scanner(is).useDelimiter("\\A");
+            String json = sc.hasNext() ? sc.next() : "";
+            sc.close();
 
-                String json = sc.hasNext()? sc.next():"";
+            System.out.println("QR: " + qrCode + " | HTTP: " + code + " | Response: " + json);
 
+            if (code == 200) {
                 JSONObject obj = new JSONObject(json);
                 return obj.optBoolean("success", false);
             }
 
-        } catch (Exception ignored) {}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return false;
     }

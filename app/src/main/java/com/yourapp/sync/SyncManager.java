@@ -32,6 +32,7 @@ public class SyncManager {
     public void syncAll() {
         syncBoxFills();          // existing logic
         syncWarehouseScans();    // new logic
+        syncAvailableBoxes();
     }
 
     /* ==========================================================
@@ -112,83 +113,6 @@ public class SyncManager {
     /* ==========================================================
        WAREHOUSE SCAN SYNC (OFFLINE → SERVER)
        ========================================================== */
-//    private void syncWarehouseScans() {
-//
-//        SQLiteDatabase rdb = db.getReadableDatabase();
-//
-//        // 🛡 Ensure tables exist (safe on older installs)
-//        Cursor check = rdb.rawQuery(
-//                "SELECT name FROM sqlite_master WHERE type='table' AND name='warehouse_scan_sessions_local'",
-//                null
-//        );
-//
-//        if (!check.moveToFirst()) {
-//            check.close();
-//            Log.d(TAG, "ℹ️ Warehouse tables not found – skipping warehouse sync");
-//            return;
-//        }
-//        check.close();
-//
-//        Cursor sessions = rdb.rawQuery(
-//                "SELECT * FROM warehouse_scan_sessions_local " +
-//                        "WHERE status='CLOSED' AND server_session_id IS NULL",
-//                null
-//        );
-//
-//        while (sessions.moveToNext()) {
-//
-//            long localSessionId = sessions.getLong(
-//                    sessions.getColumnIndexOrThrow("id")
-//            );
-//
-//            try {
-//                // 1️⃣ CREATE SESSION ON SERVER
-//                JSONObject sessionPayload = new JSONObject();
-//                sessionPayload.put(
-//                        "farm_id",
-//                        sessions.getInt(sessions.getColumnIndexOrThrow("farm_id"))
-//                );
-//                sessionPayload.put(
-//                        "scan_date",
-//                        sessions.getString(sessions.getColumnIndexOrThrow("scan_date"))
-//                );
-//
-//                int serverSessionId = api.postForId(
-//                        "/warehouse/start_session.php",
-//                        sessionPayload
-//                );
-//
-//                // 2️⃣ UPLOAD SCANS
-//                uploadWarehouseScans(localSessionId, serverSessionId);
-//
-//                // 3️⃣ CLOSE SESSION ON SERVER
-//                api.postObject(
-//                        "/warehouse/close_session.php",
-//                        new JSONObject().put("session_id", serverSessionId)
-//                );
-//
-//                // 4️⃣ MARK LOCAL SESSION AS SYNCED
-//                ContentValues v = new ContentValues();
-//                v.put("status", "SYNCED");
-//                v.put("server_session_id", serverSessionId);
-//
-//                db.getWritableDatabase().update(
-//                        "warehouse_scan_sessions_local",
-//                        v,
-//                        "id=?",
-//                        new String[]{String.valueOf(localSessionId)}
-//                );
-//
-//                Log.d(TAG, "✅ Warehouse session synced: local=" +
-//                        localSessionId + " server=" + serverSessionId);
-//
-//            } catch (Exception e) {
-//                Log.e(TAG, "❌ Warehouse sync failed (session " + localSessionId + ")", e);
-//            }
-//        }
-//
-//        sessions.close();
-//    }
 
 
     private void syncWarehouseScans() {
@@ -314,4 +238,47 @@ public class SyncManager {
             );
         }
     }
+
+    public void syncAvailableBoxes() {
+
+        try {
+            JSONArray response = api.getArray("/sync/get_boxes.php");
+
+            if (response == null || response.length() == 0) {
+                Log.d(TAG, "📭 No boxes from server");
+                return;
+            }
+
+            SQLiteDatabase dbw = db.getWritableDatabase();
+            dbw.beginTransaction();
+
+            try {
+                for (int i = 0; i < response.length(); i++) {
+
+                    JSONObject o = response.getJSONObject(i);
+
+                    dbw.execSQL(
+                            "INSERT OR IGNORE INTO boxes_local (id, qr_code, farm_id, status, synced) VALUES (?,?,?,?,1)",
+                            new Object[]{
+                                    o.getLong("id"),
+                                    o.getString("qr_code"),
+                                    o.getInt("farm_id"),
+                                    o.getString("status") // should be ""
+                            }
+                    );
+                }
+
+                dbw.setTransactionSuccessful();
+                Log.d(TAG, "📦 Boxes synced: " + response.length());
+
+            } finally {
+                dbw.endTransaction();
+            }
+
+        } catch (Exception e) {
+            Log.e(TAG, "❌ Box download failed", e);
+        }
+    }
+
+
 }

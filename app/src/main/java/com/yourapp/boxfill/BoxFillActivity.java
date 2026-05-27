@@ -61,6 +61,8 @@ public class BoxFillActivity extends AppCompatActivity {
     private final Set<Long> scannedBoxIds = new HashSet<>();
 
 
+
+
     // =====================================================
     // LIFECYCLE
     // =====================================================
@@ -81,6 +83,8 @@ public class BoxFillActivity extends AppCompatActivity {
         etScanSink     = findViewById(R.id.etScanSink);
         btnSave        = findViewById(R.id.btnSaveBox);
         rv             = findViewById(R.id.rvScannedBoxes);
+        Button btnBoxSync = findViewById(R.id.btnSyncBoxes);
+        btnBoxSync.setOnClickListener(v -> triggerBoxSync());
 
         rv.setLayoutManager(new LinearLayoutManager(this));
         adapter = new BoxFillAdapter(scannedBoxes);
@@ -225,7 +229,7 @@ public class BoxFillActivity extends AppCompatActivity {
         }
 
         long now = System.currentTimeMillis();
-        if (now - lastScanTs < 300) return; // time debounce
+        if (now - lastScanTs < 300) return;
         lastScanTs = now;
 
         try {
@@ -239,13 +243,37 @@ public class BoxFillActivity extends AppCompatActivity {
 
             long boxId = obj.getLong("b");
 
-            // HARD debounce per box
+            // ❗ Prevent duplicate scans
             if (scannedBoxIds.contains(boxId)) {
                 feedback(false);
                 Toast.makeText(this, "Box already scanned", Toast.LENGTH_SHORT).show();
                 return;
             }
 
+            // ✅ VALIDATE AGAINST LOCAL DB
+            SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+            Cursor c = db.rawQuery(
+                    "SELECT status FROM boxes_local WHERE id=? LIMIT 1",
+                    new String[]{String.valueOf(boxId)}
+            );
+
+            if (!c.moveToFirst()) {
+                c.close();
+                feedback(false);
+                Toast.makeText(this, "Box not synced", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            String status = c.getString(0);
+            c.close();
+
+            // ✅ Only allow valid boxes
+            if (!"".equals(status) && !"AVAILABLE".equalsIgnoreCase(status)) {
+                feedback(false);
+                Toast.makeText(this, "Box not available", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             scannedBoxIds.add(boxId);
             scannedBoxes.add(new BoxFillItem(boxId, raw));
@@ -255,7 +283,6 @@ public class BoxFillActivity extends AppCompatActivity {
 
             feedback(true);
             moveFocusAfterScan();
-
 
         } catch (Exception e) {
             feedback(false);
@@ -572,5 +599,25 @@ public class BoxFillActivity extends AppCompatActivity {
         try { unregisterReceiver(honeywellReceiver); }
         catch (Exception ignored) {}
     }
+
+
+
+    private void triggerBoxSync() {
+
+        Constraints constraints = new Constraints.Builder()
+                .setRequiredNetworkType(NetworkType.CONNECTED)
+                .build();
+
+        OneTimeWorkRequest request =
+                new OneTimeWorkRequest.Builder(BoxSyncWorker.class)
+                        .setConstraints(constraints)
+                        .build();
+
+        WorkManager.getInstance(this).enqueue(request);
+
+        Toast.makeText(this, "Box sync started…", Toast.LENGTH_SHORT).show();
+    }
+
+
 }
 
